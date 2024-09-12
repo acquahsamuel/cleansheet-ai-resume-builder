@@ -38,4 +38,17 @@ Before running the project, ensure you have the following installed:
 
 
 
+
+## Sample UI Templates
+
 https://resume-thomas-leon-highbaugh.vercel.app/
+https://tailwindflex.com/@hefacom/modern-cv-template-stylish-html-and-tailwind-css-design-for-professionals
+
+
+## Explore and existing UI
+
+https://www.jobseeker.com/ 
+https://www.resume-now.com/build-resume
+https://cvtoolspro.com/resume 
+https://resume.io/app/resumes 
+

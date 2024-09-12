@@ -12,7 +12,9 @@
 		</mat-panel-description>
 
 	  </mat-expansion-panel-header>
-	  <app-cv-header></app-cv-header>
+	  <app-cv-header
+	    [ICVHeaderInfo]="CVHeaderInfo">
+	   </app-cv-header>
 	</mat-expansion-panel>
   
 	<mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>

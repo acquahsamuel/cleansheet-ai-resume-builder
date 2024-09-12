@@ -1,18 +1,22 @@
  
 import { Component } from '@angular/core';
 
+
+const CVHeader = {
+  firstname : "James"
+}
+
 @Component({
   selector: 'app-builder-ui',
   templateUrl: './builder-ui.component.html',
   styleUrls: ['./builder-ui.component.scss']
 })
+
+
+
+
 export class BuilderUiComponent   {
-  resumeData = {
-    name: '',
-    jobTitle: '',
-    email: '',
-    location: ''
-  };
+  CVHeaderInfo = CVHeader;
 
   step = 0;
 
@@ -32,7 +36,7 @@ export class BuilderUiComponent   {
     // Load existing data from local storage
     const savedData = localStorage.getItem('resumeData');
     if (savedData) {
-      this.resumeData = JSON.parse(savedData);
+      // this.resumeData = JSON.parse(savedData);
     }
   }
 
@@ -40,6 +44,6 @@ export class BuilderUiComponent   {
   
 
   saveToLocalStorage() {
-    localStorage.setItem('resumeData', JSON.stringify(this.resumeData));
+    // localStorage.setItem('resumeData', JSON.stringify(this.resumeData));
   }
 }

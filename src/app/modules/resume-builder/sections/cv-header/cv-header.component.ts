@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input , Output} from '@angular/core';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CvHeaderComponent implements OnInit {
   headerInfoForm: FormGroup;
+
+  @Input() ICVHeaderInfo : any;
 
 
   selectedFileName: string | null = null;
