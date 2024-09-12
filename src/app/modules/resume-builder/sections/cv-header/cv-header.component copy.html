@@ -1,0 +1,128 @@
+
+<div>
+  <div class="file-upload-container">
+      <div *ngIf="imagePreview" class="image-preview">
+          <img [src]="imagePreview" alt="Image preview" />
+        </div>
+
+        
+
+        <div class="file-drop-area">
+          <span class="fake-btn"> Upload Profile </span>
+           
+          <input class="file-input"
+              type="file"
+              accept="image/*"  
+               
+              (change)="onFileChange($event)"
+              >
+      </div>
+
+  </div>
+</div>
+
+
+<div class="form-section">
+  <div class="form-column">
+    <div class="form-group">
+      <label for="name">Firstname</label>
+      <input [(ngModel)]="resumeData.name"
+             type="text"
+             id="name"
+             name="name"
+             placeholder="Enter your first name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="resumeData.email"
+             type="email"
+             id="email"
+             name="email"
+             placeholder="Your email address">
+    </div>
+  </div>
+
+  <div class="form-column">
+    <div class="form-group">
+      <label for="jobTitle">Surname</label>
+      <input [(ngModel)]="resumeData.jobTitle"
+             type="text"
+             id="jobTitle"
+             name="jobTitle"
+             placeholder="Your surname">
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input [(ngModel)]="resumeData.location"
+             type="text"
+             id="location"
+             name="location"
+             placeholder="City, Country">
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+      <label for="location">Location</label>
+      <input [(ngModel)]="resumeData.location"
+             type="text"
+             id="location"
+             name="location"
+             placeholder="City, Country">
+    </div>
+
+
+</div>
+
+
+
+<div class="form-section">
+  <div class="form-column">
+    <div class="form-group">
+      <label for="name">Firstname</label>
+      <input [(ngModel)]="resumeData.name"
+             type="text"
+             id="name"
+             name="name"
+             placeholder="Enter your first name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="resumeData.email"
+             type="email"
+             id="email"
+             name="email"
+             placeholder="Your email address">
+    </div>
+
+
+   
+
+  </div>
+
+  <div class="form-column">
+    <div class="form-group">
+      <label for="jobTitle">Surname</label>
+      <input [(ngModel)]="resumeData.jobTitle"
+             type="text"
+             id="jobTitle"
+             name="jobTitle"
+             placeholder="Your surname">
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input [(ngModel)]="resumeData.location"
+             type="text"
+             id="location"
+             name="location"
+             placeholder="City, Country">
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,117 @@
+<div class="main-wrapper">
+	<mat-drawer-container [hasBackdrop]="false"
+		class="dashboard-container"
+		autosize>
+		<mat-toolbar>
+			<div class="mat-toolbar-content">
+				<div class="mat-toolbar-nav-left">
+					<div class="dashboard-sidenav-content">
+						<div class>
+							<button (click)="drawer.toggle()"
+								type="button"
+								mat-button>
+								<mat-icon aria-hidden="false"
+									class="menu-icon"
+									aria-label="Example home icon">
+									menu
+								</mat-icon>
+							</button>
+						</div>
+					</div>
+					<!-- <span>GPX </span> -->
+				</div>
+
+				<div class="mat-toolbar-nav-right">
+					<div class="image-container">
+						<img [matMenuTriggerFor]="menu"
+							[src]="userProfile"
+							class="user-image"
+							alt="profile image">
+						<mat-menu #menu="matMenu">
+							<a (click)="logout()"
+								mat-menu-item>
+								<mat-icon>dashboard</mat-icon>
+								My Notes
+							</a>
+
+							<a (click)="logout()"
+								mat-menu-item>
+								<mat-icon>turned_in_not</mat-icon>
+								Customize ChatGPT
+							</a>
+
+							<a (click)="logout()"
+								mat-menu-item>
+								<mat-icon>settings</mat-icon>
+								Settings
+							</a>
+
+							<hr class="hr-r">
+							<a (click)="logout()"
+								mat-menu-item>
+								<mat-icon>power_settings_new</mat-icon>
+								Logout
+							</a>
+						</mat-menu>
+					</div>
+				</div>
+			</div>
+		</mat-toolbar>
+
+		<mat-drawer #drawer
+			class="dashboard-sidenav"
+			mode="side"
+			opened="false">
+			<div class="header">ChatGPX</div>
+			<div class="sidebar-wrapper">
+				<!-- <div *ngFor="let link of LINKS"
+					class="link-container"
+					routerLinkActive="div-active">
+					<p>{{ link.day }}</p>
+				
+					<a *ngFor="let text of LINKS"
+						class="nav-link"
+						routerLinkActive="active">
+						{{ text.prompt }}
+					</a>
+				</div> -->
+
+				<div class="link-container"
+				    routerLinkActive="div-active">
+					
+					<a *ngFor="let text of LINKS"
+						class="nav-link"
+						routerLinkActive="active">
+						{{ text.prompt }}
+					</a>
+				</div>
+			</div>
+
+			<div class="footer">
+				Cleansheetcv v1.0 (acquahsamuel)
+			</div>
+
+		</mat-drawer>
+
+		<div class="container">
+			<router-outlet></router-outlet>
+		</div>
+
+          <div class="app-container">
+	     <div class="builder-section">
+		<app-builder-ui></app-builder-ui>
+
+	</div>
+	<div class="preview-section">
+		<!-- <app-template-sk></app-template-sk> -->
+        <!-- <app-template-bright></app-template-bright> -->
+		<!-- <app-template-kingdom></app-template-kingdom> -->
+		<!-- <app-template-objection></app-template-objection> -->
+		<!-- <app-template-pincode></app-template-pincode> -->
+		<!-- <app-template-scaller></app-template-scaller> -->
+		<app-template-sunshine></app-template-sunshine>
+	</div>
+</div>
+
+	</mat-drawer-container>
+</div>

@@ -1,0 +1,114 @@
+<div class="form-section">
+
+    <form [formGroup]="educationForm">
+        <div formArrayName="educationRecords">
+            <div *ngFor="let education of educationRecords.controls; let i = index"
+                [formGroupName]="i"
+                class="education-record">
+                <h3>
+                   
+                </h3>
+    
+                <div class="form-section flex flex-wrap">
+    
+               
+                <div class="form-group w-full px-3 sm:w-1/2">
+                    <label for="name"> Job Title </label>
+                    <input class="custom-input" id="name"
+                        formControlName="name"
+                        placeholder="Enter Job Title">
+                </div>
+    
+                <div class="form-group w-full px-3 sm:w-1/2">
+                    <label for="degree"> Employer </label>
+                    <input  class="custom-input" id="degree"
+                        formControlName="degree"
+                        placeholder="Enter Employer name">
+                </div>
+           
+             
+                </div>
+
+
+                <div>
+                    <div class="form-group px-3 my-3">
+                        <label for=""> Role Description </label>
+                        <!-- <textarea
+                          formControlName="roleDescription"
+                        > </textarea> -->
+
+                        <editor apiKey="96v08iycybbz8rffjogkkarvz1pkcf7s6skp266n2taioplo" 
+                        formControlName="roleDescription" name="description" #editor [init]="{
+                        height: 120,
+                        width: '100%',
+                        menubar: false,
+                        plugins: [
+                          'advlist autolink lists link image charmap print preview anchor',
+                          'searchreplace visualblocks code fullscreen',
+                          'insertdatetime media table paste code help wordcount'
+                        ],
+                        toolbar:
+                        'undo redo | formatselect | bold italic backcolor | \
+                        alignleft aligncenter alignright alignjustify | \
+                        bullist numlist outdent indent | removeformat | help'
+                      }"></editor>
+                      </div>
+
+                    <button class="btn-default"> Generate with AI </button>
+                </div>
+
+
+
+    
+    
+                <div class="form-section ">
+                    <div class="form-column flex flex-wrap">
+                        
+                    <div class="form-group w-full px-3 sm:w-1/2">
+                        <label for="startYear">Start Date</label>
+                        <input id="startYear" class="custom-input"
+                        type="date"
+                            formControlName="startYear"
+                            placeholder="Enter start date">
+                           
+                    </div>
+        
+                    <div class="form-group w-full px-3 sm:w-1/2">
+                        <label for="endYear">End Date</label>
+                        <input id="endYear" class="custom-input"
+                        type="date"
+                            formControlName="endYear"
+                            placeholder="Enter end date">
+                    </div>
+
+
+
+                    <div class="form-group w-full px-3 my-3 sm:w-1/2">
+                      
+                        <label >
+                            <input type="checkbox" class="accent-pink-500"> I Currently work here
+                          </label>
+                    </div>
+
+                    </div>
+                </div>
+                
+              
+                <button *ngIf="i <= 0"  (click)="removeEducationRecord(i)"
+                    type="button">
+                    Remove Experience
+                </button>
+            </div>
+        </div>
+    
+        <button (click)="addEducationRecord()"
+            type="button">
+            Add Experience 
+        </button>
+        <button (click)="saveToLocalStorage()"
+            type="button">
+            Save
+        </button>
+    </form>
+    
+    </div>

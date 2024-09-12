@@ -1,0 +1,71 @@
+// html, body { height: 100%; }
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// @import "primeng/resources/themes/lara-light-blue/theme.css";
+// @import "primeng/resources/primeng.css";
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  //   font-family: "Poppins", sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 40px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px 676767; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(73, 71, 71); 
+  border-radius: 10px;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #676767; 
+}
+
+.container {
+  max-width: 61.25rem;
+  margin: 0 auto;
+}
+
+
+
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+

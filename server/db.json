@@ -1,0 +1,70 @@
+{
+    "jobs": [
+        {
+            "position": "Senior Systems Engineer",
+            "title": "Backend Engineers",
+            "locationAllowed": "USA",
+            "jobCategory": "Dream Oval Ghana",
+            "companyDescription": " <div> <h2>Software Engineer</h2> <p><strong>Location:</strong>  Kirkland WA</p> <p><strong>Industry:</strong> Computer Software  <br><strong>Occupational Category:</strong> 15-1132.00 Software Developers, Application <br><strong>Hours:</strong> Full-time, 40 hours per week   <br><strong>Salary:</strong> USD 100000 </p><p> </div>",
+            "jobTags": [
+                "Open team",
+                "Computer Engineer",
+                "DevOps",
+                "Lab"
+            ],
+            "currency": "USD",
+            "jobStatus": "full-time",
+            "jobDescription": "We want to be the definitive food company - the app you go to any time you have a hunger pang. We are transforming the way people think about food. We are providing services",
+            "applicationURL": "https://mycompany.com/application",
+            "applyToEmail": "companyemail09@gmail.com",
+            "user": "6163439ef04c8f59b734a4e3",
+            "company": "6166a9f1e420ee9791f6e640",
+            "companyName" : "Connect Board"
+        },
+        {
+            "name": "Fronted Engineers",
+            "position": "Senior Systems Engineer",
+            "locationAllowed": "USA",
+            "jobCategory": "Dream Oval Ghana",
+            "jobTags": [
+                "Open team",
+                "Computer Engineer",
+                "DevOps",
+                "Lab"
+            ],
+            "minimumSalary": "2000",
+            "maximumSalary": "8000",
+            "currency": "USD",
+            "salaryInterval": "yearly",
+            "jobStatus": "full-time",
+            "jobDescription": "We want to be the definitive food company - the app you go to any time you have a hunger pang. We are transforming the way people think about food. We are providing services",
+            "applicationURL": "https://mycompany.com/application",
+            "applyToEmail": "companyemail09@gmail.com",
+            "user": "6163439ef04c8f59b734a4e3",
+            "company": "6166a9f1e420ee9791f6e640",
+            "timeAgo": "1 month"
+        },
+        {
+            "name": "Middle Engineers",
+            "position": "Senior Systems Engineer",
+            "locationAllowed": "USA",
+            "jobCategory": "Dream Oval Ghana",
+            "jobTags": [
+                "Open team",
+                "Computer Engineer",
+                "DevOps",
+                "Lab"
+            ],
+            "minimumSalary": "2000",
+            "maximumSalary": "8000",
+            "currency": "USD",
+            "salaryInterval": "yearly",
+            "jobStatus": "full-time",
+            "jobDescription": "We want to be the definitive food company - the app you go to any time you have a hunger pang. We are transforming the way people think about food. We are providing services",
+            "applicationURL": "https://mycompany.com/application",
+            "applyToEmail": "companyemail09@gmail.com",
+            "user": "6163439ef04c8f59b734a4e3",
+            "company": "6166a9f1e420ee9791f6e640"
+        }
+    ]
+}

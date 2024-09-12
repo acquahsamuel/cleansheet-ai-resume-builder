@@ -1,0 +1,168 @@
+<mat-accordion class="modern-accordion">
+
+	<mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>CV Header</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+		<app-cv-header></app-cv-header>
+	</mat-expansion-panel>
+
+
+
+
+	<mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>Experience</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+	  	 <app-experience></app-experience>
+		<mat-action-row>
+			<button (click)="prevStep()" mat-button color="warn">
+				Previous
+			</button>
+			<button (click)="nextStep()" mat-button color="primary">
+				Next
+			</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+
+
+
+
+	<mat-expansion-panel [expanded]="step === 2"
+		(opened)="setStep(2)"
+		hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>Education</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+       <app-education></app-education>
+		<mat-action-row>
+			<button (click)="prevStep()" mat-button color="warn"> Previous </button>
+			<button (click)="nextStep()" mat-button
+				color="primary">
+				Next
+			</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+
+
+
+
+
+		<mat-expansion-panel [expanded]="step === 3"
+			(opened)="setStep(3)"
+			hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				Skills
+			</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+		<app-cv-header></app-cv-header>
+
+		<mat-action-row>
+			<button (click)="prevStep()" mat-button color="warn"> Previous </button>
+			<button (click)="nextStep()" mat-button color="primary"> Next </button>
+		</mat-action-row>
+		</mat-expansion-panel>
+
+ 
+
+
+	<mat-expansion-panel [expanded]="step === 4"
+		(opened)="setStep(4)" hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>Summary</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+		<app-cv-header></app-cv-header>
+
+		<mat-action-row>
+			<button (click)="prevStep()"
+				mat-button
+				color="warn">
+				Previous
+			</button>
+			<button (click)="nextStep()"
+				mat-button
+				color="primary">
+				 Next
+			</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+
+	<mat-expansion-panel [expanded]="step === 5"
+		(opened)="setStep(5)"
+		hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>Additional Skills</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+	   <app-additional-skills></app-additional-skills>
+
+		<mat-action-row>
+			<button (click)="prevStep()"
+				mat-button
+				color="warn">
+				Previous
+			</button>
+			<button (click)="nextStep()"
+				mat-button
+				color="primary">
+				Next
+			</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+
+
+
+	<mat-expansion-panel [expanded]="step === 6"
+		(opened)="setStep(6)"
+		hideToggle>
+		<mat-expansion-panel-header>
+			<mat-panel-title>Finalize</mat-panel-title>
+			<mat-panel-description>
+				<span class="icon-container">
+					<mat-icon>add</mat-icon>
+				</span>
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+
+		<app-cv-header></app-cv-header>
+	</mat-expansion-panel>
+
+
+
+
+
+</mat-accordion>

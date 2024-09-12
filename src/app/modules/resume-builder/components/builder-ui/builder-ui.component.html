@@ -1,0 +1,186 @@
+<mat-accordion class="modern-accordion">
+
+	<mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>account_circle</mat-icon> CV Header
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+
+	  </mat-expansion-panel-header>
+	  <app-cv-header></app-cv-header>
+	</mat-expansion-panel>
+  
+	<mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>work</mat-icon> Experience
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+	  </mat-expansion-panel-header>
+	  <app-experience></app-experience>
+	  <mat-action-row>
+		<button (click)="prevStep()" mat-stroked-button color="warn">
+		  <mat-icon>chevron_left</mat-icon> Previous
+		</button>
+		<button (click)="nextStep()" mat-stroked-button color="primary">
+		  Next <mat-icon>chevron_right</mat-icon>
+		</button>
+	  </mat-action-row>
+	</mat-expansion-panel>
+  
+	<mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>school</mat-icon> Education
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+	  </mat-expansion-panel-header>
+	  <app-education></app-education>
+	  <mat-action-row>
+		<button (click)="prevStep()" mat-stroked-button color="warn">
+		  <mat-icon>chevron_left</mat-icon> Previous
+		</button>
+		<button (click)="nextStep()" mat-stroked-button color="primary">
+		  Next <mat-icon>chevron_right</mat-icon>
+		</button>
+	  </mat-action-row>
+	</mat-expansion-panel>
+  
+	<mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>build</mat-icon> Skills
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+	  </mat-expansion-panel-header>
+	  <app-cv-header></app-cv-header>
+	  <mat-action-row>
+		<button (click)="prevStep()" mat-stroked-button color="warn">
+		  <mat-icon>chevron_left</mat-icon> Previous
+		</button>
+		<button (click)="nextStep()" mat-stroked-button color="primary">
+		  Next <mat-icon>chevron_right</mat-icon>
+		</button>
+	  </mat-action-row>
+	</mat-expansion-panel>
+  
+	<mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>summarize</mat-icon> Summary
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+	  </mat-expansion-panel-header>
+	  <app-cv-header></app-cv-header>
+	  <mat-action-row>
+		<button (click)="prevStep()" mat-stroked-button color="warn">
+		  <mat-icon>chevron_left</mat-icon> Previous
+		</button>
+		<button (click)="nextStep()" mat-stroked-button color="primary">
+		  Next <mat-icon>chevron_right</mat-icon>
+		</button>
+	  </mat-action-row>
+	</mat-expansion-panel>
+  
+	<mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>star</mat-icon> Additional Skills
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+	  </mat-expansion-panel-header>
+	  <app-additional-skills> 
+      </app-additional-skills>
+	  <mat-action-row>
+		<button (click)="prevStep()" mat-stroked-button color="warn">
+		  <mat-icon>chevron_left</mat-icon> Previous
+		</button>
+		<button (click)="nextStep()" mat-stroked-button color="primary">
+		  Next <mat-icon>chevron_right</mat-icon>
+		</button>
+	  </mat-action-row>
+	</mat-expansion-panel>
+  
+	<mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)" hideToggle>
+	  <mat-expansion-panel-header>
+		<mat-panel-title>
+		  <mat-icon>done_all</mat-icon> Finalize
+		</mat-panel-title>
+		<mat-panel-description>
+			<span class="icon-container">
+				<mat-icon>add</mat-icon>
+			</span>
+		</mat-panel-description>
+	  </mat-expansion-panel-header>
+	  <app-cv-header></app-cv-header>
+	</mat-expansion-panel>
+
+
+ 
+   <section class="flex flex-wrap">
+
+ 
+	  <button class="w-1/2 my-3 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 text-purple-700 hover:text-white font-normal  "> Hobbies </button>
+ 
+  
+	  <button class="w-1/2 my-3 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 text-purple-700 hover:text-white font-normal  "> Extra curricular Activites </button>
+	 
+  </section>
+
+
+
+  <section class="flex flex-wrap ">
+ 
+	  <button class="w-1/2 my-3 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 text-purple-700 hover:text-white font-normal  "> References </button>
+	 
+	    
+	  <button class="w-1/2 my-3 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 text-purple-700 hover:text-white font-normal  "> Internship </button>
+	 
+
+
+  </section>
+
+
+
+
+  <section class="flex flex-wrap">
+ 
+
+	<button class="w-1/2 my-3 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 text-purple-700 hover:text-white font-normal  "> Languages </button>
+	 
+	    
+	<button class="w-1/2 my-3 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border border-purple-700 hover:bg-purple-700 text-purple-700 hover:text-white font-normal  "> Courses </button>
+   
+
+  
+  </section>
+
+
+
+  </mat-accordion>
+  

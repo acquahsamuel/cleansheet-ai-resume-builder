@@ -1,0 +1,96 @@
+<div class="form-section">
+
+<form [formGroup]="educationForm">
+	<div formArrayName="educationRecords">
+		<div *ngFor="let education of educationRecords.controls; let i = index"
+			[formGroupName]="i"
+			class="education-record">
+			<h3>
+				   
+			</h3>
+
+            <div class="form-section">
+
+                <div class="form-column">
+			<div class="form-group">
+				<label for="name">Institution Name</label>
+				<input id="name"
+					formControlName="name"
+					placeholder="Enter institution name">
+			</div>
+
+			<div class="form-group">
+				<label for="degree">Degree</label>
+				<input id="degree"
+					formControlName="degree"
+					placeholder="Enter degree">
+			</div>
+            </div>
+         
+            </div>
+
+
+			<div class="form-column flex flex-wrap">
+                        
+				<div class="form-group w-full my-3 sm:w-1/2">
+					<label for="startYear">Start Date</label>
+					<input id="startYear" class="custom-input"
+					type="date"
+						formControlName="startYear"
+						placeholder="Enter start date">
+					   
+				</div>
+	
+				<div class="form-group w-full my-3 sm:w-1/2">
+					<label for="endYear">End Date</label>
+					<input id="endYear" class="custom-input"
+					type="date"
+						formControlName="endYear"
+						placeholder="Enter end date">
+				</div>
+
+
+
+			 
+
+				</div>
+			
+			<!-- <div formArrayName="programs flex  justify-center flex-wrap">
+				<div *ngFor="let program of getPrograms(i).controls; let j = index"
+					[formGroupName]="j" 	class="program">
+					<div class="form-group w-full my-3 sm:w-1/3">
+						<label for="programName">Program</label>
+						<input id="programName"
+							formControlName="programName"
+							placeholder="Enter program name">
+					</div>
+					<button (click)="removeProgram(i, j)"
+						type="button" class="bg-gray-400">
+						Remove Program
+					</button>
+				</div>
+				<button (click)="addProgram(i)"
+					type="button">
+					Add Program
+				</button>
+			</div>
+			-->
+
+			<button class="bg-gray-400" (click)="removeEducationRecord(i)"
+				type="button">
+				Remove Education Record
+			</button> 
+		</div>
+	</div>
+
+	<button (click)="addEducationRecord()"
+		type="button">
+		Add Education Record
+	</button>
+	<button (click)="saveToLocalStorage()"
+		type="button">
+		Save
+	</button>
+</form>
+
+</div>
