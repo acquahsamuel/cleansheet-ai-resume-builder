@@ -34,6 +34,11 @@ Before running the project, ensure you have the following installed:
 
    ```bash
    git clone https://github.com/yourusername/cv-resume-builder.git
+
+   Run npm install command 
+   Open package.json  
+   Run ng serve command
+
    cd cv-resume-builder
 
 
