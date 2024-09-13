@@ -1,0 +1,79 @@
+<div class="form-section">
+  <form [formGroup]="educationForm">
+    <div formArrayName="educationRecords">
+      <div *ngFor="let education of educationRecords.controls; let i = index"
+        [formGroupName]="i" class="education-record"
+      >
+        <h3></h3>
+
+        <section class="#">
+        <div class="form-section">
+          <div class="form-column">
+            <div class="form-group">
+              <label for="name">Institution Name</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                placeholder="Enter institution name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="degree">Degree</label>
+              <input
+                type="text"
+                id="degree"
+                formControlName="degree"
+                placeholder="Enter degree"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-column flex flex-wrap">
+          <div class="form-group w-full py-2 px-2 sm:w-1/2">
+            <label for="startYear">Start Date</label>
+            <input
+              id="startYear"
+              type="date"
+              formControlName="startYear"
+              placeholder="Enter start date"
+            />
+          </div>
+
+          <div class="form-group w-full py-2 px-2 sm:w-1/2">
+            <label for="endYear">End Date</label>
+            <input
+             
+              id="endYear"
+              type="date"
+            
+              formControlName="endYear"
+              placeholder="Enter end date"
+            />
+          </div>
+        </div>
+
+        <button
+          (click)="removeEducationRecord(i)"
+          
+          class="bg-black rounded-lg flex items-center justify-center text-white text-xs text-center self-center px-3 py-2 my-2 mx-2"
+         >  Delete
+          <mat-icon> delete_outline </mat-icon>
+           
+        </button>
+
+      </section>
+
+      </div>
+    </div>
+    
+
+
+
+    <button 
+    class="bg-green-800 rounded-lg text-white text-xs text-center self-center px-5 py-2 my-2 mx-2"
+    (click)="addEducationRecord()" type="button"> Add Education</button>
+  </form>
+</div>

@@ -1,105 +1,189 @@
-<div class="">
-	<div class="file-upload-container">
-		<div *ngIf="imagePreview"
-			class="image-preview">
-			<img [src]="imagePreview"
-				alt="Image preview">
-		</div>
+<div class="file-upload-container mb-6">
+  <div *ngIf="imagePreview; else noTemplate" class="image-preview mb-4">
+    <img
+      [src]="imagePreview"
+      alt="Image preview"
+      class="w-24 h-24 rounded-full"
+    />
+  </div>
 
-		<div class="file-drop-area">
-			<span class="fake-btn">Upload Profile</span>
+  <ng-template #noTemplate>
+    <img
+      [src]="'/assets/images/placeholder.png'"
+      class="w-24 h-24 rounded-full"
+      alt="Image preview"
+    />
+  </ng-template>
 
-			<input (change)="onFileChange($event)"
-				class="file-input"
-				type="file"
-				accept="image/*">
-		</div>
+  <div class="file-drop-area mb-2">
+    <span class="fake-btn">Upload Profile</span>
+    <input
+      (change)="onFileChange($event)"
+      class="file-input"
+      type="file"
+      accept="image/*"
+    />
+  </div>
 
-		<span>
-			Headshot profile are mostly preferred
-		</span>
-
-	</div>
+  <span class="text-sm text-gray-600"
+    >Headshot profile pictures are preferred</span
+  >
 </div>
 
-<form  [formGroup]="headerInfoForm">
-<div class="form-section ">
-	<div class="form-column flex flex-wrap">
-		<div class="form-group w-full py-2 px-2 sm:w-1/2">
-			<label for="name">Firstname</label>
-			<input  formControlName="firstname"
-				type="text"
-				id="name"
-				name="name"
-				placeholder="Enter your first name">
-		</div>
+<form [formGroup]="headerInfoForm" (ngSubmit)="submitForm()">
+  <div class="form-section">
+    <div class="flex flex-wrap -mx-2">
+     
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="firstname" class="block mb-1">Firstname</label>
+        <input
+          formControlName="firstname"
+          type="text"
+          id="firstname"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Enter your first name"
+        />
+      </div>
 
-		<div class="form-group w-full py-2 px-2 sm:w-1/2">
-			<label for="email">Surname</label>
-			<input  formControlName="surname"
-				type="email"
-				id="email"
-				name="email"
-				placeholder="Your surname">
-		</div>
-	</div>
+      <!-- Surname -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="surname" class="block mb-1">Surname</label>
+        <input
+          formControlName="surname"
+          type="text"
+          id="surname"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Your surname"
+        />
+      </div>
+    </div>
 
-	 
-	<div class="flex flex-wrap">
-		<div class="form-group w-full py-2 px-2 sm:w-1/2">
-			<label for="jobTitle">City</label>
-			<input  formControlName="city"
-				type="text"
-				id="jobTitle"
-				name="jobTitle"
-				placeholder="Your City">
-		</div>
+    <div class="flex flex-wrap -mx-2">
+      <!-- City -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="city" class="block mb-1">City</label>
+        <input
+          formControlName="city"
+          type="text"
+          id="city"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Your City"
+        />
+      </div>
 
-		<div class="form-group w-full py-2 px-2 sm:w-1/2">
-			<label for="location">Country</label>
-			<input  formControlName="country"
-				type="text"
-				id="location"
-				name="location"
-				placeholder="City, Country">
-		</div>
-	</div>
+      <!-- Country -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="country" class="block mb-1">Country</label>
+        <input
+          formControlName="country"
+          type="text"
+          id="country"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Country"
+        />
+      </div>
+    </div>
 
+    <div class="flex flex-wrap -mx-2">
+      <!-- Postal Code -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="postalCode" class="block mb-1">Postal Code</label>
+        <input
+          formControlName="postalCode"
+          type="text"
+          id="postalCode"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Postal Code"
+        />
+      </div>
 
-</div>
+      <!-- Phone Number -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="phoneNumber" class="block mb-1">Phone Number</label>
+        <input
+          formControlName="phoneNumber"
+          type="text"
+          id="phoneNumber"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Phone Number"
+        />
+      </div>
 
-<div class="flex flex-wrap">
+      <!-- Email -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="email" class="block mb-1">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Your email address"
+        />
+      </div>
 
+      <!-- Date of Birth -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="dateOfBirth" class="block mb-1">Date of Birth</label>
+        <input
+          formControlName="dateOfBirth"
+          type="date"
+          id="dateOfBirth"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+        />
+      </div>
+    </div>
 
-	<div class="form-group w-full py-2 px-2 sm:w-1/2">
-		<label for="location">Postal Code</label>
-		<input formControlName="postalCode"
-			type="text"
-			id="location"
-			name="location"
-			placeholder="Postal Code">
-	</div>
+    <!-- Dynamic Fields -->
+    <div class="form-section py-4">
+      <div class="flex flex-wrap -mx-2">
+        <div class="w-full px-2">
+          <div class="flex flex-wrap -mx-2">
+            <div
+              *ngFor="let field of fields.controls; let i = index"
+              [formGroup]="field"
+              class="w-full px-2 sm:w-1/2 mb-4"
+            >
+              <div class="flex flex-col items-start mb-4">
+                <label [attr.for]="field.get('label').value" class="block mr-2">
+                  {{ field.get("label").value }}
+                </label>
 
+                <div class="flex items-center w-full">
+                  <input
+                    type="text"
+                    formControlName="value"
+                    [attr.id]="field.get('label').value"
+                    class="flex-1 border border-gray-300 rounded px-3 py-2"
+                    [attr.placeholder]="field.get('label').value"
+                  />
+                  <button
+                    class="ml-2 text-red-500 rounded flex items-center justify-center"
+                    type="button"
+                    (click)="removeField(i)"
+                  >
+                    <mat-icon>delete_outline</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-	 
-		<div class="form-group form-group w-full py-2 px-2 sm:w-1/2">
-			<label for="name">Phone Number</label>
-			<input  formControlName="phoneNumber"
-				type="text"
-				id="name"
-				name="name"
-				placeholder="Phone Number">
-		</div>
-
-		<div class="form-group form-group w-full py-2 px-2 sm:w-1/2">
-			<label for="email">Email</label>
-			<input  formControlName="email"
-				type="email"
-				id="email"
-				name="email"
-				placeholder="Your email address">
-		</div>
-	 
-</div>
+      <div class="flex flex-wrap">
+        <div class="w-full">
+          <div class="mb-4">
+            <button
+              *ngFor="let fieldType of fieldTypes"
+              (click)="addField(fieldType)"
+              class="outline-none mr-2 mb-2 border border-solid border-green-500 rounded px-2 py-1 bg-transparent text-xs text-black font-normal capitalize focus:outline-none active:bg-green-600 hover:bg-green-600 hover:text-white transition-all ease-in-out duration-150"
+              style="transition: all 0.15s ease"
+            >
+              + {{ fieldType }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>

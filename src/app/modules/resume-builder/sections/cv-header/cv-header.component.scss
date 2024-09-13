@@ -1,13 +1,10 @@
 .resume-form {
   max-width: 400px;
   padding: 20px;
-  border-radius: 8px;
+  // border-radius: 8px;
   font-family: "Arial", sans-serif;
 }
 
- 
-
- 
 .file-upload-container {
   margin: 7px 0;
 
@@ -69,28 +66,15 @@
     align-items: center;
   }
 
-  label {
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  label:hover {
-    background-color: #0056b3;
-  }
+  
 
   .image-preview {
     margin-top: 10px;
+  
   }
 
   .image-preview img {
-    //   max-width: 100%;
-    //   height: auto;
-    //   border: 1px solid #ddd;
-    //   border-radius: 4px;
-
+  
     border: 1px solid #ddd;
     border-radius: 50%;
     width: 150px;
@@ -119,3 +103,5 @@
   }
 }
 
+
+ 

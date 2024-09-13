@@ -1,19 +1,20 @@
-import { Component, OnInit } from "@angular/core";
+ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-summary',
-  templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.scss']
+  selector: 'app-publications',
+  templateUrl: './publications.component.html',
+  styleUrls: ['./publications.component.scss']
 })
 
-export class SummaryComponent implements OnInit {
-  educationForm: FormGroup;
+export class PublicationsComponent implements OnInit {
+  skillsForm: FormGroup;
+  editorContent: string = '';
 
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.educationForm = this.fb.group({
+    this.skillsForm = this.fb.group({
       educationRecords: this.fb.array([this.createEducationRecord()])
     });
   }
@@ -22,21 +23,24 @@ export class SummaryComponent implements OnInit {
   createEducationRecord(): FormGroup {
     return this.fb.group({
       name: ["", Validators.required],
-      roleDescription: ["", Validators.required]
+      proficiency: ["", Validators.required],
+      skillDescription : ["", Validators.required],
     });
   }
- 
+
+  // Create a new FormGroup for a program
+  createProgram(): FormGroup {
+    return this.fb.group({
+      programName: ["", Validators.required],
+    });
+  }
 
   // Get the FormArray for education records
   get educationRecords(): FormArray {
-    return this.educationForm.get("educationRecords") as FormArray;
+    return this.skillsForm.get("educationRecords") as FormArray;
   }
 
-  // Get the FormArray for programs within an education record
-  getPrograms(educationIndex: number): FormArray {
-    return this.educationRecords.at(educationIndex).get("programs") as FormArray;
-  }
-
+ 
   // Add a new education record
   addEducationRecord(): void {
     this.educationRecords.push(this.createEducationRecord());
@@ -48,16 +52,12 @@ export class SummaryComponent implements OnInit {
   }
 
   
-  // Remove a program from a specific education record
-  removeProgram(educationIndex: number, programIndex: number): void {
-    this.getPrograms(educationIndex).removeAt(programIndex);
-  }
 
   // Save form data to local storage
   saveToLocalStorage(): void {
     localStorage.setItem(
       "educationData",
-      JSON.stringify(this.educationForm.value)
+      JSON.stringify(this.skillsForm.value)
     );
   }
 
@@ -65,7 +65,10 @@ export class SummaryComponent implements OnInit {
   loadDataFromLocalStorage(): void {
     const savedData = localStorage.getItem("educationData");
     if (savedData) {
-      this.educationForm.patchValue(JSON.parse(savedData));
+      this.skillsForm.patchValue(JSON.parse(savedData));
     }
   }
+
+ 
+ 
 }

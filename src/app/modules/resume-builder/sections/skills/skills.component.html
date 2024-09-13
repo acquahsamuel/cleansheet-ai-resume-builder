@@ -1,1 +1,74 @@
-<p>skills works!</p>
+<div class="form-section">
+  <form [formGroup]="skillsForm">
+    <div formArrayName="educationRecords">
+      <div
+        *ngFor="let education of educationRecords.controls; let i = index"
+        [formGroupName]="i"
+        class="education-record"
+      >
+        <h3></h3>
+
+        <div class="form-section flex flex-wrap">
+          <div class="form-group w-full px-3 sm:w-1/2">
+            <label for="name"> Skill </label>
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              placeholder="Skill"
+            />
+          </div>
+
+      
+
+          <div class="form-group w-full px-3 sm:w-1/2">
+            <label for="proficiency" class="block mb-2 text-gray-700 font-medium">Proficiency</label>
+            <div class="relative">
+              <select
+                id="proficiency"
+                formControlName="proficiency"
+                class="block appearance-none w-full bg-gray-100 border border-gray-300 text-gray-700 py-2 px-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-green-500"
+              >
+                <option value="" disabled selected>Select your proficiency</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Expert">Expert</option>
+                <option value="Master">Master</option>
+              </select>
+          
+              <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <div>
+          <div class="form-group px-3 my-3">
+            <label for>Role Description</label>
+            <app-custom-editor></app-custom-editor>
+          </div>
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            class="btn-delete"
+            (click)="removeEducationRecord(i)"
+            type="button"
+          >
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="addEducationRecord()" class="btn-create" type="button">
+      Add Experience
+    </button>
+  </form>
+</div>
