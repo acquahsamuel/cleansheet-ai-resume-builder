@@ -5,47 +5,36 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-// @import "primeng/resources/themes/lara-light-blue/theme.css";
-// @import "primeng/resources/primeng.css";
-
-
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  //   font-family: "Poppins", sans-serif;
-  font-family: "Noto Sans", sans-serif;
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale;
-  
 }
-
-
 
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
-  height: 40px;
+  height: 7px;
 }
-
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px 676767; 
+  box-shadow: inset 0 0 5px 676767;
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(73, 71, 71); 
+  background: rgb(73, 71, 71);
   border-radius: 10px;
-  
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #676767; 
+  background: #676767;
 }
 
 .container {
@@ -53,19 +42,68 @@ body {
   margin: 0 auto;
 }
 
-
-
-
-input {
+input[type="text"],
+input[type="date"],
+input[type="email"] {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 7px;
+  color: black;
+  width: 100%;
+  // margin-top: 0.5rem;
+  font-size: 1rem;
+  transition: all 500ms ease-in-out;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background-color: #f1f1f3;
+  font-family: "Poppins", sans-serif;
+
+  &::placeholder {
+    color: #7d7f83;
+    font-size: 15px;
+  }
+
+  &:focus {
+    border-color: #6b7280;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 1.3px #6b7280;
+  }
 }
 
 label {
-  display: block;
+  display: inline-block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 
+
+
+// Define variables for common styles
+$btn-border-radius: 0.5rem;
+$btn-padding: .5rem 1.25rem;
+$btn-margin: 0.5rem;
+$btn-font-size: 0.75rem;
+$btn-color: #ffffff;
+
+@mixin button-style($bg-color) {
+  background-color: $bg-color;
+  border-radius: $btn-border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $btn-color;
+  font-size: $btn-font-size;
+  text-align: center;
+  padding: $btn-padding;
+  margin: $btn-margin;
+}
+
+// Create button styles using the mixin
+.btn-create {
+  @include button-style(green);
+}
+
+.btn-delete {
+  @include button-style(rgb(255, 203, 203));
+  color: red;
+}

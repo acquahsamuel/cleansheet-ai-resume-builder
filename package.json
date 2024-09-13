@@ -29,6 +29,7 @@
     "angular-jwt": "^0.1.11",
     "concurrently": "^6.4.0",
     "express": "^4.17.1",
+    "froala-editor": "^4.2.2",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "marked": "^14.0.0",
@@ -52,10 +53,10 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "protractor": "~7.0.0",
-    "typescript": "~4.6.4",
     "lodash": "4.17.21",
     "postcss": "8.4.21",
-    "tailwindcss": "3.2.4"
+    "protractor": "~7.0.0",
+    "tailwindcss": "3.2.4",
+    "typescript": "~4.6.4"
   }
 }

@@ -1,0 +1,28 @@
+<div class="editor-container">
+ 
+  <div
+    class="editor"
+    contenteditable="true"
+    [(ngModel)]="editorContent"
+    (input)="onContentChange()"
+  ></div>
+  <div class="toolbar">
+    <button (click)="format('bold')"> <mat-icon> format_bold</mat-icon> </button>
+    <button (click)="format('underline')"><mat-icon> format_underlined</mat-icon>  </button>
+    <button (click)="setAlignment('left')"><mat-icon> format_align_left</mat-icon>  </button>
+    <button (click)="setAlignment('center')"><mat-icon> format_align_center</mat-icon> </button>
+    <button (click)="setAlignment('right')"> <mat-icon> format_align_right</mat-icon> </button>
+
+
+    <button (click)="format('insertOrderedList')">  <mat-icon>list</mat-icon> </button>
+    <button (click)="format('insertUnorderedList')"> <mat-icon>list</mat-icon>  </button>
+    <button (click)="format('formatBlock', '<h1>')"> H1 </button>
+    <button (click)="format('formatBlock', '<h2>')"> H2 </button>
+    <button (click)="format('formatBlock', '<p>')">  P </button>
+
+
+    <button 
+    class="bg-black rounded-lg text-white text-xs text-center self-center px-3 py-2 my-1 mx-2"
+    (click)="generateText()">Generate with AI </button>
+  </div>
+</div>

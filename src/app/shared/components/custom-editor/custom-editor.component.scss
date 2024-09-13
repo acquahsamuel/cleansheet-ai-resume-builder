@@ -1,0 +1,27 @@
+.editor-container {
+  border: 1px solid #afaeae;
+  border-radius: 5px;
+  //   padding: 10px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+}
+
+.toolbar button {
+  margin-right: 5px;
+}
+
+.editor {
+  min-height: 100px;
+  border-bottom: 1px solid #afaeae !important;
+  padding: 10px;
+  overflow: auto;
+  outline: none;
+}
+
+.editor:focus {
+  border-color: grey;
+  //   border: 1px solid #ddd !important;
+}

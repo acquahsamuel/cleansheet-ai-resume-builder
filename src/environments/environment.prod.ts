@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   enableDebug : false,
-  BASE_URL: 'http://localhost:5000/api/v1',
+  BASE_URL: 'https://api.trenda.live/api/v1/ai-generatives',
 };

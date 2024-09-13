@@ -1,26 +1,24 @@
 .modern-accordion .mat-expansion-panel {
   box-shadow: none;
   border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  // margin: 10px 0px;
+  border-radius: 9px;
 }
 
 .modern-accordion .mat-expansion-panel-header {
   background-color: #fff;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #f0f0f0;
   padding: 8px 16px;
-  box-shadow: none;
 }
 
 .modern-accordion .mat-expansion-panel-header .mat-panel-title {
   font-weight: 500;
   box-shadow: none;
   font-size: 16px;
+  color: green;
 }
 
 /* Modern Accordion Styling */
 .modern-accordion mat-expansion-panel {
-  background-color: #f4f6f8;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
@@ -28,7 +26,6 @@
 }
 
 .modern-accordion mat-expansion-panel-header {
-  background-color: #ffffff;
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
   font-family: "Roboto", sans-serif;
@@ -42,14 +39,14 @@
 
 .mat-panel-title mat-icon {
   margin-right: 8px;
-  color: #5a67d8; /* Icon color */
+  color: green;
 }
 
 .mat-panel-description {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  color: #a0aec0; /* Light text for description */
+  color: #a0aec0;  
 }
 
 .expand-icon {
@@ -65,6 +62,7 @@ mat-action-row {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  align-items: center;
   background-color: #ffffff;
 }
 
@@ -83,6 +81,9 @@ button mat-icon {
   justify-content: flex-end;
   width: 100%;
 }
- 
 
-
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+  align-items: center;
+  margin: 1em 0;
+}

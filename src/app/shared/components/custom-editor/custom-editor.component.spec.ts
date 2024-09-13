@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PreviewUiComponent } from './preview-ui.component';
+import { CustomEditorComponent } from './custom-editor.component';
 
-describe('PreviewUiComponent', () => {
-  let component: PreviewUiComponent;
-  let fixture: ComponentFixture<PreviewUiComponent>;
+describe('CustomEditorComponent', () => {
+  let component: CustomEditorComponent;
+  let fixture: ComponentFixture<CustomEditorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PreviewUiComponent ]
+      declarations: [ CustomEditorComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PreviewUiComponent);
+    fixture = TestBed.createComponent(CustomEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

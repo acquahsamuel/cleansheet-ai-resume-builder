@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-resume-builder',
-  templateUrl: './resume-builder.component.html',
-  styleUrls: ['./resume-builder.component.scss']
+  selector: "app-resume-builder",
+  templateUrl: "./resume-builder.component.html",
+  styleUrls: ["./resume-builder.component.scss"],
 })
 export class ResumeBuilderComponent implements OnInit {
   isLoading = false;
@@ -11,18 +11,11 @@ export class ResumeBuilderComponent implements OnInit {
   userProfile = "./assets/images/placeholder.png";
   LINKS = [];
 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   getInteractionPrompt() {}
 
-
-  logout() {
- 
-  }
-
+  logout() {}
 }

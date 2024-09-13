@@ -18,7 +18,7 @@
 							</button>
 						</div>
 					</div>
-					<!-- <span>GPX </span> -->
+					<span> Cleansheet cv </span>
 				</div>
 
 				<div class="mat-toolbar-nav-right">
@@ -77,8 +77,7 @@
 				</div> -->
 
 				<div class="link-container"
-				    routerLinkActive="div-active">
-					
+					routerLinkActive="div-active">
 					<a *ngFor="let text of LINKS"
 						class="nav-link"
 						routerLinkActive="active">
@@ -90,28 +89,25 @@
 			<div class="footer">
 				Cleansheetcv v1.0 (acquahsamuel)
 			</div>
-
 		</mat-drawer>
 
 		<div class="container">
 			<router-outlet></router-outlet>
 		</div>
 
-          <div class="app-container">
-	     <div class="builder-section">
-		<app-builder-ui></app-builder-ui>
-
-	</div>
-	<div class="preview-section">
-		<!-- <app-template-sk></app-template-sk> -->
-        <!-- <app-template-bright></app-template-bright> -->
-		<!-- <app-template-kingdom></app-template-kingdom> -->
-		<!-- <app-template-objection></app-template-objection> -->
-		<app-template-pincode></app-template-pincode>
-		<!-- <app-template-scaller></app-template-scaller> -->
-		<!-- <app-template-sunshine></app-template-sunshine> -->
-	</div>
-</div>
-
+		<div class="app-container">
+			<div class="builder-section">
+				<app-builder-ui></app-builder-ui>
+			</div>
+			<div class="preview-section">
+				<!-- <app-template-sk></app-template-sk> -->
+				<!-- <app-template-bright></app-template-bright> -->
+				<!-- <app-template-kingdom></app-template-kingdom> -->
+				<!-- <app-template-objection></app-template-objection> -->
+				<!-- <app-template-pincode></app-template-pincode> -->
+				<!-- <app-template-scaller></app-template-scaller> -->
+				<app-template-sunshine></app-template-sunshine>
+			</div>
+		</div>
 	</mat-drawer-container>
 </div>

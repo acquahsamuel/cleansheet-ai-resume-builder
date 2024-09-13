@@ -3,125 +3,125 @@
 }
 
 .mat-toolbar {
-  position: fixed;
-  z-index: 9999;
-  width: 100%;
-  height: 60px;
+  position        : fixed;
+  z-index         : 9999;
+  width           : 100%;
+  height          : 60px;
   background-color: #212121;
-  color: white;
+  color           : white;
 }
 
 .mat-toolbar-content {
-  display: flex;
+  display        : flex;
   justify-content: space-between;
-  width: inherit;
+  width          : inherit;
 }
 
 .mat-toolbar-nav-left {
-  display: flex;
+  display        : flex;
   justify-content: space-between;
-  align-items: center;
+  align-items    : center;
 }
 
 .dashboard-container {
-  font-family: "Inter", sans-serif;
-//   background: #212121;
-background : #eee;
-  height: 100vh;
-  overflow: hidden;
+  font-family    : "Inter", sans-serif;
+  //   background: #212121;
+  background     : #eee;
+  height         : 100vh;
+  overflow       : hidden;
 }
 
 .dashboard-sidenav {
-  width: 250px;
-  box-shadow: 4px;
-  border: none;
-  height: 100vh;
-  padding-top: 1rem;
-  background: #131212;
-  color: white;
-  overflow-x: hidden;
-  box-shadow: none !important;
-  display: flex;
+  width         : 250px;
+  box-shadow    : 4px;
+  border        : none;
+  height        : 100vh;
+  padding-top   : 1rem;
+  background    : #131212;
+  color         : white;
+  overflow-x    : hidden;
+  box-shadow    : none !important;
+  display       : flex;
   flex-direction: column;
 
   .header {
-    position: fixed;
+    position  : fixed;
     background: #131212;
-    width: 250px;
-    top: 0;
-    padding: 1rem 1.3rem;
+    width     : 250px;
+    top       : 0;
+    padding   : 1rem 1.3rem;
   }
 
   .footer {
-    position: fixed;
+    position  : fixed;
     background: #131212;
-    bottom: 0;
-    width: 250px;
-    padding: 1rem 1.3rem;
+    bottom    : 0;
+    width     : 250px;
+    padding   : 1rem 1.3rem;
   }
 }
 
 .logo-image {
-  height: 20px;
+  height         : 20px;
   background-size: cover;
 }
 
 .menu-title {
   text-transform: uppercase;
-  margin-left: 1.5rem;
+  margin-left   : 1.5rem;
 }
 
 .nav-link {
-  display: flex;
-  text-wrap: nowrap;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.71;
+  display       : flex;
+  text-wrap     : nowrap;
+  font-size     : 14px;
+  font-weight   : normal;
+  line-height   : 1.71;
   letter-spacing: normal;
-  text-align: left;
-  padding: 0.3em 1em;
+  text-align    : left;
+  padding       : 0.3em 1em;
 
   &:hover {
     background-color: #252222;
-    color: whitesmoke;
-    border-radius: 7px;
-    width: 100%;
-    cursor: pointer;
+    color           : whitesmoke;
+    border-radius   : 7px;
+    width           : 100%;
+    cursor          : pointer;
   }
 }
 
 .sidebar-wrapper {
-  margin: 2rem 0;
+  margin    : 2rem 0;
   overflow-y: scroll;
 }
 
 .image-container {
-  border-radius: 300px;
-  display: flex;
+  border-radius  : 300px;
+  display        : flex;
   justify-content: center;
-  align-items: center;
-  margin-right: 5px;
-  color: black;
+  align-items    : center;
+  margin-right   : 5px;
+  color          : black;
 }
 
 .mat-toolbar-nav-right {
   padding: 0.8rem 1.3rem;
-  color: black;
+  color  : black;
 }
 
 .user-image {
   border-radius: 600px;
-  height: 2rem;
-  border: 1px solid rgb(58, 56, 56);
-  display: inline-block;
+  height       : 2rem;
+  border       : 1px solid rgb(58, 56, 56);
+  display      : inline-block;
 }
 
 .link-container {
   overflow: hidden;
-  margin: 1.4rem 0;
+  margin  : 1.4rem 0;
 
   p {
-    color: gray;
+    color  : gray;
     padding: 0.3em 1em;
   }
 }
@@ -135,14 +135,14 @@ background : #eee;
 }
 
 .mat-menu-panel {
-  min-width: 260px !important;
-  max-width: 480px !important;
+  min-width       : 260px !important;
+  max-width       : 480px !important;
   background-color: #413d3d;
-  border-radius: 20px !important;
-  border: 1px solid #6c6b69;
+  border-radius   : 20px !important;
+  border          : 1px solid #6c6b69;
 
   a {
-    color: white;
+    color          : white;
     text-decoration: none;
   }
 
@@ -151,34 +151,27 @@ background : #eee;
   }
 
   .hr-r {
-    width: 90%;
+    width : 90%;
     border: 0.1px solid #504f4f;
   }
 }
 
 .app-container {
-  display: flex;
+  display   : flex;
   min-height: 100vh;
   margin-top: 6.5rem;
 }
 
 .builder-section,
 .preview-section {
-  margin: 0 20px;
+  margin    : 0 20px;
   min-height: 100vh;
-  width: 40%;
-
-  
- 
+  max-width : 40%;
 }
 
 .preview-section {
   background-color: #f9f9f9;
-  min-height: 100vh;
-  flex: 1;
-
+  min-height      : 100vh;
+  flex            : 1;
+  max-width       : 55%;
 }
-
- 
-
-

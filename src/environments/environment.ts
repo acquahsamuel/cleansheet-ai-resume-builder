@@ -7,8 +7,8 @@ export const environment = {
   production: false,
   enableDebug : true,
   assetPreLoader : '',
-  APP : 'Gemini GPX',
-  BASE_URL: 'http://localhost:5000/api/v1',
+  APP : 'Cleansheet cv',
+  BASE_URL: 'https://api.trenda.live/api/v1/ai-generatives',
 };
 
 /*

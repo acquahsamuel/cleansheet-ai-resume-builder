@@ -4,7 +4,7 @@ import { MaterialModule } from "src/app/shared/modules/material.module";
 import { LoaderComponent } from "../components/preloader/loader.component";
 import { BuilderUiComponent } from "../../modules/resume-builder/components/builder-ui/builder-ui.component";
 import { TemplateSkComponent } from "../resume-templates/template-sk/template-sk.component";
-import { PreviewUiComponent } from "../../modules/resume-builder/components/preview-ui/preview-ui.component";
+// import { PreviewUiComponent } from "../../modules/resume-builder/components/preview-ui/preview-ui.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { TemplateBrightComponent } from "../resume-templates/template-bright/template-bright.component";
 import { TemplateKingdomComponent } from "../resume-templates/template-kingdom/template-kingdom.component";
@@ -12,6 +12,7 @@ import { TemplateObjectionComponent } from "../resume-templates/template-objecti
 import { TemplateScallerComponent } from "../resume-templates/template-scaller/template-scaller.component";
 import { TemplatePincodeComponent } from "../resume-templates/template-pincode/template-pincode.component";
 import { TemplateSunshineComponent } from "../resume-templates/template-sunshine/template-sunshine.component";
+import { CustomEditorComponent } from "../components/custom-editor/custom-editor.component";
  
 @NgModule({
   declarations: [
@@ -22,17 +23,18 @@ import { TemplateSunshineComponent } from "../resume-templates/template-sunshine
     TemplateObjectionComponent,
     TemplateScallerComponent,
     TemplatePincodeComponent,
-    TemplateSunshineComponent
+    TemplateSunshineComponent,
+    CustomEditorComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-   
     MaterialModule,
   ],
   providers: [],
   exports: [
+    CustomEditorComponent,
     TemplateSkComponent,
     TemplateBrightComponent,
     LoaderComponent,
