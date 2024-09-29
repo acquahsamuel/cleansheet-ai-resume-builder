@@ -61,28 +61,14 @@
 		<mat-drawer #drawer
 			class="dashboard-sidenav"
 			mode="side"
-			opened="false">
-			<div class="header">ChatGPX</div>
+			opened="true">
+			<div class="header">Cleansheet</div>
 			<div class="sidebar-wrapper">
-				<!-- <div *ngFor="let link of LINKS"
+				<div *ngFor="let link of LINKS"
 					class="link-container"
+					[routerLink]="link.path"
 					routerLinkActive="div-active">
-					<p>{{ link.day }}</p>
-				
-					<a *ngFor="let text of LINKS"
-						class="nav-link"
-						routerLinkActive="active">
-						{{ text.prompt }}
-					</a>
-				</div> -->
-
-				<div class="link-container"
-					routerLinkActive="div-active">
-					<a *ngFor="let text of LINKS"
-						class="nav-link"
-						routerLinkActive="active">
-						{{ text.prompt }}
-					</a>
+				   <mat-icon>{{ link.icon }}</mat-icon><p>{{ link.title }}</p>
 				</div>
 			</div>
 
@@ -91,22 +77,11 @@
 			</div>
 		</mat-drawer>
 
-		<div class="container">
-			<router-outlet></router-outlet>
-		</div>
+		
 
 		<div class="app-container">
-			<div class="builder-section">
-				<app-builder-ui></app-builder-ui>
-			</div>
-			<div class="preview-section">
-				<!-- <app-template-sk></app-template-sk> -->
-				<!-- <app-template-bright></app-template-bright> -->
-				<!-- <app-template-kingdom></app-template-kingdom> -->
-				<!-- <app-template-objection></app-template-objection> -->
-				<!-- <app-template-pincode></app-template-pincode> -->
-				<!-- <app-template-scaller></app-template-scaller> -->
-				<app-template-sunshine></app-template-sunshine>
+			<div class="#">
+				<router-outlet></router-outlet>
 			</div>
 		</div>
 	</mat-drawer-container>

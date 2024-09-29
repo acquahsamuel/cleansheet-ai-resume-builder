@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
-import { HobbiesComponent } from "../../sections/hobbies/hobbies.component";
-import { ReferencesComponent } from "../../sections/references/references.component";
-import { InternshipsComponent } from "../../sections/internships/internships.component";
-import { CoursesComponent } from "../../sections/courses/courses.component";
-import { PublicationsComponent } from "../../sections/publications/publications.component";
-import { ProjectsComponent } from "../../sections/projects/projects.component";
-import { LanguagesComponent } from "../../sections/languages/languages.component";
-import { ExtraActivitiesComponent } from "../../sections/extra-activities/extra-activities.component";
+import { HobbiesComponent } from "../../pages/sections/hobbies/hobbies.component";
+import { ReferencesComponent } from "../../pages/sections/references/references.component";
+import { InternshipsComponent } from "../../pages/sections/internships/internships.component";
+import { CoursesComponent } from "../../pages/sections/courses/courses.component";
+import { PublicationsComponent } from "../../pages/sections/publications/publications.component";
+import { ProjectsComponent } from "../../pages/sections/projects/projects.component";
+import { LanguagesComponent } from "../../pages/sections/languages/languages.component";
+import { ExtraActivitiesComponent } from "../../pages/sections/extra-activities/extra-activities.component";
 
 const CVHeader = {
   firstname: "James",

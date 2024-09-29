@@ -9,7 +9,6 @@ export class ResumeBuilderComponent implements OnInit {
   isLoading = false;
   username = "Samuel";
   userProfile = "./assets/images/placeholder.png";
-  LINKS = [];
 
   constructor() {}
 
@@ -18,4 +17,19 @@ export class ResumeBuilderComponent implements OnInit {
   getInteractionPrompt() {}
 
   logout() {}
+
+  OnInit() {}
+
+  title = "Cleansheet";
+
+  LINKS = [
+    { path: "/builder/resume-builder", icon: "format_shapes", title: "Resumes" },
+    { path: "/builder/ats-analysis", icon: "attach_file", title: "ATS" },
+    {
+      path: "/builder/cv-rewrite",
+      icon: "insert_drive_file",
+      title: "CV Rewrite",
+    },
+    { path: "/builder/settings", icon: "settings", title: "Settings" },
+  ];
 }
