@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss']
+  selector: 'app-publications',
+  templateUrl: './publications.component.html',
+  styleUrls: ['./publications.component.scss']
 })
 
-export class SkillsComponent implements OnInit {
+export class PublicationsComponent implements OnInit {
   skillsForm: FormGroup;
   editorContent: string = '';
 
@@ -23,6 +23,7 @@ export class SkillsComponent implements OnInit {
   createEducationRecord(): FormGroup {
     return this.fb.group({
       name: ["", Validators.required],
+      summary : [""],
       proficiency: ["", Validators.required],
       skillDescription : ["", Validators.required],
     });
@@ -51,24 +52,5 @@ export class SkillsComponent implements OnInit {
     this.educationRecords.removeAt(index);
   }
 
-  
-
-  // Save form data to local storage
-  saveToLocalStorage(): void {
-    localStorage.setItem(
-      "educationData",
-      JSON.stringify(this.skillsForm.value)
-    );
-  }
-
-  // Load data from local storage
-  loadDataFromLocalStorage(): void {
-    const savedData = localStorage.getItem("educationData");
-    if (savedData) {
-      this.skillsForm.patchValue(JSON.parse(savedData));
-    }
-  }
-
- 
  
 }

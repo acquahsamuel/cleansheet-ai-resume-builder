@@ -1,9 +1,8 @@
 <div class="form-section">
-  <form [formGroup]="educationForm">
-    <div formArrayName="educationRecords">
+  <div [formGroup]="professionalSummaryForm">
+    <div  >
       <div
-        *ngFor="let education of educationRecords.controls; let i = index"
-        [formGroupName]="i"
+      
         class="education-record"
       >
         <h3></h3>
@@ -11,10 +10,14 @@
         <div>
           <div class="form-group">
             <label for> Profile Summary </label>
-            <app-custom-editor></app-custom-editor>
+            <app-custom-editor
+              formControlName="summary"
+              placeholder="Enter summary"
+              name="summary"
+            ></app-custom-editor>
           </div>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </div>

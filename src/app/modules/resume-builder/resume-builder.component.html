@@ -10,8 +10,7 @@
 							<button (click)="drawer.toggle()"
 								type="button"
 								mat-button>
-								<mat-icon aria-hidden="false"
-									class="menu-icon"
+								<mat-icon aria-hidden="false" class="menu-icon"
 									aria-label="Example home icon">
 									menu
 								</mat-icon>
@@ -61,7 +60,7 @@
 		<mat-drawer #drawer
 			class="dashboard-sidenav"
 			mode="side"
-			opened="true">
+			opened="false">
 			<div class="header">Cleansheet</div>
 			<div class="sidebar-wrapper">
 				<div *ngFor="let link of LINKS"

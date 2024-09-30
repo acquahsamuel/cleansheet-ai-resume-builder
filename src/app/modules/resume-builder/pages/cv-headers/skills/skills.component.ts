@@ -1,13 +1,13 @@
- import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-publications',
-  templateUrl: './publications.component.html',
-  styleUrls: ['./publications.component.scss']
+  selector: 'app-skills',
+  templateUrl: './skills.component.html',
+  styleUrls: ['./skills.component.scss']
 })
 
-export class PublicationsComponent implements OnInit {
+export class SkillsComponent implements OnInit {
   skillsForm: FormGroup;
   editorContent: string = '';
 
@@ -25,6 +25,7 @@ export class PublicationsComponent implements OnInit {
       name: ["", Validators.required],
       proficiency: ["", Validators.required],
       skillDescription : ["", Validators.required],
+      summary : ['', Validators.required]
     });
   }
 

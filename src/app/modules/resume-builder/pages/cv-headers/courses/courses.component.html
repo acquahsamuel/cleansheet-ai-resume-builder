@@ -1,0 +1,96 @@
+<div class="form-section">
+    <form [formGroup]="educationForm">
+      <div formArrayName="educationRecords">
+        <div
+          *ngFor="let education of educationRecords.controls; let i = index"
+          [formGroupName]="i"
+          class="education-record"
+        >
+          <h3></h3>
+  
+  
+          <div class="content-wrapper">
+          <div class="form-section flex flex-wrap">
+            <div class="form-group w-full px-2 sm:w-1/2">
+              <input
+                placeholder="Enter Job Title"
+                formControlName="name"
+                type="text"
+              
+              />
+            </div>
+  
+            <div class="form-group w-full px-3 sm:w-1/2">
+              <input
+                placeholder="Enter Employer name"
+                type="text"
+                formControlName="degree"
+              
+              />
+            </div>
+          </div>
+  
+          <div class="form-section">
+            <div class="form-column flex flex-wrap">
+              <div class="form-group w-full py-2 px-2 sm:w-1/2">
+                <label for="startYear">Start Date</label>
+                <input
+                  id="startYear"
+                
+                  type="date"
+                  formControlName="startYear"
+                  placeholder="Enter start date"
+                />
+              </div>
+  
+              <div class="form-group w-full py-2 px-2 sm:w-1/2">
+                <label for="endYear">End Date</label>
+                <input
+                  id="endYear"
+                
+                  type="date"
+                  formControlName="endYear"
+                  placeholder="Enter end date"
+                />
+              </div>
+  
+              <div class="form-group w-full px-3 my-3 sm:w-1/2">
+                  <div class="checkbox-wrapper-14">
+                      <input id="s1-14" type="checkbox" class="switch">
+                      <label for="s1-14" class="font-normal"> I Currently work here </label>
+                  </div>
+              </div>
+  
+            </div>
+          </div>
+  
+          <div>
+            <div class="form-group px-3 my-3">
+              <label for=""> Role Description </label>
+               <app-custom-editor formControl="summary"></app-custom-editor>
+            </div>
+          </div>
+  
+        
+          <div class="flex justify-end">
+              <button  
+              class="btn-delete"
+              (click)="removeEducationRecord(i)" type="button">
+                Remove  
+                <mat-icon> delete_outline </mat-icon>
+              </button>
+          </div>
+  
+          </div>
+  
+  
+        </div>
+      </div>
+  
+      <button 
+      class="btn-create"
+      (click)="addEducationRecord()" type="button">Add Experience</button>
+      <!-- <button (click)="saveToLocalStorage()" type="button">Save</button> -->
+    </form>
+  </div>
+  

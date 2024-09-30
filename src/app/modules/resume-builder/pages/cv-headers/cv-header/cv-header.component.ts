@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray } from "@angular/forms";
+// import { debounceTime } from "rxjs/operators";
+import { Subject } from "rxjs";
+import { debounceTime, distinctUntilChanged } from "rxjs/operators";
 
 @Component({
   selector: "app-cv-header",
@@ -7,7 +10,11 @@ import { FormBuilder, FormGroup, FormArray } from "@angular/forms";
   styleUrls: ["./cv-header.component.scss"],
 })
 export class CvHeaderComponent implements OnInit {
-  @Input() ICVHeaderInfo: any;
+  @Input() PersonalDetails: any;
+  @Output() onPersonalInfoUpdateEvt = new EventEmitter<any>();
+
+  private updateSubject = new Subject<any>();
+
   headerInfoForm: FormGroup;
   selectedFileName: string | null = null;
   imagePreview: string | ArrayBuffer | null = null;
@@ -50,24 +57,35 @@ export class CvHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.headerInfoForm = this._fb.group({
-      firstname: [''],
-      surname: [''],
-      city: [''],
-      country: [''],
-      postalCode: [''],
-      phoneNumber: [''],
-      dateOfBirth: [''],
-      email: [''],
+      firstname: [""],
+      surname: [""],
+      city: [""],
+      country: [""],
+      postalCode: [""],
+      phoneNumber: [""],
+      dateOfBirth: [""],
+      email: [""],
       fields: this._fb.array([]),
     });
 
-    this.headerInfoForm.valueChanges.subscribe(v => {
-      console.log(v, "VALUES:::::::;");
+    if (this.PersonalDetails) {
+      this.headerInfoForm.patchValue(this.PersonalDetails);
+    }
+
+    this.headerInfoForm.valueChanges.subscribe((value) => {
+      this.onPersonalInfoUpdateEvt.emit(value);
     });
+
+    // this.headerInfoForm.valueChanges.pipe(distinctUntilChanged(), debounceTime(1500))
+    // .subscribe((v) => {
+
+    //   // this.updatePersonalInfo.emit(this.headerInfoForm.value);
+
+    // });
   }
 
   get fields() {
-    return this.headerInfoForm.get('fields') as FormArray;
+    return this.headerInfoForm.get("fields") as FormArray;
   }
 
   addField(fieldLabel: string) {

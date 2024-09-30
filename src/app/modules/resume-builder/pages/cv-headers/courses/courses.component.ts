@@ -1,14 +1,13 @@
- 
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-experience',
-  templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.scss']
+  selector: 'app-courses',
+  templateUrl: './courses.component.html',
+  styleUrls: ['./courses.component.scss']
 })
 
-export class ExperienceComponent implements OnInit {
+export class CoursesComponent implements OnInit {
   educationForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -27,7 +26,7 @@ export class ExperienceComponent implements OnInit {
       roleDescription: ["", Validators.required],
       startYear: ["", [Validators.required, Validators.pattern("^[0-9]{4}$")]],
       endYear: ["", [Validators.required, Validators.pattern("^[0-9]{4}$")]],
-      // programs: this.fb.array([this.createProgram()]),
+      summary : ['']
     });
   }
 
@@ -67,20 +66,5 @@ export class ExperienceComponent implements OnInit {
   removeProgram(educationIndex: number, programIndex: number): void {
     this.getPrograms(educationIndex).removeAt(programIndex);
   }
-
-  // Save form data to local storage
-  saveToLocalStorage(): void {
-    localStorage.setItem(
-      "educationData",
-      JSON.stringify(this.educationForm.value)
-    );
-  }
-
-  // Load data from local storage
-  loadDataFromLocalStorage(): void {
-    const savedData = localStorage.getItem("educationData");
-    if (savedData) {
-      this.educationForm.patchValue(JSON.parse(savedData));
-    }
-  }
+ 
 }

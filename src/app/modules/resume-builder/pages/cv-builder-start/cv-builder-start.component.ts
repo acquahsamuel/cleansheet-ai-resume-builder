@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-cv-builder-start',
-  templateUrl: './cv-builder-start.component.html',
-  styleUrls: ['./cv-builder-start.component.scss']
+  selector: "app-cv-builder-start",
+  templateUrl: "./cv-builder-start.component.html",
+  styleUrls: ["./cv-builder-start.component.scss"],
 })
 export class CvBuilderStartComponent implements OnInit {
   isLoading = false;
   username = "Samuel";
   userProfile = "./assets/images/placeholder.png";
 
+
+  @Input() PersonalDetails : any;
+  @Input() Hobbies = [];
+  @Input() Summary = [];
+  @Input() Experience = [];
+  @Input() Education = [];
+  @Input() Skills = [];
+  @Input() References = [];
+  @Input() Internship = [];
+  @Input() Courses = [];
+  @Input() Publication = [];
+  @Input() Project = [];
+  @Input() Languages = [];
+  @Input() ExtraCurricularActivities = [];
+  @Input() ExtraFields = [];
+
+  @Output() updateInfo = new EventEmitter<any>();
+
+ 
 
   OnInit() {}
 
@@ -26,17 +45,21 @@ export class CvBuilderStartComponent implements OnInit {
     { path: "/account/settings", icon: "settings", title: "Settings" },
   ];
 
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+
+ 
+  }
+
+  updateCv(info : any) {
+    console.log(info, "DAA::::::::::::");
+
+    this.PersonalDetails = info;
+
+    this.updateInfo.emit(this.PersonalDetails);
   }
 
 
-
-  getInteractionPrompt() {}
-
-  logout() {}
-
-  
+ 
 }
