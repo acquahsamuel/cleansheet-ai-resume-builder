@@ -38,6 +38,7 @@
     "ngx-webstorage": "^6.0.0",
     "primeng": "^17.13.0",
     "rxjs": "~6.6.0",
+    "taiga-ui": "^4.7.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
