@@ -1,6 +1,11 @@
  # CV/Resume Builder
 
-![CV Builder Screenshot](path/to/your/screenshot.png)
+<p align="center">
+  <img src="/src/assets/images/readme-img/img-1.png" width="350" title="hover text">
+  <img src="/src/assets/images/readme-img/img-1.png" width="350" alt="accessibility text">
+</p>
+ 
+![CV Builder Screenshot] 
 
 A web-based CV/Resume Builder application that allows users to create professional resumes effortlessly. The application provides a user-friendly interface for entering personal details, education, work experience, skills, and other important sections of a CV. Users can generate downloadable PDF versions of their resumes in various pre-designed templates.
 
@@ -33,18 +38,19 @@ Before running the project, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/cv-resume-builder.git
+   git clone https://github.com/acquahsamuel/cleansheet-resume-builder.git
+
+   cd cleansheet-resume-builder
 
    Run npm install command 
    Open package.json  
    Run ng serve command
 
-   cd cv-resume-builder
 
 
 
 
-## Sample UI Templates
+<!-- ## Sample UI Templates
 
 https://resume-thomas-leon-highbaugh.vercel.app/
 https://tailwindflex.com/@hefacom/modern-cv-template-stylish-html-and-tailwind-css-design-for-professionals
@@ -56,4 +62,4 @@ https://www.jobseeker.com/
 https://www.resume-now.com/build-resume
 https://cvtoolspro.com/resume 
 https://resume.io/app/resumes 
-
+ -->
