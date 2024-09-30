@@ -1,16 +1,23 @@
- # CV/Resume Builder
+ # AI CV/Resume Builder
 
-<p align="center">
-  <img src="/src/assets/images/readme-img/img-1.png" width="350" title="hover text">
-  <img src="/src/assets/images/readme-img/img-1.png" width="350" alt="accessibility text">
-</p>
- 
+<!-- <p align="center"></p> -->
+  <!-- <img src="src/assets/images/readme-img/img-1.png" width="350" title="hover text"> -->
+  <img src="src/assets/images/readme-img/img-1.png" width="350" alt="accessibility text">
+
 ![CV Builder Screenshot] 
 
-A web-based CV/Resume Builder application that allows users to create professional resumes effortlessly. The application provides a user-friendly interface for entering personal details, education, work experience, skills, and other important sections of a CV. Users can generate downloadable PDF versions of their resumes in various pre-designed templates.
+Professional CV Builder: Open-Source, Secure, and ATS-Optimized
+This project is a unique, privacy-focused resume builder designed to help you create professional CVs with ease. It offers complete security, customization options, and portability, ensuring your personal data remains protected. As an open-source project, it is entirely free to use and will remain so forever. Users can generate downloadable PDF versions of their resumes in various pre-designed templates.
+
+
+
 
 ## Features
 
+- **Privacy-Centric**: Your data stays with you—no external storage or third-party access.
+- **Fully Customizable**: Tailor your CV to any profession or industry with flexible design and format options.
+- **ATS-Optimized**: Generate CVs that comply with Applicant Tracking Systems (ATS), ensuring your resume passes automated screening algorithms.
+- **Open-Source & Free Forever**: Contribute, customize, and use the tool with no costs involved, now or in the future.
 - **User-friendly Interface**: Simple, clean, and intuitive UI for building resumes.
 - **Live Preview**: Real-time preview of the resume as users add or modify content.
 - **Customizable Templates**: Multiple resume templates to choose from.
@@ -19,19 +26,16 @@ A web-based CV/Resume Builder application that allows users to create profession
 - **Input Validation**: Ensure that users fill out all required fields correctly.
 - **Responsive Design**: Works seamlessly on desktops, tablets, and mobile devices.
 - **Data Persistence**: Option to save progress in the browser (local storage) or via user accounts (optional).
+ 
+Try it out today and create a professional CV suited to your career goals!
 
-## Demo
-
-Check out the live demo: [Demo Link](https://your-live-demo-link.com)
-
-## Installation
-
+ 
 ### Prerequisites
-
 Before running the project, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/en/download/)
 - [npm](https://www.npmjs.com/get-npm)
+- [AngularCli](https://angular.dev/tools/cli)
 
 ### Getting Started
 
@@ -42,24 +46,7 @@ Before running the project, ensure you have the following installed:
 
    cd cleansheet-resume-builder
 
+
    Run npm install command 
    Open package.json  
    Run ng serve command
-
-
-
-
-
-<!-- ## Sample UI Templates
-
-https://resume-thomas-leon-highbaugh.vercel.app/
-https://tailwindflex.com/@hefacom/modern-cv-template-stylish-html-and-tailwind-css-design-for-professionals
-
-
-## Explore and existing UI
-
-https://www.jobseeker.com/ 
-https://www.resume-now.com/build-resume
-https://cvtoolspro.com/resume 
-https://resume.io/app/resumes 
- -->
