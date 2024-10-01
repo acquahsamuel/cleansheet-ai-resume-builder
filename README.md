@@ -1,27 +1,48 @@
-# CleansheetResume
+ # AI CV/Resume Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+<!-- <p align="center"></p> -->
+<img src="src/assets/images/previews/img-1.png">
 
-## Development server
+Professional CV Builder: Open-Source, Secure, and ATS-Optimized
+This project is a unique, privacy-focused resume builder designed to help you create professional CVs with ease. It offers complete security, customization options, and portability, ensuring your personal data remains protected. As an open-source project, it is entirely free to use and will remain so forever. Users can generate downloadable PDF versions of their resumes in various pre-designed templates.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+- **Privacy-Centric**: Your data stays with you—no external storage or third-party access.
+- **Fully Customizable**: Tailor your CV to any profession or industry with flexible design and format options.
+- **ATS-Optimized**: Generate CVs that comply with Applicant Tracking Systems (ATS), ensuring your resume passes automated screening algorithms.
+- **Open-Source & Free Forever**: Contribute, customize, and use the tool with no costs involved, now or in the future.
+- **User-friendly Interface**: Simple, clean, and intuitive UI for building resumes.
+- **Live Preview**: Real-time preview of the resume as users add or modify content.
+- **Customizable Templates**: Multiple resume templates to choose from.
+- **PDF Export**: Download the resume as a PDF file.
+- **Sections Management**: Add, remove, or reorder sections like education, work experience, skills, and more.
+- **Input Validation**: Ensure that users fill out all required fields correctly.
+- **Responsive Design**: Works seamlessly on desktops, tablets, and mobile devices.
+- **Data Persistence**: Option to save progress in the browser (local storage) or via user accounts (optional).
+ 
+Try it out today and create a professional CV suited to your career goals!
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ 
+### Prerequisites
+Before running the project, ensure you have the following installed:
 
-## Running unit tests
+- [Node.js](https://nodejs.org/en/download/)
+- [npm](https://www.npmjs.com/get-npm)
+- [AngularCli](https://angular.dev/tools/cli)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Getting Started
 
-## Running end-to-end tests
+1. **Clone the repository:**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   git clone https://github.com/acquahsamuel/cleansheet-resume-builder.git
 
-## Further help
+   cd cleansheet-resume-builder
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+   Run npm install command 
+   Open package.json  
+   Run ng serve command

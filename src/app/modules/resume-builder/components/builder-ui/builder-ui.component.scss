@@ -1,89 +1,33 @@
-.modern-accordion .mat-expansion-panel {
-  box-shadow: none;
-  border: 1px solid #e0e0e0;
-  border-radius: 9px;
-}
-
-.modern-accordion .mat-expansion-panel-header {
-  background-color: #fff;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 8px 16px;
-}
-
-.modern-accordion .mat-expansion-panel-header .mat-panel-title {
-  font-weight: 500;
-  box-shadow: none;
-  font-size: 16px;
-  color: green;
-}
-
-/* Modern Accordion Styling */
-.modern-accordion mat-expansion-panel {
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-  transition: all 0.3s ease-in-out;
-}
-
-.modern-accordion mat-expansion-panel-header {
-  padding: 15px;
-  border-bottom: 1px solid #e0e0e0;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-}
-
-.modern-accordion mat-expansion-panel-header:hover {
-  background-color: #f0f4f8;
-  cursor: pointer;
-}
-
-.mat-panel-title mat-icon {
-  margin-right: 8px;
-  color: green;
-}
-
-.mat-panel-description {
+.app-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  color: #a0aec0;  
+  min-height: 100vh;
+  margin-top: 1rem;
+  overflow: hidden;
 }
 
-.expand-icon {
-  font-size: 24px;
-  transition: transform 0.3s ease;
+.builder {
+  margin: 0 20px;
+  // min-height: 100vh;
+  max-width: 40%;
+  // background-color: #f9f9f9;
+  // background-color: red;
+
+
+  &-container {
+    // padding: 20px;
+    overflow-y: scroll;
+  }
 }
 
-mat-expansion-panel[expanded] .expand-icon {
-  transform: rotate(180deg);
-}
-
-mat-action-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  align-items: center;
-  background-color: #ffffff;
-}
-
-button[mat-button] {
-  font-weight: 500;
-  text-transform: capitalize;
-}
-
-button mat-icon {
-  vertical-align: middle;
-  margin-right: 4px;
-}
-
-.icon-container {
-  display: flex;
-  justify-content: flex-end;
+.preview {
+  // min-height: 100vh;
+  flex: 1;
+  max-width: 55%;
   width: 100%;
-}
+  overflow-y: scroll;
+  background: white;
 
-.mat-expansion-panel-header-title,
-.mat-expansion-panel-header-description {
-  align-items: center;
-  margin: 1em 0;
+
+  // overflow-y: scroll;
 }
+ 

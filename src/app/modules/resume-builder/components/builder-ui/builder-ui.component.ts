@@ -13,6 +13,8 @@ import { EducationComponent } from "../../pages/cv-headers/education/education.c
 import { SummaryComponent } from "../../pages/cv-headers/summary/summary.component";
 import { CvHeaderComponent } from "../../pages/cv-headers/cv-header/cv-header.component";
 import { ExperienceComponent } from "../../pages/cv-headers/experience/experience.component";
+import { NgZorroAntdModule } from "../../../../shared/modules/ng-zero-ant.module";
+import { TemplateSunshineComponent } from "../../../../shared/resume-templates/template-sunshine/template-sunshine.component";
 
 @Component({
     selector: "app-builder-ui",
@@ -21,6 +23,7 @@ import { ExperienceComponent } from "../../pages/cv-headers/experience/experienc
     standalone: true,
     imports: [  
       CommonModule,
+      NgZorroAntdModule,
       HobbiesComponent,
       ReferencesComponent,
       InternshipsComponent,
@@ -33,11 +36,15 @@ import { ExperienceComponent } from "../../pages/cv-headers/experience/experienc
       EducationComponent,
       SummaryComponent,
       SkillsComponent,
-      ExtraActivitiesComponent
+      ExtraActivitiesComponent,
+      
+      TemplateSunshineComponent
     ]
 })
 export class BuilderUiComponent implements OnInit {
   step = 0;
+  expandIconPosition: 'start' | 'end' = 'start';
+
 
   @Input() PersonalDetails = [];
   @Input() Hobbies = [];
@@ -71,12 +78,31 @@ export class BuilderUiComponent implements OnInit {
 
   constructor() {}
 
+  // panels = [
+  //   { icon: "account_circle", title: "Personal Details" },
+  //   { icon: "assignment_turned_in", title: "Summary" },
+  //   { icon: "work", title: "Experience" },
+  //   { icon: "school", title: "Education" },
+  //   { icon: "build", title: "Skills" },
+  // ];
+
+
   panels = [
-    { icon: "account_circle", title: "Personal Details" },
-    { icon: "assignment_turned_in", title: "Summary" },
-    { icon: "work", title: "Experience" },
-    { icon: "school", title: "Education" },
-    { icon: "build", title: "Skills" },
+    {
+      active: true,
+      name: 'This is panel header 1',
+      disabled: false
+    },
+    {
+      active: false,
+      disabled: false,
+      name: 'This is panel header 2'
+    },
+    {
+      active: false,
+      disabled: true,
+      name: 'This is panel header 3'
+    }
   ];
 
   extraPanels = [

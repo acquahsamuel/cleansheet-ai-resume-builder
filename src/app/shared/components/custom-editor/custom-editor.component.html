@@ -21,8 +21,7 @@
     <button (click)="format('formatBlock', '<h2>')"> H2 </button>
     <button (click)="format('formatBlock', '<p>')">  P </button>
 
-    <button 
-    class="bg-gray-200 rounded-md px-1 py-1 my-1 mx-2"
-    (click)="generateText()">Generate with AI </button>
+  
+    <button nz-button nzType="default" [nzSize]="'small'"  (click)="generateText()"> Generate with AI </button>
   </div>
 </div>

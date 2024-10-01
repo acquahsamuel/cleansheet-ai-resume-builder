@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { NgZorroAntdModule } from '../../../../shared/modules/ng-zero-ant.module';
 
 @Component({
     selector: 'app-started',
     templateUrl: './started.component.html',
     styleUrls: ['./started.component.scss'],
-    standalone: true
+    standalone: true,
+    imports: [NgZorroAntdModule],
 })
 export class StartedComponent implements OnInit {
 
