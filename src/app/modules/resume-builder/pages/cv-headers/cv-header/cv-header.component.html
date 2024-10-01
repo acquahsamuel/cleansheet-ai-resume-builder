@@ -1,0 +1,199 @@
+<div class="file-upload-container mb-6">
+  <div *ngIf="imagePreview; else noTemplate" class="image-preview mb-4">
+    <img
+      [src]="imagePreview"
+      alt="Image preview"
+      class="w-24 h-24 rounded-full"
+    />
+  </div>
+
+  <ng-template #noTemplate>
+ 
+    <nz-avatar [nzSize]="64" nzIcon="user"></nz-avatar>
+  </ng-template>
+
+  <div class="file-drop-area mb-2">
+    <span class="fake-btn">Upload Profile</span>
+    <input
+      (change)="onFileChange($event)"
+      class="file-input"
+      type="file"
+      accept="image/*"
+    />
+  </div>
+
+  <span class="text-sm text-gray-600"
+    >Headshot profile pictures are preferred</span
+  >
+</div>
+
+<form [formGroup]="headerInfoForm" (ngSubmit)="submitForm()">
+  <div class="form-section">
+    <div class="flex flex-wrap -mx-2">
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="firstname" class="block mb-1">Firstname</label>
+        <input
+          formControlName="firstname"
+          type="text"
+          nzSize="default"
+          id="firstname"
+          nz-input placeholder="Basic usage"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+        />
+      </div>
+
+      <!-- Surname -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="surname" class="block mb-1">Surname</label>
+        <input
+          formControlName="surname"
+          type="text"
+          nz-input
+          
+          nzSize="default"
+          id="surname"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Your surname"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-2">
+      <!-- City -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="city" class="block mb-1">City</label>
+        <input
+          formControlName="city"
+          type="text"
+          nz-input
+         
+          nzSize="default"
+          id="city"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Your City"
+        />
+      </div>
+
+      <!-- Country -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="country" class="block mb-1">Country</label>
+        <input
+          formControlName="country"
+          type="text"
+          nz-input
+         
+          nzSize="default"
+          id="country"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Country"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-2">
+      <!-- Postal Code -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="postalCode" class="block mb-1">Postal Code</label>
+        <input
+          formControlName="postalCode"
+          type="text"
+          nz-input
+          
+          nzSize="default"
+          id="postalCode"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Postal Code"
+        />
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="phoneNumber" class="block mb-1">Phone Number</label>
+        <input
+          formControlName="phoneNumber"
+          type="text"
+          nz-input
+          
+          nzSize="default"
+          id="phoneNumber"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Phone Number"
+        />
+      </div>
+
+      <!-- Email -->
+      <div class="form-group w-full px-2 py-2 sm:w-1/2">
+        <label for="email" class="block mb-1">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          id="email"
+          nz-input
+          nzSize="default"
+          class="w-full border border-gray-300 rounded px-3 py-2"
+          placeholder="Your email address"
+        />
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="form-group flex flex-col w-full px-2 py-2 sm:w-1/2">
+        <label for="dateOfBirth" class="block mb-1">Date of Birth</label>
+        <nz-date-picker formControlName="dateOfBirth"  (ngModelChange)="onDateChange($event)"></nz-date-picker>
+         
+      </div>
+    </div>
+
+    <!-- Dynamic Fields -->
+    <div class="form-section py-4">
+      <div class="flex flex-wrap -mx-2">
+        <div class="w-full px-2">
+          <div class="flex flex-wrap -mx-2">
+           <div
+              *ngFor="let field of fields.controls; let i = index"
+              [formGroup]="field"
+              class="w-full px-2 sm:w-1/2 mb-2"
+            >
+              <div class="flex flex-col items-start mb-4">
+                <label [attr.for]="field.get('label')?.value" class="block mr-2">
+                  {{ field.get("label")?.value }}
+                </label>
+
+                <div class="flex items-center w-full">
+                  <input
+                    type="text"
+                     nz-input
+                     placeholder="default size"
+                     nzSize="default"
+                    formControlName="value"
+                    [attr.id]="field.get('label')?.value"
+                    class="flex-1 border border-gray-300 rounded px-3 py-2"
+                    [attr.placeholder]="field.get('label')?.value"
+                  />
+                   
+                  <button
+                  (click)="removeField(i)" nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzDanger nzType="delete"></span></button>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap">
+        <div class="w-full">
+          <div class="mb-4">
+            <button
+              *ngFor="let fieldType of fieldTypes"
+              (click)="addField(fieldType)"
+              class="outline-none border border-gray-300 px-1 py-1"
+              style="transition: all 0.15s ease"
+            >
+            <span nz-icon nzType="plus" nzTheme="outline"></span>  
+            {{ fieldType }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

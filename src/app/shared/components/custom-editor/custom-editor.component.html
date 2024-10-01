@@ -1,0 +1,28 @@
+<div class="editor-container">
+ 
+  <div
+    class="editor"
+    contenteditable="true"
+    (input)="onContentChange()"
+  ></div>
+  <div class="toolbar">
+    <button (click)="format('bold')"> <span nz-icon nzType="bold" nzTheme="outline"></span> </button>
+    <button (click)="format('underline')"> <span nz-icon nzType="underline" nzTheme="outline"></span> </button>
+    <button (click)="setAlignment('left')"> <span nz-icon nzType="align-left" nzTheme="outline"></span> </button>
+    <button (click)="setAlignment('center')"> <span nz-icon nzType="align-center" nzTheme="outline"></span> </button>
+    <button (click)="setAlignment('right')"> <span nz-icon nzType="align-right" nzTheme="outline"></span> </button>
+
+
+    <button (click)="format('insertOrderedList')"> <span nz-icon nzType="ordered-list" nzTheme="outline"></span> </button>
+    <button (click)="format('insertUnorderedList')"> <span nz-icon nzType="unordered-list" nzTheme="outline"></span> </button>
+
+
+    <button (click)="format('formatBlock', '<h1>')"> H1 </button>
+    <button (click)="format('formatBlock', '<h2>')"> H2 </button>
+    <button (click)="format('formatBlock', '<p>')">  P </button>
+
+    <button 
+    class="bg-gray-200 rounded-md px-1 py-1 my-1 mx-2"
+    (click)="generateText()">Generate with AI </button>
+  </div>
+</div>

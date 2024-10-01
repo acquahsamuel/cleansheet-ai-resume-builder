@@ -1,0 +1,43 @@
+<section>
+	<div class="app-container">
+		<div class="builder-section">
+			<app-builder-ui
+			 	[Hobbies]="Hobbies"
+				[Summary]="Summary"
+				[Experience]="Experience"
+				[Education]="Education"
+				[Skills]="Skills"
+				[References]="References"
+				[Internship]="Internship"
+				[Courses]="Courses"
+				[Publication]="Publication"
+				[Project]="Project"
+				[Languages]="Languages"
+				[ExtraCurricularActivities]="ExtraCurricularActivities"
+				[PersonalDetails]="PersonalDetails"
+				[ExtraFields]="ExtraFields"
+				(updateInfo)="updateCv($event)"
+			></app-builder-ui>
+		</div>
+		<div class="preview-section">
+			 
+			<app-template-sunshine
+				[PersonalDetails]="PersonalDetails"
+				[Hobbies]="Hobbies"
+				[Summary]="Summary"
+				[Experience]="Experience"
+				[Education]="Education"
+				[Skills]="Skills"
+				[References]="References"
+				[Internship]="Internship"
+				[Courses]="Courses"
+				[Publication]="Publication"
+				[Project]="Project"
+				[Languages]="Languages"
+				[ExtraCurricularActivities]="ExtraCurricularActivities"
+				[ExtraFields]="ExtraFields"
+				(updateInfo)="updateCv($event)"
+			></app-template-sunshine>
+		</div>
+	</div>
+</section>

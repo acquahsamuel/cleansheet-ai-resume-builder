@@ -1,0 +1,134 @@
+<div class="file-upload-container mb-6">
+    <div *ngIf="imagePreview; else noTemplate" class="image-preview mb-4">
+      <img
+        [src]="imagePreview"
+        alt="Image preview"
+        class="w-24 h-24 rounded-full"
+      />
+    </div>
+  
+    <ng-template #noTemplate>
+      <img
+        [src]="'/assets/images/placeholder.png'"
+        class="w-24 h-24 rounded-full"
+        alt="Image preview"
+      />
+    </ng-template>
+  
+    <div class="file-drop-area mb-2">
+      <span class="fake-btn">Upload Profile</span>
+      <input
+        (change)="onFileChange($event)"
+        class="file-input"
+        
+        type="file"
+        accept="image/*"
+      />
+    </div>
+  
+    <span class="text-sm text-gray-600"
+      >Headshot profile pictures are preferred</span
+    >
+  </div>
+  
+  <form [formGroup]="headerInfoForm" (ngSubmit)="submitForm()">
+    <div class="form-section">
+      <div class="flex flex-wrap -mx-2">
+       
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="firstname" class="block mb-1">Firstname</label>
+          <input
+            formControlName="firstname"
+            type="text"
+            nz-input placeholder="default size" nzSize="default"
+            id="firstname"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Enter your first name"
+          />
+        </div>
+  
+        <!-- Surname -->
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="surname" class="block mb-1">Surname</label>
+          <input
+            formControlName="surname"
+            type="text"
+            nz-input placeholder="default size" nzSize="default"
+            id="surname"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Your surname"
+          />
+        </div>
+      </div>
+  
+      <div class="flex flex-wrap -mx-2">
+        <!-- City -->
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="city" class="block mb-1">City</label>
+          <input
+            formControlName="city"
+            type="text"
+            id="city"
+            nz-input placeholder="default size" nzSize="default"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Your City"
+          />
+        </div>
+  
+        <!-- Country -->
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="country" class="block mb-1">Country</label>
+          <input
+            formControlName="country"
+            type="text"
+            id="country"
+            nz-input placeholder="default size" nzSize="default"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Country"
+          />
+        </div>
+      </div>
+  
+      <div class="flex flex-wrap -mx-2">
+        <!-- Postal Code -->
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="postalCode" class="block mb-1">Postal Code</label>
+          <input
+            formControlName="postalCode"
+            type="text"
+            id="postalCode"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Postal Code"
+            nz-input placeholder="default size" nzSize="default"
+          />
+        </div>
+  
+        <!-- Phone Number -->
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="phoneNumber" class="block mb-1">Phone Number</label>
+          <input
+            formControlName="phoneNumber"
+            type="text"
+            id="phoneNumber"
+            nz-input placeholder="default size" nzSize="default"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Phone Number"
+          />
+        </div>
+  
+        <!-- Email -->
+        <div class="form-group w-full px-2 py-2 sm:w-1/2">
+          <label for="email" class="block mb-1">Email</label>
+          <input
+            formControlName="email"
+            type="email"
+            id="email"
+            nz-input placeholder="default size" nzSize="default"
+            class="w-full border border-gray-300 rounded px-3 py-2"
+            placeholder="Your email address"
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+  

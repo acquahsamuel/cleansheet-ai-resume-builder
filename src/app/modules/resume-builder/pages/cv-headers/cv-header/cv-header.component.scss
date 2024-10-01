@@ -1,0 +1,107 @@
+.resume-form {
+  max-width: 400px;
+  padding: 20px;
+  // border-radius: 8px;
+  font-family: "Arial", sans-serif;
+}
+
+.file-upload-container {
+  margin: 7px 0;
+
+  .file-drop-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    //   width: 450px;
+    max-width: 100%;
+    width: 130px;
+    height: 30px;
+    border: 1px solid rgba(49, 43, 43, 0.4);
+    border-radius: 100px;
+    transition: 0.2s;
+    margin: 8px;
+    cursor: pointer;
+
+    &.is-active {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  .fake-btn {
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    padding: 8px 15px;
+    margin-right: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .file-msg {
+    font-size: small;
+    font-weight: 300;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+
+  .image-preview {
+    margin-top: 10px;
+  
+  }
+
+  .image-preview img {
+  
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .progress-container {
+    margin-top: 10px;
+    width: 100%;
+    //   background-color: #f3f3f3;
+    border-radius: 5px;
+    height: 20px;
+    position: relative;
+  }
+
+  .progress-bar {
+    background-color: rgb(3, 82, 10);
+    width: 90%;
+    height: 5px;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+    margin: 5px;
+  }
+}
+
+
+ 

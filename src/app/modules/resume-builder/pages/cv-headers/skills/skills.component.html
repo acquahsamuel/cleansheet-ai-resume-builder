@@ -1,0 +1,66 @@
+<div class="form-section">
+  <form [formGroup]="skillsForm">
+    <div formArrayName="skillsRecords">
+      <div
+        *ngFor="let skills of skillsRecord.controls; let i = index"
+        [formGroupName]="i"
+        class="education-record"
+      >
+        <h3></h3>
+
+        <div class="form-section flex flex-wrap">
+          <div class="form-group w-full sm:w-1/2">
+            <label for="name"> Skill </label>
+            <input
+              id="name"
+              type="text"
+              nz-input
+              placeholder=" Enter Skill"
+              nzSize="default"
+              formControlName="name"
+             
+            />
+          </div>
+
+          <div class="example-input  sm:w-1/2">
+            <label for="name"> Proficiency  </label>
+            <nz-select
+              class="w-full "
+              formControlName="proficiency"
+              nzShowSearch
+              nzAllowClear
+              nzPlaceHolder="Select Proficiency"
+            >
+              <nz-option nzLabel="Beginner" nzValue="Beginner"></nz-option>
+              <nz-option
+                nzLabel="Intermediate"
+                nzValue="Intermediate"
+              ></nz-option>
+              <nz-option nzLabel="Advanced" nzValue="Advanced"></nz-option>
+
+              <nz-option nzLabel="Intermediate" nzValue="Expert"></nz-option>
+              <nz-option nzLabel="Advanced" nzValue="Master"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+
+        <div class="form-section w-full flex flex-wrap py-2  sm:w-1/2">
+          <label for="name"> Level  </label>
+          <nz-slider nzRange   class="w-full " ></nz-slider>
+        </div>
+
+        <div class="flex justify-end">
+          
+          <button
+          (click)="removeEducationRecord(i)"
+          nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzType="delete"></span></button>
+
+        </div>
+      </div>
+    </div>
+
+    <button (click)="addEducationRecord()"  nz-button nzType="primary" class="btn-create" type="button">
+      Add Skills
+    </button>
+  </form>
+</div>

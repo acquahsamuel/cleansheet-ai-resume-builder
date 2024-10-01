@@ -1,0 +1,113 @@
+<div class="form-section">
+  <form [formGroup]="experienceForm">
+    <div formArrayName="experienceRecords">
+      <div
+        *ngFor="let education of experienceRecords.controls; let i = index"
+        [formGroupName]="i"
+        class="education-record"
+      >
+        <div class="form-section">
+          <div class="flex flex-wrap">
+            <div class="form-group w-full sm:w-1/2 px-2 py-2">
+              <label for="country"> Job Title </label>
+              <input
+                placeholder="Enter Job Title"
+                formControlName="jobTitle"
+                type="text"
+                nz-input
+                nzSize="default"
+              />
+            </div>
+
+            <div class="form-group w-full sm:w-1/2 px-2 py-2">
+              <label for="country">Employer Name </label>
+
+              <input
+                nz-input
+                nzSize="default"
+                placeholder="Enter Employer name"
+                type="text"
+                formControlName="degree"
+              />
+            </div>
+          </div>
+
+          <div class="form-section flex flex-wrap">
+            <div class="form-group w-full sm:w-1/2 px-2 py-2">
+              <label for="country"> City </label>
+              <input
+                placeholder="Enter City"
+                formControlName="city"
+                type="text"
+                nz-input
+                nzSize="default"
+              />
+            </div>
+
+            <div class="form-group w-full sm:w-1/2 px-2 py-2">
+              <label for="country">Country </label>
+              <input
+                placeholder="Country"
+                type="text"
+                formControlName="country"
+                nz-input
+                nzSize="default"
+              />
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-column flex flex-wrap">
+              <div class="form-group flex flex-col w-full sm:w-1/2 px-2 py-2">
+                <label for="startYear">Start Date</label>
+                <nz-date-picker
+                  formControlName="startYear"
+                  (ngModelChange)="onDateChange($event)"
+                ></nz-date-picker>
+              </div>
+
+              <div class="form-group flex flex-col w-full sm:w-1/2 px-2 py-2">
+                <label for="endYear">End Date</label>
+                <nz-date-picker
+                  formControlName="endYear"
+                  (ngModelChange)="onDateChange($event)"
+                ></nz-date-picker>
+              </div>
+
+              <div class="form-group w-full sm:w-1/2 px-2 py-2">
+                <div class="checkbox-wrapper-14">
+                  <label
+                    for="s1-14"
+                    formControlName="currentlyHere"
+                    nz-checkbox
+                    class="font-normal"
+                  >
+                    I Currently work here
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label for=""> Role Description </label>
+              <app-custom-editor formControlName="summary"></app-custom-editor>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+           
+            <button
+            (click)="removeEducationRecord(i)"
+            nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzType="delete"></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-create"  nz-button nzType="primary" (click)="addEducationRecord()" type="button">
+      Add Experience
+    </button>
+  </form>
+</div>

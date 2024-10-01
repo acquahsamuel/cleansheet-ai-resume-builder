@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+* {
+//   font-family: "RigSans";
+}
+@font-face {
+  font-family: "RigSans";
+  font-weight: normal;
+  src: url("/fonts/RigRegular.otf") format("opentype");
+}
+@font-face {
+  font-family: "RigSansBold";
+  font-weight: 500;
+  src: url("/fonts/RigBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "RigSansBoldItalic";
+  src: url("/fonts/RigBoldItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "RigSansLightItalic";
+  src: url("/fonts/RigLightItalic.otf") format("opentype");
+}
+@font-face {
+  font-family: "RigSansMedium";
+  src: url("/fonts/RigMedium.otf") format("opentype");
+}
+  
+button{
+    // border: none;
+    outline: none;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(0, 77, 139); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3d3c3c; 
+  }
