@@ -1,7 +1,7 @@
  # AI CV/Resume Builder
 
 <!-- <p align="center"></p> -->
-<img src="src/assets/images/previews/img-1.png">
+<img src="src/assets/images/readme.png">
 
 Professional CV Builder: Open-Source, Secure, and ATS-Optimized
 This project is a unique, privacy-focused resume builder designed to help you create professional CVs with ease. It offers complete security, customization options, and portability, ensuring your personal data remains protected. As an open-source project, it is entirely free to use and will remain so forever. Users can generate downloadable PDF versions of their resumes in various pre-designed templates.
