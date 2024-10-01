@@ -1,21 +1,28 @@
 <section class="app-container">
-  <div class="builder">
-    <div class="builder-container">
-      <!-- <app-cv-header></app-cv-header>
-      <app-experience></app-experience>
-      <app-education></app-education>
-      <app-references></app-references> -->
-      <app-publications></app-publications>
-      <app-skills></app-skills>
-      <app-courses></app-courses>
-    </div>
-  </div>
+  <section class="builder">
+    <nz-collapse [nzBordered]="false">
+      @for (panel of panels; track panel) {
+        <nz-collapse-panel
+          #p
+          [nzHeader]="panel.name"
+          [nzActive]="panel.active"
+          [ngStyle]="panel.customStyle"
+          [nzExpandedIcon]="!$first ? panel.icon || expandedIcon : undefined"
+        >
+          <ng-container *ngIf="panel.visible">
+            <ng-container *ngComponentOutlet="panel.component"></ng-container>
+          </ng-container>
+          <ng-template #expandedIcon let-active>
+            {{ active }}
+            <span nz-icon nzType="caret-right" class="ant-collapse-arrow" [nzRotate]="p.nzActive ? 90 : -90"></span>
+          </ng-template>
+        </nz-collapse-panel>
+      }
+    </nz-collapse>
+  </section>
 
-  <div class="preview">
-    <div class="resume-preview" id="resumePreview">
-      <app-template-sunshine></app-template-sunshine>
-    </div>
-  </div>
+  <section class="preview">
+         <!-- Hello world  -->
+  </section>
+
 </section>
-
-

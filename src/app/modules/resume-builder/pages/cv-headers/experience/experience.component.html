@@ -1,4 +1,4 @@
-<div class="form-section">
+<div class=" ">
   <form [formGroup]="experienceForm">
     <div formArrayName="experienceRecords">
       <div
@@ -8,7 +8,7 @@
       >
         <div class="form-section">
           <div class="flex flex-wrap">
-            <div class="form-group w-full sm:w-1/2 px-2 py-2">
+            <div class="form-group w-full px-2 py-2 sm:w-1/2">
               <label for="country"> Job Title </label>
               <input
                 placeholder="Enter Job Title"
@@ -19,7 +19,7 @@
               />
             </div>
 
-            <div class="form-group w-full sm:w-1/2 px-2 py-2">
+            <div class="form-group w-full sm:w-1/2   py-2">
               <label for="country">Employer Name </label>
 
               <input
@@ -97,16 +97,26 @@
           </div>
 
           <div class="flex justify-end">
-           
             <button
-            (click)="removeEducationRecord(i)"
-            nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzType="delete"></span></button>
+              (click)="removeEducationRecord(i)"
+              nz-button
+              nzType="primary"
+              [nzSize]="'small'"
+            >
+              <span nz-icon nzType="delete"></span>
+            </button>
           </div>
         </div>
       </div>
     </div>
-
-    <button class="btn-create"  nz-button nzType="primary" (click)="addEducationRecord()" type="button">
+    <!-- <span nz-icon nzType="plus-circle" nzTheme="outline"></span> -->
+    <button
+      class="btn-create"
+      nz-button
+      nzType="primary"
+      (click)="addEducationRecord()"
+      type="button"
+    >
       Add Experience
     </button>
   </form>

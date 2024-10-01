@@ -1,15 +1,16 @@
 
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule } from "@angular/forms";
-import { NgFor } from "@angular/common";
+import { CommonModule, NgFor } from "@angular/common";
 import { CustomEditorComponent } from "../../../../../shared/components/custom-editor/custom-editor.component";
+import { NgZorroAntdModule } from "../../../../../shared/modules/ng-zero-ant.module";
 
 @Component({
     selector: 'app-references',
     templateUrl: './references.component.html',
     styleUrls: ['./references.component.scss'],
     standalone: true,
-    imports: [ReactiveFormsModule, NgFor, CustomEditorComponent]
+    imports: [ReactiveFormsModule, CommonModule, NgZorroAntdModule, CustomEditorComponent]
 })
 
 export class ReferencesComponent implements OnInit {
@@ -57,12 +58,12 @@ export class ReferencesComponent implements OnInit {
   }
 
   // Add a new education record
-  addEducationRecord(): void {
+  addRecord(): void {
     this.educationRecords.push(this.createEducationRecord());
   }
 
   // Remove an education record
-  removeEducationRecord(index: number): void {
+  removeRecord(index: number): void {
     this.educationRecords.removeAt(index);
   }
 
@@ -76,19 +77,5 @@ export class ReferencesComponent implements OnInit {
     this.getPrograms(educationIndex).removeAt(programIndex);
   }
 
-  // Save form data to local storage
-  saveToLocalStorage(): void {
-    localStorage.setItem(
-      "educationData",
-      JSON.stringify(this.educationForm.value)
-    );
-  }
-
-  // Load data from local storage
-  loadDataFromLocalStorage(): void {
-    const savedData = localStorage.getItem("educationData");
-    if (savedData) {
-      this.educationForm.patchValue(JSON.parse(savedData));
-    }
-  }
+  onDateChange(date: any) {}
 }

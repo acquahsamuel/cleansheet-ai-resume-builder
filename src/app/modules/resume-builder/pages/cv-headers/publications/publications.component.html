@@ -16,32 +16,33 @@
                 type="text"
                 formControlName="name"
                 placeholder="Skill"
+                nz-input
+                nzSize="default"
               />
             </div>
   
         
   
-            <div class="form-group w-full px-3 sm:w-1/2">
-              <label for="proficiency" class="block mb-2 text-gray-700 font-medium">Proficiency</label>
-              <div class="relative">
-                <select
-                  id="proficiency"
+            <div class="form-group w-full  sm:w-1/2">
+              <div class="example-input ">
+                <label for="name"> Proficiency  </label>
+                <nz-select
+                  class="w-full "
                   formControlName="proficiency"
-                  class="block appearance-none w-full bg-gray-100 border border-gray-300 text-gray-700 py-2 px-2 pr-8 rounded-md leading-tight focus:outline-none focus:bg-white focus:border-green-500"
+                  nzShowSearch
+                  nzAllowClear
+                  nzPlaceHolder="Select Proficiency"
                 >
-                  <option value="" disabled selected>Select your proficiency</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Advanced">Advanced</option>
-                  <option value="Expert">Expert</option>
-                  <option value="Master">Master</option>
-                </select>
-            
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
-                  </svg>
-                </div>
+                  <nz-option nzLabel="Beginner" nzValue="Beginner"></nz-option>
+                  <nz-option
+                    nzLabel="Intermediate"
+                    nzValue="Intermediate"
+                  ></nz-option>
+                  <nz-option nzLabel="Advanced" nzValue="Advanced"></nz-option>
+    
+                  <nz-option nzLabel="Intermediate" nzValue="Expert"></nz-option>
+                  <nz-option nzLabel="Advanced" nzValue="Master"></nz-option>
+                </nz-select>
               </div>
             </div>
   
@@ -50,26 +51,33 @@
   
           <div>
             <div class="form-group px-3 my-3">
-              <label for>Role Description</label>
+              <label for> Description</label>
               <app-custom-editor formControlName="summary"></app-custom-editor>
             </div>
           </div>
   
           <div class="flex justify-end">
             <button
-              class="btn-delete"
-              (click)="removeEducationRecord(i)"
-              type="button"
-            >
-              <!-- <mat-icon>delete_outline</mat-icon> -->
-            </button>
+            (click)="removeEducationRecord(i)"
+            nz-button
+            nzType="primary"
+            [nzSize]="'small'"
+          >
+            <span nz-icon nzType="delete"></span>
+          </button>
           </div>
         </div>
       </div>
   
-      <button (click)="addEducationRecord()" class="btn-create" type="button">
-        Add Experience
-      </button>
+      <button
+      class="btn-create"
+      nz-button
+      nzType="primary"
+      (click)="addEducationRecord()"
+      type="button"
+    >
+      Add Publications
+    </button>
     </form>
   </div>
   

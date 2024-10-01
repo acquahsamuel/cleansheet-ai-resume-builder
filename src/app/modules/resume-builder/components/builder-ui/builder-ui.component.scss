@@ -1,21 +1,17 @@
 .app-container {
   display: flex;
   min-height: 100vh;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   overflow: hidden;
 }
 
-.builder {
-  margin: 0 20px;
-  // min-height: 100vh;
+.builder { 
   max-width: 40%;
-  // background-color: #f9f9f9;
-  // background-color: red;
-
+ 
 
   &-container {
     // padding: 20px;
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
 }
 
@@ -23,8 +19,9 @@
   // min-height: 100vh;
   flex: 1;
   max-width: 55%;
+  width: 55%;
   width: 100%;
-  overflow-y: scroll;
+  // overflow-y: scroll;
   background: white;
 
 
