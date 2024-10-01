@@ -78,18 +78,12 @@ export class SignupComponent implements OnInit {
   }
 
 
-
-  // register(){
-  //   this.authService.saveUserToken();
-  //   this.router.navigateByUrl('/interaction');
-  // }
-
-
   /**
    * @description handles signup
    * @returns
    */
   register() {
+    this.router.navigateByUrl('/builder/resume-builder');
     console.log(this.signUpForm.value);
 
 
@@ -121,12 +115,15 @@ export class SignupComponent implements OnInit {
     }
   }
 
+
+
+
   signIn(account: any) {
     this.authService.logIn(this.signUpForm.value).subscribe(
       (x: any) => {
         this.state.verifyingCredentials = false;
         this.authService.saveUserToken(x?.token);
-        this.router.navigateByUrl('dashboard/interaction');
+        this.router.navigateByUrl('/builder/resume-builder');
       },
 
       (err: any) => {

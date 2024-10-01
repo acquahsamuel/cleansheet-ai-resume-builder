@@ -1,264 +1,241 @@
- /*
+/*
 Primary Rules
 */
- h1 {
-   font-weight  : 300;
-   margin       : 5px 0 0;
-   font-size    : 40px;
-   color        : black;
-   padding      : 0 10px 10px;
-   border-radius: 2px;
+h1 {
+  font-weight: 300;
+  margin: 5px 0 0;
+  //  font-size    : 40px;
+  color: black;
+  padding: 0 10px 10px;
+  border-radius: 2px;
+}
 
- }
+h2 {
+  color: black;
+  width: 150px;
+  //  font-size   : 18px;
+  padding-left: 20px;
+  padding-top: 12px;
+  font-weight: 700;
+}
 
- h2 {
-   color       : black;
-   width       : 150px;
-   font-size   : 18px;
-   padding-left: 20px;
-   padding-top : 12px;
-   font-weight : 700;
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 28px;
+}
 
- }
+h2,
+h3 {
+  margin-top: 5px;
+}
 
- h3 {
-   font-size    : 18px;
-   font-weight  : bold;
-   margin-bottom: 0;
-   line-height  : 28px;
+a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 2px;
+  margin-right: -2px;
+}
 
- }
+a:hover {
+  background-color: black;
+  color: #fff;
+}
 
- h2,
- h3 {
-   margin-top: 5px
- }
+.key:first-child {
+  margin-left: 0;
+}
 
- a {
-   color          : black;
-   display        : inline-block;
-   text-decoration: none;
-   padding        : 2px 4px;
-   border-radius  : 2px;
-   margin-right   : -2px;
- }
+.key {
+  margin: 0 10px;
+  position: relative;
+}
 
+.key::before {
+  content: "◆";
+  position: absolute;
+  left: -15px;
+  color: #555;
+  font-size: 7pt;
+}
 
- a:hover {
-   background-color: black;
-   color           : #fff;
- }
+.key:first-child::before {
+  content: "";
+}
 
- .key:first-child {
-   margin-left: 0
- }
+.section {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0 15px;
+}
 
- .key {
-   margin  : 0 10px;
-   position: relative;
- }
+.section:last-child {
+  border: none;
+}
 
- .key::before {
-   content  : '◆';
-   position : absolute;
-   left     : -15px;
-   color    : #555;
-   font-size: 7pt;
- }
+.section-text {
+  width: 80%;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 10px 0 10px;
+  padding: 0 10px;
+}
 
- .key:first-child::before {
-   content: ''
- }
+.subsection {
+  margin: 10px 0 5px;
+}
 
- .section {
-   border-bottom: 1px solid #ddd;
-   padding      : 10px 0 15px;
- }
+.desc {
+  font-size: 16px;
 
- .section:last-child {
-   border: none
- }
+  color: #444;
+}
 
- .section-text {
-   width      : 80%;
-   font-size  : 18px;
-   line-height: 24px;
-   margin     : 10px 0 10px;
-   padding    : 0 10px;
- }
+.contact-info {
+  font-size: 16px;
+  text-align: right;
+}
 
- .subsection {
-   margin: 10px 0 5px
- }
+.light {
+  color: #aaa;
+  letter-spacing: 1px;
+  font-size: 14px;
+  line-height: 28px;
 
- .desc {
-   font-size  : 16px;
-   font-family: 'Source Sans Pro', sans-serif;
-   color      : #444;
- }
+  text-transform: uppercase;
+}
 
- .contact-info {
-   font-size : 16px;
-   text-align: right;
- }
+ul {
+  padding-left: 15px;
+}
 
- .light {
-   color         : #aaa;
-   letter-spacing: 1px;
-   font-size     : 14px;
-   line-height   : 28px;
-   font-family   : 'Source Sans Pro', sans-serif;
-   text-transform: uppercase;
- }
+ul.skills {
+  float: left;
+  width: 30%;
+  padding-left: 0px;
+  margin: 0 20px 0 0;
+}
 
- ul {
-   padding-left: 15px;
- }
+ul.skills li {
+  list-style: none;
+  //  font-size    : 16px;
+  margin-bottom: 10px;
+}
 
- ul.skills {
-   float       : left;
-   width       : 30%;
-   padding-left: 0px;
-   margin      : 0 20px 0 0;
- }
+ul.skills li:last-child {
+  margin: 0;
+}
 
- ul.skills li {
-   list-style   : none;
-   font-size    : 16px;
-   margin-bottom: 10px;
- }
-
- ul.skills li:last-child {
-   margin: 0;
- }
-
- /*
+/*
 Float Rules
 */
- .row:before,
- .row:after {
-   content: "";
-   display: table;
- }
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+}
 
- .row:after {
-   clear: both
- }
+.row:after {
+  clear: both;
+}
 
- .col {
-   float: left
- }
+.col {
+  float: left;
+}
 
- .col-right {
-   float: right
- }
+.col-right {
+  float: right;
+}
 
- /*
+/*
 Page Rules
 */
- .page {
-   width     : 1000px;
-   min-height: 29.7cm;
-   margin    : 1cm auto;
+.page {
+  font-size: 12px !important;
+  background: white;
+  padding: 10px;
+}
 
-   background: white;
-   padding   : 20px 50px;
- }
+.subpage {
+  padding: 1cm;
+  border: 1px red solid;
+  height: 297mm;
+}
 
- .subpage {
-   padding: 1cm;
-   border : 1px red solid;
-   height : 297mm;
- }
+@page {
+  size: A4;
+  margin: 0;
+}
 
- @page {
-   size  : A4;
-   margin: 0;
- }
+@media print {
+  .page {
+    margin: 0;
+    border: initial;
+    border-radius: initial;
+    width: initial;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
 
- @media print {
-   .page {
-     margin          : 0;
-     border          : initial;
-     border-radius   : initial;
-     width           : initial;
-     min-height      : initial;
-     box-shadow      : initial;
-     background      : initial;
-     page-break-after: always;
-   }
+  .page-break {
+    page-break-before: always;
+    padding-top: 30px;
+  }
 
-   .page-break {
-     page-break-before: always;
-     padding-top      : 30px;
-   }
+  h2 {
+    //  font-size   : 10pt;
+    width: 3cm;
+    padding-left: 10px;
+  }
 
-   body {
-     font-size: 12pt;
-   }
+  h3 {
+    //  font-size  : 10pt;
+    line-height: 11pt;
+  }
 
-   h1 {
-     font-size: 23pt;
-   }
+  .section-text {
+    font-size: 9pt;
+    line-height: 14pt;
+  }
 
-   h2 {
-     font-size   : 10pt;
-     width       : 3cm;
-     padding-left: 10px;
-   }
+  .light {
+    //  font-size  : 7.5pt;
+    line-height: 12pt;
+    color: #ddd;
+  }
 
-   h3 {
-     font-size  : 10pt;
-     line-height: 11pt
-   }
+  .page {
+    width: 21cm;
+  }
 
-   .section-text {
-     font-size  : 9pt;
-     line-height: 14pt;
-   }
+  ul {
+    margin: 5px 0 0;
+  }
 
-   .light {
-     font-size  : 7.5pt;
-     line-height: 12pt;
-     color      : #ddd;
-   }
+  .section {
+    padding: 5px 0 8px;
+    font-size: 12px !important;
+  }
 
-   .page {
-     width: 21cm
-   }
+  .section-text {
+    width: 15cm;
+    margin: 5px 0 5px;
+  }
 
-   ul {
-     margin: 5px 0 0
-   }
+  .subsection {
+    margin: 5px 0 0;
+  }
 
-   .section {
-     padding: 5px 0 8px
-   }
+  ul.skills {
+    margin: 0 10px 0 0;
+  }
 
-   .section-text {
-     width : 15cm;
-     margin: 5px 0 5px;
-   }
-
-   .subsection {
-     margin: 5px 0 0
-   }
-
-   .desc {
-     font-size: 9pt
-   }
-
-   .contact-info {
-     font-size: 9pt
-   }
-
-   ul.skills {
-     margin: 0 10px 0 0;
-   }
-
-   ul.skills li {
-     font-size    : 9pt;
-     margin-bottom: 0
-   }
-
- }
+  ul.skills li {
+    //  font-size    : 9pt;
+    margin-bottom: 0;
+  }
+}

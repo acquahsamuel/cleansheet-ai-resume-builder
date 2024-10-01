@@ -47,16 +47,14 @@ input[type="date"],
 input[type="email"] {
   width: 100%;
   padding: 8px;
-  border-radius: 7px;
   color: black;
   width: 100%;
-  // margin-top: 0.5rem;
   font-size: 1rem;
-  transition: all 500ms ease-in-out;
+  transition: all 200ms ease-in-out;
   border: 1px solid transparent;
   border-radius: 0.5rem;
   background-color: #f1f1f3;
-  font-family: "Poppins", sans-serif;
+  
 
   &::placeholder {
     color: #7d7f83;
@@ -64,10 +62,10 @@ input[type="email"] {
   }
 
   &:focus {
-    border-color: #6b7280;
+    border-color: #212122;
     background-color: #ffffff;
     outline: none;
-    box-shadow: 0 0 0 1.3px #6b7280;
+    box-shadow: 0 0 0 .3px #6b7280;
   }
 }
 
@@ -103,7 +101,11 @@ $btn-color: #ffffff;
   @include button-style(green);
 }
 
+
 .btn-delete {
-  @include button-style(rgb(255, 203, 203));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: red;
+  padding: .5rem 1.25rem;
 }

@@ -27,17 +27,6 @@
 							class="user-image"
 							alt="profile image">
 						<mat-menu #menu="matMenu">
-							<a (click)="logout()"
-								mat-menu-item>
-								<mat-icon>dashboard</mat-icon>
-								My Notes
-							</a>
-
-							<a (click)="logout()"
-								mat-menu-item>
-								<mat-icon>turned_in_not</mat-icon>
-								Customize ChatGPT
-							</a>
 
 							<a (click)="logout()"
 								mat-menu-item>
@@ -60,7 +49,7 @@
 		<mat-drawer #drawer
 			class="dashboard-sidenav"
 			mode="side"
-			opened="false">
+			opened="true">
 			<div class="header">Cleansheet</div>
 			<div class="sidebar-wrapper">
 				<div *ngFor="let link of LINKS"

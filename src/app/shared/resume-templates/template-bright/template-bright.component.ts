@@ -1,25 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-template-bright',
-  templateUrl: './template-bright.component.html',
-  styleUrls: ['./template-bright.component.scss']
+  selector: "app-template-bright",
+  templateUrl: "./template-bright.component.html",
+  styleUrls: ["./template-bright.component.scss"],
 })
 export class TemplateBrightComponent implements OnInit {
-  HEADERINFO : any;
+  HEADERINFO: any;
+  @Input() selectedTemplate!: string;
+  @Input() name!: string;
+  @Input() jobTitle!: string;
+  @Input() experience!: any[];
+  @Input() education!: string;
+  @Input() publications!: any[];
+  @Input() skills!: any[];
+  @Input() summary!: string;
 
-  constructor() { }
+  
+  @Input() showActions!: boolean;
+  @Output() showActionsChange = new Output();
+
+  constructor() {}
 
   ngOnInit(): void {
-
-    this.fetchAllSubmitedData();
     
   }
 
 
 
-  fetchAllSubmitedData(){
-    this.HEADERINFO =  JSON.parse(localStorage.getItem("HEADERINFO"));
-   console.log(this.HEADERINFO, "Header info");
- }
+  fetchAllSubmitedData() {
+    this.HEADERINFO = JSON.parse(localStorage.getItem("HEADERINFO"));
+    console.log(this.HEADERINFO, "Header info");
+  }
+
+
+  
 }

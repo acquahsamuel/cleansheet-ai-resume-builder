@@ -1,0 +1,19 @@
+Personal Details 
+Summary 
+Experience
+Education 
+Skills
+Hobbies 
+References 
+Internship 
+Courses 
+Publications 
+Projects 
+Languages 
+Extra curricular active 
+
+dynamic fields 
+
+
+I want to create 2 differnt CV templates UI, that accepts all this fields and additional fields as input, 
+i want to be able change templates and rerender it

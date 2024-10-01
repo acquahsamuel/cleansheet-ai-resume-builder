@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-template-sk',
@@ -6,7 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./template-sk.component.scss']
 })
 export class TemplateSkComponent implements OnInit {
-  HEADERINFO : any;
+  @Input() selectedTemplate!: string;
+  @Input() PersonalDetails = [];
+  @Input() Hobbies = [];
+  @Input() Summary = [];
+  @Input() Experience = [];
+  @Input() Education = [];
+  @Input() Skills = [];
+  @Input() References = [];
+  @Input() Internship = [];
+  @Input() Courses = [];
+  @Input() Publication = [];
+  @Input() Project = [];
+  @Input() Languages = [];
+  @Input() ExtraCurricularActivities = [];
+  @Input() ExtraFields = [];
+
+
   constructor() { }
 
   ngOnInit(): void {
@@ -16,7 +32,7 @@ export class TemplateSkComponent implements OnInit {
 
 
   fetchAllSubmitedData(){
-     this.HEADERINFO =  JSON.parse(localStorage.getItem("HEADERINFO"));
-    console.log(this.HEADERINFO, "Header info");
+    //  this.HEADERINFO =  JSON.parse(localStorage.getItem("HEADERINFO"));
+    // console.log(this.HEADERINFO, "Header info");
   }
 }

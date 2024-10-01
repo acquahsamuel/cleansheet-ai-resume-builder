@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
    * @returns
    */
    logInSubmit() {
-
+    this.router.navigateByUrl('/builder/resume-builder');
+    
     if (this.loginForm.valid) {
       this.state.verifyingCredentials = true;
       this.authService.logIn(this.loginForm.value).subscribe(

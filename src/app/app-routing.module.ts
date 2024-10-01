@@ -6,15 +6,20 @@ import { AuthGuardService } from 'src/app/shared/services/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('./modules/resume-builder/resume-builer.module')
-        .then((m) => m.ResumeBuilerModule),
+    redirectTo: 'auth',
+    pathMatch: 'full',
   },
   {
     path: 'auth',
     loadChildren: () =>
       import('./modules/auth/user-auth-routing.module')
         .then((m) => m.UserAuthRoutingModule),
+  },
+  {
+    path: 'builder',
+    loadChildren: () =>
+      import('./modules/resume-builder/resume-builer.module')
+        .then((m) => m.ResumeBuilerModule),
   },
 ];
 

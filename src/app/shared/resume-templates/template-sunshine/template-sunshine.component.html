@@ -1,17 +1,54 @@
  
         <div class="page">
+           <section class="header personaldetails">
             <div class="section row">
-                <h1 class="col"><span style="font-weight:700"> Acquah </span> Samuel </h1>
+                <h1 class="col"><span style="font-weight:700"> {{PersonalDetails?.firstname}} </span>  {{PersonalDetails?.surname}} </h1>
                 <div class="contact-info col-right">
-                    <div>{{"Accra Ghana"}}</div>
-                    <div><a href="mailto:jugalm@nyu.edu">{{"iamsamuelacquah@gmail.com"}}</a></div>
-                    <div><a href="http://jugalm.com">{{"trenda.live"}}</a></div>
+                    <div> {{PersonalDetails?.city}}</div>
+                    <div><a href="{{PersonalDetails?.email}}">{{PersonalDetails?.email}}</a></div>
+                    <div><a href="{{PersonalDetails?.country}}">  {{PersonalDetails?.country}} </a></div>
                 </div>
             </div>
+
             <div class="section row">
-                <h2 class="col">Interests</h2>
-                <div class="section-text col-right"><span class="key">Intelligent systems</span> <span class="key">Machine learning</span> <span class="key">Data visualization</span> <span class="key">Computer vision &amp; graphics</span> <span class="key">Information networks</span> <span class="key">User experience / interaction design</span> </div>
+                <h2 class="col"> Social Handles </h2>
+                <div class="section-text col-right">
+                    <ul  class="skills" style="width:25%" *ngFor="let field of PersonalDetails?.fields">
+                        <li><a href="{{field.label}}">{{field.label}}</a></li>
+                    </ul>
+                </div>
             </div>
+           </section>
+
+
+
+           <section class="summary">
+            <div class="section row">
+                <h2 class="col"> Professional Summary </h2>
+                <div class="section-text col-right">        
+                    {{ "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nihil expedita rerum impedit repellendus. Nemo nesciunt at est possimus numquam neque corporis, minus obcaecati iste libero nobis minima, non fugiat!"}}
+                </div>
+            </div>
+           </section>
+
+
+
+           <section>
+              <div class="section row">
+                <h2 class="col">Interests</h2>
+                <div class="section-text col-right"><span class="key">Intelligent systems</span> 
+                    <span class="key">Machine learning</span> 
+                    <span class="key">Data visualization</span>
+                    <span class="key">Computer vision &amp; graphics</span>
+                    <span class="key">Information networks</span>
+                    <span class="key">User experience / interaction design</span> </div>
+            </div>
+           </section>
+
+
+          
+
+
             <div class="section row">
                 <h2 class="col">Skills</h2>
                 <div class="section-text col-right row">
@@ -39,12 +76,14 @@
             <div class="section row">
                 <h2 class="col">Education</h2>
                 <div class="section-text col-right">
+
                     <h3><span class="emph"> Bachelor of Science </span> in Computer Science</h3>
                     <div> The University of Energy and Natural Resources </div>
                     <div class="row">
                         <div class="col light"> Ghana, Bono Region. Sunyani</div>
                         <div class="col-right light">September 2013 - May 2015</div>
                     </div>
+
                 </div>
 
                 <div class="section-text col-right">

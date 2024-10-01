@@ -24,8 +24,6 @@
 }
 
 .dashboard-container {
-  font-family: "Inter", sans-serif;
-  //   background: #212121;
   background: #eee;
   height: 100vh;
   overflow: hidden;
@@ -94,6 +92,10 @@
   margin: 2rem 0;
   overflow-y: scroll;
   padding: 1.4em;
+
+  display: flex;
+  flex-direction: column;
+
 }
 
 .image-container {
@@ -119,13 +121,27 @@
 
 .link-container {
   overflow: hidden;
-  // margin  : 1.4rem 0;
+  cursor: pointer;
+ 
 
   display: flex;
+  align-items: center;
+
+
+  font-size: 12px;
 
   p {
     color: gray;
     padding: 0.3em 1em;
+  }
+
+  mat-icon {
+    color: gray;
+  }
+
+
+  &:hover{
+    background-color: rgb(233, 216, 193);
   }
 }
 

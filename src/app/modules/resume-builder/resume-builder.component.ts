@@ -1,4 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+ 
 
 @Component({
   selector: "app-resume-builder",
@@ -10,13 +12,18 @@ export class ResumeBuilderComponent implements OnInit {
   username = "Samuel";
   userProfile = "./assets/images/placeholder.png";
 
-  constructor() {}
+  constructor(
+    private chr : ChangeDetectorRef,
+    private router : Router
+  ) {}
 
   ngOnInit(): void {}
 
   getInteractionPrompt() {}
 
-  logout() {}
+  logout() {
+    this.router.navigate(["/auth/login"]);
+  }
 
   OnInit() {}
 
