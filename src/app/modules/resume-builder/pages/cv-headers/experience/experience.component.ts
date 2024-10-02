@@ -46,6 +46,7 @@ export class ExperienceComponent implements OnInit {
       city: ['', Validators.required],
       country: ['', Validators.required],
       summary: [''],
+      companyWebsite: [''],
       startYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       endYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       currentlyHere: [false],

@@ -34,7 +34,7 @@ export class CvHeaderComponent implements OnInit {
     "Gender or Pronoun",
     "Website",
     "LinkedIn",
-    "X",
+    "Twitter/X",
     "Medium",
     "GitHub",
     "ORCID",
@@ -86,12 +86,7 @@ export class CvHeaderComponent implements OnInit {
       this.onPersonalInfoUpdateEvt.emit(value);
     });
 
-    // this.headerInfoForm.valueChanges.pipe(distinctUntilChanged(), debounceTime(1500))
-    // .subscribe((v) => {
-
-    //   // this.updatePersonalInfo.emit(this.headerInfoForm.value);
-
-    // });
+  
   }
 
 

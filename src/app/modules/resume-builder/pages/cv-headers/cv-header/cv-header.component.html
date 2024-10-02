@@ -144,6 +144,8 @@
     </div>
 
     <!-- Dynamic Fields -->
+
+
     <div class="form-section py-4">
       <div class="flex flex-wrap -mx-2">
         <div class="w-full px-2">
@@ -172,6 +174,7 @@
                    
                   <button
                   (click)="removeField(i)" nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzDanger nzType="delete"></span></button>
+                  
                 </div>
               </div>
             </div> 
@@ -181,16 +184,19 @@
 
       <div class="flex flex-wrap">
         <div class="w-full">
-          <div class="mb-4">
+          <div class="#">
             <button
               *ngFor="let fieldType of fieldTypes"
               (click)="addField(fieldType)"
-              class="outline-none border border-gray-300 px-1 py-1"
+              class="outline-none border text-sm text-blue-950 border-gray-300"
               style="transition: all 0.15s ease"
             >
-            <span nz-icon nzType="plus" nzTheme="outline"></span>  
+            <span nz-icon nzSize="small" nzType="plus" nzTheme="outline"></span>  
             {{ fieldType }}
             </button>
+
+           
+
           </div>
         </div>
       </div>

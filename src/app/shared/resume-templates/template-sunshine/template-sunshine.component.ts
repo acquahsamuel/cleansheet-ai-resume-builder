@@ -30,14 +30,12 @@ export class TemplateSunshineComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
 
-  ngDoCheck() {
-    // console.log("TEMPLETE RENDERING");
-
-    // console.log(this.PersonalDetails, "PersonalDetails");
-    // console.log(this.Summary, "ProfessionalSummary");
+     console.log("DEMO", this.PersonalDetails);
   }
+
+  
 
   
 }

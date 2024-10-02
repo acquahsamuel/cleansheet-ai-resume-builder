@@ -126,21 +126,3 @@
 
 </ng-container> -->
 
- 
-
-<nz-collapse [nzExpandIconPosition]="expandIconPosition">
-  @for (panel of panels; track panel) {
-    <nz-collapse-panel
-      [nzHeader]="panel.name"
-      [nzActive]="panel.active"
-      [nzExtra]="extraTpl"
-      [nzDisabled]="panel.disabled"
-    >
-    <!-- <ng-container *ngComponentOutlet="extraPanel.component"></ng-container> -->
-    </nz-collapse-panel>
-  }
-</nz-collapse>
-<ng-template #extraTpl>
-  <span nz-icon nzType="setting" (click)="$event.stopPropagation()"></span>
-</ng-template>
- 

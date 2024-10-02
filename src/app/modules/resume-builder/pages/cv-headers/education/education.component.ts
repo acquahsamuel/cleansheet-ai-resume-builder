@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,17 +8,22 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from '../../../../../shared/modules/ng-zero-ant.module';
+import { CustomEditorComponent } from '../../../../../shared/components/custom-editor/custom-editor.component';
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.scss'],
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, NgZorroAntdModule],
+  imports: [NgZorroAntdModule ,ReactiveFormsModule, CommonModule, CustomEditorComponent],
+  changeDetection : ChangeDetectionStrategy.OnPush
 })
+
 export class EducationComponent implements OnInit {
   educationForm: FormGroup;
+  @Output() onEducationFormUpdate = new EventEmitter<any>();
 
+  
   constructor(private fb: FormBuilder) {
     this.educationForm = this.fb.group({
       educationRecords: this.fb.array([this.createEducationRecord()]),
@@ -28,7 +33,7 @@ export class EducationComponent implements OnInit {
   ngOnInit(): void {
     this.educationForm.valueChanges.subscribe((value: any) => {
       console.log(value, 'EDUCTION FORMS:::');
-      // this.onPersonalInfoUpdateEvt.emit(value);
+      this.onEducationFormUpdate.emit(value);
     });
   }
 
@@ -39,6 +44,8 @@ export class EducationComponent implements OnInit {
       degree: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
+      website : [''],
+      summary : [''],
       startYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       endYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       currentlyHere: [false],
@@ -72,7 +79,10 @@ export class EducationComponent implements OnInit {
 
   // Remove an education record
   removeEducationRecord(index: number): void {
-    this.educationRecords.removeAt(index);
+    // this.educationRecords.removeAt(index);
+    if (this.educationRecords.length > 1) {
+      this.educationRecords.removeAt(index);
+    }
   }
 
   // Add a new program to a specific education record

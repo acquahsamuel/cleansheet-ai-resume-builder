@@ -13,11 +13,11 @@ import { NgZorroAntdModule } from "../../../../../shared/modules/ng-zero-ant.mod
 })
 
 export class PublicationsComponent implements OnInit {
-  skillsForm: FormGroup;
+  publicationsForm: FormGroup;
   editorContent: string = '';
 
   constructor(private fb: FormBuilder) {
-    this.skillsForm = this.fb.group({
+    this.publicationsForm = this.fb.group({
       educationRecords: this.fb.array([this.createEducationRecord()])
     });
   }
@@ -45,7 +45,7 @@ export class PublicationsComponent implements OnInit {
 
   // Get the FormArray for education records
   get educationRecords(): FormArray {
-    return this.skillsForm.get("educationRecords") as FormArray;
+    return this.publicationsForm.get("educationRecords") as FormArray;
   }
 
  

@@ -1,18 +1,15 @@
-<!-- Add button to create a new education record -->
-
-<!-- Form with collapsible panels -->
-<form [formGroup]="educationForm">
-  <div formArrayName="educationRecords">
-    <nz-collapse>
-      <nz-collapse-panel
+<div class="form-section">
+  <form [formGroup]="educationForm">
+    
+    <div formArrayName="educationRecords">
+      <div
         *ngFor="let education of educationRecords.controls; let i = index"
         [formGroupName]="i"
-        [nzHeader]="
-          education.get('nameOfInstitution')?.value || 'New Institution'
-        "
-        [nzActive]="true"
-        [nzShowArrow]="true"
+        class="education-record"
       >
+        <h3></h3>
+
+        
         <section class="content-wrapper custom-divider">
           <div class="form-column flex flex-wrap">
             <div class="form-group w-full sm:w-1/2">
@@ -83,10 +80,14 @@
             </div>
           </div>
 
+
           <div class="form-section">
             <div class="form-group w-full">
               <div class="checkbox-wrapper-14">
-                <label for="s1-14" class="font-normal">
+                <label
+                  for="s1-14"
+                  class="font-normal"
+                >
                   Institution Website
                 </label>
                 <nz-input-group nzAddOnAfterIcon="chrome">
@@ -95,6 +96,7 @@
               </div>
             </div>
           </div>
+
 
           <div class="form-group">
             <label for> Summary </label>
@@ -105,35 +107,35 @@
             ></app-custom-editor>
           </div>
 
+
           <div class="flex justify-end">
+            
+
             <button
-              (click)="removeEducationRecord(i)"
-              nz-button
-              nzType="primary"
-              [nzSize]="'small'"
-              nz-button
-              nzType="primary"
-              nzDanger
-            >
-              <span nz-icon nzDanger nzType="delete"></span>
-            </button>
+            (click)="removeEducationRecord(i)"
+            nz-button
+            nzType="primary"
+            [nzSize]="'small'"
+            nz-button nzType="primary" nzDanger>
+            <span nz-icon nzDanger nzType="delete"></span>
+          </button>
+
+
           </div>
         </section>
-      </nz-collapse-panel>
-    </nz-collapse>
-  </div>
-</form>
 
+        
+      </div>
+    </div>
 
-<section class="py-3">
-  <button
-  class="btn-create "
-  nz-button
-  nzType="primary"
-  (click)="addEducationRecord()"
-  type="button"
->
-  Add Education
-</button>
-</section>
-
+    <button
+      class="btn-create"
+      nz-button
+      nzType="primary"
+      (click)="addEducationRecord()"
+      type="button"
+    >
+      Add Education
+    </button>
+  </form>
+</div>
