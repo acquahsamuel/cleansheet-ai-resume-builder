@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, ReactiveFormsModule } from "@angular/forms";
-import { NgIf, NgFor } from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { NgZorroAntdModule } from "../../../../../shared/modules/ng-zero-ant.module";
 
 @Component({
@@ -9,10 +9,10 @@ import { NgZorroAntdModule } from "../../../../../shared/modules/ng-zero-ant.mod
     styleUrls: ["./cv-header.component.scss"],
     standalone: true,
     imports: [
-        NgIf,
+       
         ReactiveFormsModule,
         NgZorroAntdModule,
-        NgFor,
+        CommonModule
     ],
 })
 export class CvHeaderComponent implements OnInit {

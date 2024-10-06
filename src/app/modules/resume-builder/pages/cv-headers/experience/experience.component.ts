@@ -42,7 +42,7 @@ export class ExperienceComponent implements OnInit {
   createExperienceRecord(): FormGroup {
     return this.fb.group({
       jobTitle: ['', Validators.required],
-      degree: ['', Validators.required],
+      employerName: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
       summary: [''],
@@ -71,8 +71,10 @@ export class ExperienceComponent implements OnInit {
   }
 
   // Remove an education record
-  removeEducationRecord(index: number): void {
-    this.experienceRecords.removeAt(index);
+  removeField(index: number): void {
+    if (this.experienceRecords.length > 1) {
+      this.experienceRecords.removeAt(index);
+    }
   }
 
   onDateChange(date: any) {}

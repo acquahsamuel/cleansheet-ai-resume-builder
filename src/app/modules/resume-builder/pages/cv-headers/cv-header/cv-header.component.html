@@ -138,7 +138,9 @@
       <!-- Date of Birth -->
       <div class="form-group flex flex-col w-full px-2 py-2 sm:w-1/2">
         <label for="dateOfBirth" class="block mb-1">Date of Birth</label>
-        <nz-date-picker formControlName="dateOfBirth"  (ngModelChange)="onDateChange($event)"></nz-date-picker>
+        <nz-date-picker formControlName="dateOfBirth" 
+        class="w-full border border-gray-300 rounded px-3 py-2"
+        (ngModelChange)="onDateChange($event)"></nz-date-picker>
          
       </div>
     </div>
@@ -160,21 +162,54 @@
                   {{ field.get("label")?.value }}
                 </label>
 
-                <div class="flex items-center w-full">
+                <!-- <button nz-button nzType="primary" [nzSize]="'small'" nzShape="round">
+                  <span nz-icon nzType="download"></span>
+                  Download
+                </button> -->
+
+                <div class="flex  items-center justify-center w-full">
                   <input
                     type="text"
-                     nz-input
-                     placeholder="default size"
-                     nzSize="default"
+                    nz-input
+                    placeholder="default size"
+                    nzSize="default"
                     formControlName="value"
+                    nzShape="round"
                     [attr.id]="field.get('label')?.value"
-                    class="flex-1 border border-gray-300 rounded px-3 py-2"
+                    class=""
                     [attr.placeholder]="field.get('label')?.value"
                   />
                    
-                  <button
-                  (click)="removeField(i)" nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzDanger nzType="delete"></span></button>
+                 
+                  <nz-space>
+                   <button
+                   (click)="removeField(i)"
+                   nz-button
+                   nzType="primary"
+                   [nzSize]="'small'"
+                   nz-button
+                   nzType="primary"
+                   class="p-2"
+                   nzDanger
+                 >
+                   <span nz-icon nzDanger nzType="delete"></span>
+                 </button>
+                 </nz-space>
                   
+
+                   <!-- <nz-space>
+                   <button
+                    *nzSpaceItem
+                    nz-button
+                    nz-popconfirm
+                    nzOkText="Yes"
+                    nzCancelText="No"
+                    nzPopconfirmTitle="Are you sure delete this task?"
+                  >
+                    Confirm
+                  </button>
+                </nz-space> -->
+
                 </div>
               </div>
             </div> 
@@ -188,15 +223,12 @@
             <button
               *ngFor="let fieldType of fieldTypes"
               (click)="addField(fieldType)"
-              class="outline-none border text-sm text-blue-950 border-gray-300"
-              style="transition: all 0.15s ease"
+              nzType="primary"
+              nzShape="round"
             >
             <span nz-icon nzSize="small" nzType="plus" nzTheme="outline"></span>  
             {{ fieldType }}
             </button>
-
-           
-
           </div>
         </div>
       </div>

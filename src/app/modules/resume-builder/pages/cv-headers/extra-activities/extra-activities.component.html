@@ -8,8 +8,8 @@
         >
           <h3></h3>
   
-          <div class="form-section flex flex-wrap">
-            <div class="form-group w-full sm:w-1/2">
+          <div class="form-section flex flex-wrap -mx-2">
+            <div class="form-group w-full  px-2 py-2 sm:w-1/2">
               <label for="name"> Activity </label>
               <input
                 id="name"
@@ -18,11 +18,11 @@
                 placeholder=" Enter Skill"
                 nzSize="default"
                 formControlName="name"
-               
+                class="border border-gray-300 rounded px-3 py-2"
               />
             </div>
   
-            <div class="example-input  sm:w-1/2">
+            <div class="example-input   sm:w-1/2  px-2 py-2">
               <label for="name"> Proficiency  </label>
               <nz-select
                 class="w-full "
@@ -48,9 +48,23 @@
   
           <div class="flex justify-end">
             
-            <button
+            <!-- <button
             (click)="removeEducationRecord(i)"
-            nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzType="delete"></span></button>
+            nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzType="delete"></span>
+          </button> -->
+
+          <button
+          (click)="removeEducationRecord(i)"
+          nz-button
+          nzType="primary"
+          [nzSize]="'small'"
+          nz-button
+          nzType="primary"
+          nzDanger
+        >
+          <span nz-icon nzDanger nzType="delete"></span>
+        </button>
+
   
           </div>
         </div>
