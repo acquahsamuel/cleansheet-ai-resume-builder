@@ -10,24 +10,7 @@
         [nzExpandedIcon]="!$first ? panel.icon || expandedIcon : undefined"
       >
         <ng-container *ngIf="panel.visible">
-
-          <ng-container *ngComponentOutlet="panel.component; injector: createInjector(panel)"></ng-container>
-          
-          <!-- <ng-container *ngComponentOutlet="panel.component"></ng-container> -->
-          <!-- <app-cv-header></app-cv-header>
-          <app-summary></app-summary>
-          <app-experience></app-experience>
-          <app-education></app-education>
-          <app-skills></app-skills>
-          <app-hobbies></app-hobbies>
-          <app-references></app-references>
-          <app-languages></app-languages>
-          <app-courses></app-courses>
-          <app-publications></app-publications>
-          <app-extra-activities></app-extra-activities> -->
-
-          <!-- <app-projects></app-projects> -->
-          
+          <ng-container *ngComponentOutlet="panel.component"></ng-container>
         </ng-container>
         <ng-template #expandedIcon let-active>
           {{ active }}

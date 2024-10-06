@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -19,6 +19,7 @@ import { NgZorroAntdModule } from '../../../../../shared/modules/ng-zero-ant.mod
 export class SkillsComponent implements OnInit {
   skillsForm: FormGroup;
   editorContent: string = '';
+  @Input() Skills : any;
 
   constructor(private fb: FormBuilder) {
     this.skillsForm = this.fb.group({

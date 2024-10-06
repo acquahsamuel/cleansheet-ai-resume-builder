@@ -1,0 +1,109 @@
+<section class="app-container">
+  <section class="builder">
+    <div class="custom-accordion">
+      <ng-container *ngFor="let panel of panels; let i = index">
+        <div class="custom-expansion-panel" [class.expanded]="step === i">
+          <div class="custom-expansion-header" (click)="setStep(i)">
+            <div class="custom-panel-title">
+              <i class="custom-icon">{{ panel.icon }}</i> {{ panel.name }}
+            </div>
+            <div class="custom-panel-description">
+              <span class="icon-container">
+                <i class="custom-icon">add</i>
+              </span>
+            </div>
+          </div>
+
+          <div class="custom-expansion-content" *ngIf="step === i">
+            <ng-container [ngSwitch]="i">
+              <app-cv-header
+                *ngSwitchCase="0"
+                [PersonalDetails]="PersonalDetails"
+                (updatePersonalInfo)="onPersonalInfoUpdate($event)"
+              ></app-cv-header>
+
+              <app-summary
+                *ngSwitchCase="1"
+                [Summary]="Summary"
+                (updateSummaryInfo)="onSummaryUpdate($event)"
+              ></app-summary>
+
+              <app-experience
+                *ngSwitchCase="2"
+                [Experience]="Experience"
+                (updateExperienceInfo)="onExperienceUpdate($event)"
+              ></app-experience>
+
+              <app-education
+                *ngSwitchCase="3"
+                [Education]="Education"
+                (updateEducationInfo)="onEducationUpdate($event)"
+              ></app-education>
+
+              <app-skills
+                *ngSwitchCase="4"
+                [Skills]="Skills"
+                (updateSkillsInfo)="onSkillsUpdate($event)"
+              ></app-skills>
+            </ng-container>
+
+            <div class="custom-action-row" *ngIf="i < 4">
+              <button (click)="prevStep()" class="custom-btn">
+                <i class="custom-icon">chevron_left</i> Previous
+              </button>
+              <button (click)="nextStep()" class="custom-btn">
+                Next <i class="custom-icon">chevron_right</i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngFor="let extraPanel of extraPanels; let i = index">
+        <div class="custom-expansion-panel" *ngIf="extraPanel.visible">
+          <div class="custom-expansion-header" (click)="toggleExtraPanel(i)">
+            <div class="custom-panel-title">
+              <i class="custom-icon">{{ extraPanel.icon }}</i>
+              {{ extraPanel.title }}
+            </div>
+            <div class="custom-panel-description">
+              <span class="icon-container">
+                <i class="custom-icon">add</i>
+              </span>
+            </div>
+          </div>
+
+          <div class="custom-expansion-content p-4" *ngIf="extraPanel.visible">
+            <!-- Dynamically show the relevant component based on the panel type -->
+            <ng-container [ngSwitch]="extraPanel.componentType">
+              <app-languages
+                *ngSwitchCase="'languages'"
+                [Languages]="Languages"
+                (updateLanguagesInfo)="onLanguagesUpdate($event)"
+              ></app-languages>
+            </ng-container>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <section class="flex flex-wrap">
+      <button
+        *ngFor="let btn of extraButtons; let i = index"
+        (click)="toggleExtraPanel(i)"
+        class="my-3 mx-2 p-2 btn-outline-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline border rounded-md border-green-700 hover:bg-green-700 text-green-700 hover:text-white font-normal"
+      >
+        {{ btn }}
+      </button>
+    </section>
+  </section>
+
+  <section class="preview">
+    <div class="preview-template">
+      <app-template-sunshine
+        [PersonalDetails]="PersonalDetails"
+        [Education]="Education"
+      ></app-template-sunshine>
+    </div>
+  </section>
+</section>

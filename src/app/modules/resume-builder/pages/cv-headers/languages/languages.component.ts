@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgZorroAntdModule } from '../../../../../shared/modules/ng-zero-ant.module';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -16,7 +16,7 @@ import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } fr
 })
 export class LanguagesComponent implements OnInit {
   languagesForm: FormGroup;
-
+   @Input() Languages : any;
   constructor(private fb: FormBuilder) {
 
     this.languagesForm = this.fb.group({

@@ -22,7 +22,7 @@ import { CustomEditorComponent } from '../../../../../shared/components/custom-e
 export class EducationComponent implements OnInit {
   educationForm: FormGroup;
   @Output() onEducationFormUpdate = new EventEmitter<any>();
-
+  @Input() Education : any
   
   constructor(private fb: FormBuilder) {
     this.educationForm = this.fb.group({

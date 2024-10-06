@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -24,6 +24,7 @@ import { NgZorroAntdModule } from '../../../../../shared/modules/ng-zero-ant.mod
 })
 export class ExperienceComponent implements OnInit {
   experienceForm: FormGroup;
+  @Input() Experience: any;
 
   constructor(private fb: FormBuilder) {
     this.experienceForm = this.fb.group({
