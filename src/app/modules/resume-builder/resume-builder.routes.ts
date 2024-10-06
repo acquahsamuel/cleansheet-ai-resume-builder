@@ -9,10 +9,11 @@ import { BuilderUiComponent } from './components/builder-ui/builder-ui.component
 // import { CvBuilderStartComponent } from './pages/cv-builder-start/cv-builder-start.component';
 
 export const ResumeBuiderRoutes: Routes = [
+
   {
     path: '',
     component: ResumeBuilderComponent,
-
+    
     children: [
       {
         path: '',
