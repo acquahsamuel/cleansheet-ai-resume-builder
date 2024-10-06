@@ -1,4 +1,12 @@
-import { Component, Input, Output, EventEmitter, OnInit, Injector } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit,
+  Injector,
+  StaticProvider,
+} from '@angular/core';
 import { HobbiesComponent } from '../../pages/cv-headers/hobbies/hobbies.component';
 import { ReferencesComponent } from '../../pages/cv-headers/references/references.component';
 import { InternshipsComponent } from '../../pages/cv-headers/internships/internships.component';
@@ -44,6 +52,29 @@ import { TemplateSunshineComponent } from '../../../../shared/resume-templates/t
 export class BuilderUiComponent implements OnInit {
   step = 0;
   expandIconPosition: 'start' | 'end' = 'start';
+  injector: Injector = Injector.create({
+    providers: [
+      {
+        provide: 'CV_DATA',
+        useValue: {
+          PersonalDetails: [],
+          Summary: [],
+          Experience: [],
+          Education: [],
+          References: [],
+          Skills: [],
+          Hobbies: [],
+          Internship: [],
+          Courses: [],
+          Publication: [],
+          Project: [],
+          Languages: [],
+          ExtraCurricularActivities: [],
+          ExtraFields: [],
+        } as any,
+      },
+    ],
+  });
 
   @Input() PersonalDetails = [];
   @Input() Summary = [];
@@ -60,8 +91,7 @@ export class BuilderUiComponent implements OnInit {
   @Input() ExtraCurricularActivities = [];
   @Input() ExtraFields = [];
 
-
-  constructor( ) {}
+  constructor() {}
 
   panels = [
     {
@@ -120,8 +150,7 @@ export class BuilderUiComponent implements OnInit {
         border: '0px',
       },
     },
-    
-    
+
     {
       active: true,
       disabled: false,
@@ -193,7 +222,6 @@ export class BuilderUiComponent implements OnInit {
       },
     },
 
-
     {
       active: true,
       disabled: false,
@@ -209,7 +237,6 @@ export class BuilderUiComponent implements OnInit {
       },
     },
 
-
     {
       active: true,
       disabled: false,
@@ -224,38 +251,28 @@ export class BuilderUiComponent implements OnInit {
         border: '0px',
       },
     },
-
-
   ];
+
+  createInjector(inputs: any): Injector {
+    const providers: StaticProvider[] = [
+      { provide: 'inputs', useValue: inputs },
+    ];
+    return Injector.create({ providers, parent: this.injector });
+  }
 
   saveToLocalStorage() {}
 
-  ngOnInit(): void {
-   
-  }
+  ngOnInit(): void {}
 
   updateCv() {}
 
-
-
-  ngDoCheck() {
-    // this.Education = this.Education;
-    // console.log("EDUCATION INFO", this.Education);
-  }
- 
-
-
-
-  onPersonalInfoUpdateEvt(data : any){
-    console.log("PERSONAL INFO UPDATED" , data);
+  onPersonalInfoUpdateEvt(data: any) {
+    console.log('PERSONAL INFO UPDATED', data);
     this.PersonalDetails = data;
   }
-  
 
-
-
-  onEducationFormUpdate(data : any){
-    console.log("DATA PASSED", data);
+  onEducationFormUpdate(data: any) {
+    console.log('DATA PASSED', data);
     this.Education = data.educationRecords;
   }
 }

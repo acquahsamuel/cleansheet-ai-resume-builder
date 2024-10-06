@@ -1,97 +1,82 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { FormBuilder, FormGroup, FormArray, ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { NgZorroAntdModule } from "../../../../../shared/modules/ng-zero-ant.module";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormArray,
+  ReactiveFormsModule,
+} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NgZorroAntdModule } from '../../../../../shared/modules/ng-zero-ant.module';
 
 @Component({
-    selector: "app-cv-header",
-    templateUrl: "./cv-header.component.html",
-    styleUrls: ["./cv-header.component.scss"],
-    standalone: true,
-    imports: [
-       
-        ReactiveFormsModule,
-        NgZorroAntdModule,
-        CommonModule
-    ],
+  selector: 'app-cv-header',
+  templateUrl: './cv-header.component.html',
+  styleUrls: ['./cv-header.component.scss'],
+  standalone: true,
+  imports: [ReactiveFormsModule, NgZorroAntdModule, CommonModule],
 })
 export class CvHeaderComponent implements OnInit {
   @Input() PersonalDetails: any;
   @Output() onPersonalInfoUpdateEvt = new EventEmitter<any>();
-
-  // private updateSubject = new Subject<any>();
-
+ 
   headerInfoForm: FormGroup;
   selectedFileName: string | null = null;
   imagePreview: string | ArrayBuffer | null = null;
 
   fieldTypes = [
-    "Passport ID",
-    "Nationality",
-    "Marital Status",
-    "Military Service",
-    "Driving License",
-    "Gender or Pronoun",
-    "Website",
-    "LinkedIn",
-    "Twitter/X",
-    "Medium",
-    "GitHub",
-    "ORCID",
-    "Skype",
-    "Discord",
-    "Dribbble",
-    "Behance",
-    "Stack Overflow",
-    "GitLab",
-    "Quora",
-    "Facebook",
-    "Instagram",
-    "WeChat",
-    "Hugging Face",
-    "Kaggle",
-    "YouTube",
-    "TikTok",
-    "Signal",
-    "Telegram",
-    "WhatsApp",
-    "PayPal",
-    "Product Hunt",
+    'Passport ID',
+    'Nationality',
+    'Military Service',
+    'Driving License',
+    'Gender or Pronoun',
+    'Website',
+    'LinkedIn',
+    'Twitter/X',
+    'Medium',
+    'GitHub',
+    'Skype',
+    'Discord',
+    'Dribbble',
+    'Behance',
+    'Stack Overflow',
+    'GitLab',
+    'Quora',
+    'Facebook',
+    'Instagram',
+    'YouTube',
+    'TikTok',
+    'Signal',
+    'Telegram',
+    'WhatsApp',
+    'PayPal',
+    'Product Hunt',
   ];
 
   constructor(private _fb: FormBuilder) {
-
-
     this.headerInfoForm = this._fb.group({
-      firstname: [""],
-      surname: [""],
-      city: [""],
-      country: [""],
-      postalCode: [""],
-      phoneNumber: [""],
-      dateOfBirth: [""],
-      email: [""],
+      firstname: [''],
+      surname: [''],
+      city: [''],
+      country: [''],
+      postalCode: [''],
+      phoneNumber: [''],
+      dateOfBirth: [''],
+      email: [''],
       fields: this._fb.array([]),
     });
   }
 
   ngOnInit(): void {
-   
-
     if (this.PersonalDetails) {
       this.headerInfoForm.patchValue(this.PersonalDetails);
     }
 
-    this.headerInfoForm.valueChanges.subscribe((value : any) => {
+    this.headerInfoForm.valueChanges.subscribe((value: any) => {
       this.onPersonalInfoUpdateEvt.emit(value);
     });
-
-  
   }
 
-
-  onDateChange(date : any){}
- 
+  onDateChange(date: any) {}
 
   // get fields(): FormArray {
   //   return this.headerInfoForm.get('fields') as FormArray;
@@ -101,11 +86,10 @@ export class CvHeaderComponent implements OnInit {
     return this.headerInfoForm.get('fields') as FormArray<FormGroup>;
   }
 
-
   addField(fieldLabel: string) {
     const control = this._fb.group({
       label: [fieldLabel],
-      value: [""],
+      value: [''],
     });
     this.fields.push(control);
   }

@@ -8,8 +8,8 @@
   .builder {
     max-width: 40%;
     width: 40%;
-    // background: tan;
-    position: sticky;
+    background: tan;
+    // position: sticky;
 
     &-container {
       // padding: 20px;
@@ -22,12 +22,13 @@
     flex: 1;
     max-width: 50%;
     width: 50%;
-    // background: tomato;
+    background: tomato;
     position: fixed;
     overflow-y: scroll;
-    top: 0;
+    top: 5.5em;
     right: 0;
     bottom: 0;
+    z-index: 10000;
 
 
     &-template {
