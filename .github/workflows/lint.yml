@@ -18,7 +18,8 @@ jobs:
 
       - name: Install Node.js dependencies
         run: |
-          npm init @eslint/config@latest -- --config eslint-config-standard
+          # https://github.com/eslint/create-config/issues/39
+          npm install --save-dev eslint
           npm install --save-dev --save-exact prettier
 
       - name: Run linters
