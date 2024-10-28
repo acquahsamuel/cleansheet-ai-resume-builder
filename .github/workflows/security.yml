@@ -1,0 +1,56 @@
+---
+name: security
+
+on:
+  push:
+  pull_request:
+  schedule:  # run weekly, every Thursday 01:00
+    - cron: '0 1 * * 4'
+
+permissions: {}
+
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ${{ matrix.distribution }}-${{ matrix.version }}
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - distribution: ubuntu
+            version: '24.04'
+            experimental: true
+            node: 23
+          - distribution: ubuntu
+            version: '24.04'
+            experimental: true
+            node: 20
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.node }}
+      - name: Clean nodejs environment
+        run: |
+          set -x
+          dpkg -l | grep nodejs || true
+          ls -l /opt/hostedtoolcache/ || true
+          whereis node || true
+          whereis npm || true
+          ls -l /usr/local/bin/node* || true
+          node --version || true
+          npm --version || true
+          sudo rm -Rf /opt/hostedtoolcache/node/1[68]*
+          node --version || true
+      - name: npm
+        run: |
+          set -x
+          npm outdated || true
+          npm audit || true
+          yarn audit || true
+        if: ${{ always() }}
+        continue-on-error: true
