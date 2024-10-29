@@ -29,7 +29,7 @@ import { CommonModule } from "@angular/common";
 })
 export class ResumeBuilderComponent implements OnInit {
   isLoading = false;
-  isCollapsed = false;
+  isCollapsed = true;
 
   constructor(
     private chr : ChangeDetectorRef,

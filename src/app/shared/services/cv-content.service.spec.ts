@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { InteractionService } from './interaction.service';
+import { CvContentService } from './cv-content.service';
 
-describe('InteractionService', () => {
-  let service: InteractionService;
+describe('CvContentService', () => {
+  let service: CvContentService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(InteractionService);
+    service = TestBed.inject(CvContentService);
   });
 
   it('should be created', () => {

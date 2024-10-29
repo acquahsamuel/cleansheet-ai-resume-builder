@@ -1,54 +1,92 @@
-<div class="signup-container">
-  <!-- <app-logo></app-logo> -->
-  <form class="form" [formGroup]="signUpForm">
-    <h3 class="text-center">Create an account </h3>
-
-    <div class="form-group">
-      <label for=""> Email </label>
-      <input
-        class="form-input"
-        formControlName="email"
-        type="text"
-        name="email"
-        placeholder="Email address"
-      />
-      <!-- <div *ngIf="submitted && formField.email.errors" class="invalid-feedback">
-        <div *ngIf="formField.email.errors.required"> Email is required</div>
-      </div> -->
+<section class="flex justify-center items-center h-screen">
+  <form
+    nz-form
+    [formGroup]="signUpForm"
+    class="login-form"
+    (ngSubmit)="signIn()"
+  >
+    <div>
+      <h1 class="text-3xl font-bold text-center">Register</h1>
     </div>
+    <nz-form-item class="my-4">
+      <nz-form-control nzErrorTip="Enter email!">
+        <nz-input-group nzPrefixIcon="user">
+          <input
+            type="text"
+            nz-input
+            formControlName="userName"
+            placeholder="Email"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
 
-    <div class="form-group">
-      <label for=""> Password </label>
-      <input
-        class="form-input"
-        formControlName="password"
-        type="password"
-        placeholder="Enter password"
-      
-      />
-      <div
-        
-        class="invalid-feedback"
-      >
-        <!-- <div *ngIf="formField.password.errors.required">
-          Password is required
-        </div>
-        <div *ngIf="formField.password.errors.minlength">
-          Password must be at least 6 characters
-        </div> -->
+    <nz-form-item class="my-4">
+      <nz-form-control nzErrorTip="Enter Password!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input
+            type="password"
+            nz-input
+            formControlName="password"
+            placeholder="Password"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="my-4">
+      <nz-form-control nzErrorTip="Confirm Password!">
+        <nz-input-group nzPrefixIcon="lock">
+          <input
+            type="password"
+            nz-input
+            formControlName="confirmPassword"
+            placeholder="Password"
+          />
+          <ng-template #errorTpl let-control>
+            @if (control.errors?.['required']) { Please confirm your password! }
+            @if (control.errors?.['confirm']) { Two passwords that you enter is
+            inconsistent! }
+          </ng-template>
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+
+    <div nz-row class="login-form-margin">
+      <div nz-col [nzSpan]="12">
+        <label nz-checkbox formControlName="remember">
+          <span>Remember me</span>
+        </label>
+      </div>
+      <div nz-col [nzSpan]="12">
+        <a class="login-form-forgot">Forgot password</a>
       </div>
     </div>
 
-    <div class="form-group terms">
-      <p> Already have an account <a routerLink="/auth/login"> Login </a></p>
-    </div>
-    <button class="btn btn-green" (click)="register()">Register</button>
-
+    <button
+      nz-button
+      class="login-form-button login-form-margin"
+      [nzType]="'primary'"
+    >
+      Log in
+    </button>
     <div class="btn-group">
-      <button type="button" class="login-with-google-btn" >
-         Continue with Google
+      <button
+        (click)="loginWithGoogle()"
+        type="button"
+        class="login-with-google-btn"
+      >
+        <span nz-icon nzType="google" nzTheme="outline"></span>
+        Continue with google
       </button>
     </div>
-  </form>
 
-</div>
+    <div nz-row class="login-form-margin">
+      <div nz-col>
+        <a class="login-form-forgot" routerLink="/auth/login">
+          Alrady have an account?
+        </a>
+      </div>
+    </div>
+  </form>
+</section>

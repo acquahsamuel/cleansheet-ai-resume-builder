@@ -22,3 +22,4 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 export class AppComponent {
   isCollapsed = false;
 }
+

@@ -1,5 +1,4 @@
 import { ChangeDetectorRef, forwardRef, Component, OnInit } from '@angular/core';
-import { InteractionService } from '../../services/interaction.service';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NgZorroAntdModule } from '../../modules/ng-zero-ant.module';
 
@@ -28,9 +27,10 @@ export class CustomEditorComponent implements ControlValueAccessor, OnInit {
 
 
   constructor(
-    private interactionService : InteractionService, 
+    // private interactionService : InteractionService, 
     private _cdr : ChangeDetectorRef,
   ) { }
+
 
   ngOnInit(): void {
   }
@@ -57,18 +57,7 @@ export class CustomEditorComponent implements ControlValueAccessor, OnInit {
 
 
   generateText() {
-    console.log(this.editorContent, "CONETNEST");
-    this.interactionService.initiateInteraction(this.editorContent).subscribe({
-      next  : (response : any) =>{
-        console.log(response, "SEND RESPONSE")
-        this.MESSAGE_ENGAGEMENT = response.previous;
-         
-        
-      },
-      complete : () => {
-        // this.editorContent.reset();
-      }
-    })
+    
    
   }
 

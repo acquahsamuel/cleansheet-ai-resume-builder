@@ -8,71 +8,66 @@ import {
   FormGroupDirective,
   UntypedFormControl,
   NgForm,
+  ReactiveFormsModule,
+  FormsModule,
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ValidatorFn,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-// import { JwtHelperService } from '@auth0/angular-jwt';
-// import { ErrorStateMatcher } from '@angular/material/core';
-// import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
+import { NgZorroAntdModule } from '../../../../shared/modules/ng-zero-ant.module';
+ 
 
 /** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements MyErrorStateMatcher {
-  isErrorState(
-    control: UntypedFormControl | null,
-    form: FormGroupDirective | NgForm | null
-  ): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(
-      control &&
-      control.invalid &&
-      (control.dirty || control.touched || isSubmitted)
-    );
-  }
-}
+ 
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgZorroAntdModule
+  ]
 })
 export class SignupComponent implements OnInit {
-  state = {
-    togglePassword: false,
-    toggleConfirmPassword: false,
-    verifyingCredentials: false,
-    passwordsValid: false,
-    lastnameFocus: false,
-    firstnameFocus: false,
-    emailFocus: false,
-    phoneFocus: false,
-    passwordFocus: false,
-    confirmPasswordFocus: false,
-    signupError: false,
-  };
+  signUpForm: FormGroup<{
+    userName: FormControl<string>;
+    password: FormControl<string>;
+    confirmPassword: FormControl<string>;
+    remember: FormControl<boolean>;
+  }>;
 
-  submitted = false;
-  isLoading = false;
-
-  signupError : any;
-
-
-  signUpForm: UntypedFormGroup;
-
-  matcher = new MyErrorStateMatcher();
+ 
+ 
 
   constructor(
     private authService: AuthService,
     private router: Router,
     // private jwtService: JwtHelperService,
-    private formBuilder: UntypedFormBuilder,
+    private _fb: UntypedFormBuilder,
     // private snackBar: MatSnackBar
   ) {
 
      /**
      * Signup form control
      */
-     this.signUpForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+     this.signUpForm = this._fb.group({
+      userName: this._fb.control('', [
+        Validators.required,
+      ]) as FormControl<string>,
+      password: this._fb.control('', [
+        Validators.required,
+      ]) as FormControl<string>,
+      confirmPassword: this._fb.control('', [
+        Validators.required,
+      ]) as FormControl<string>,
+      remember: this._fb.control(true) as FormControl<boolean>,
     });
   }
 
@@ -90,55 +85,37 @@ export class SignupComponent implements OnInit {
    * @returns
    */
   register() {
-    this.router.navigateByUrl('/builder/resume-builder');
-    console.log(this.signUpForm.value);
-
-
-    if (this.signUpForm.valid) {
-      this.state.verifyingCredentials = true;
-
-      this.authService.signUp(this.signUpForm.value).subscribe(
-        (account) => {
-          this.signIn(account);
-        },
-
-        (err: any) => {
-          this.state.signupError = true;
-          this.state.verifyingCredentials = false;
-          this.signupError =
-            'Login failed , check email and password and try again';
-
-          this.signupError = 'Sign up error,' + err.error.error;
-         
-        }
-      );
-    } else {
-      this.state.signupError = true;
-      this.state.verifyingCredentials = false;
-      this.signupError = 'Correct all field and try again';
-      
-    }
+ 
   }
 
 
-
-
-  signIn(account: any) {
-    this.authService.logIn(this.signUpForm.value).subscribe(
-      (x: any) => {
-        this.state.verifyingCredentials = false;
-        this.authService.saveUserToken(x?.token);
-        this.router.navigateByUrl('/builder/resume-builder');
-      },
-
-      (err: any) => {
-        this.state.signupError = true;
-        this.state.verifyingCredentials = false;
-        this.signupError = 'Login failed' + err.error.error;
-        
-      }
+    updateConfirmValidator(): void {
+    /** wait for refresh value */
+    Promise.resolve().then(() =>
+      this.signUpForm.controls.confirmPassword.updateValueAndValidity()
     );
   }
+
+  confirmationValidator: ValidatorFn = (
+    control: AbstractControl
+  ): { [s: string]: boolean } => {
+    if (!control.value) {
+      return { required: true };
+    } else if (control.value !== this.signUpForm.controls.password.value) {
+      return { confirm: true, error: true };
+    }
+    return {};
+  };
+
+
+
+  signIn( ) {
+    
+  }
+
+  loginWithGoogle(){}
+
+  
 
   onReset() {
     this.signUpForm.reset();

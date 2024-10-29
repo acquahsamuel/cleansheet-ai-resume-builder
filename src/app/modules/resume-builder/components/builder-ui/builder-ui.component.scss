@@ -28,7 +28,7 @@
     top: 5.5em;
     right: 0;
     bottom: 0;
-    z-index: 10000;
+    // z-index: -10;
 
     &-template {
       padding: 20px;
@@ -36,92 +36,15 @@
   }
 }
 
+@media (max-width: 768px) {
+  .app-container {
+    display: flex;
+    flex-direction: column;
+  }
 
-::ng-deep .ant-collapse-header-text{
-  // font-size: 1.3em !important;
-}
+  .builder {
+  }
 
-
-.custom-accordion {
-  // width: 100%;
-}
-
-.custom-expansion-panel {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.custom-expansion-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #f5f5f5;
-  cursor: pointer;
-}
-
-.custom-panel-title {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-.custom-panel-title .custom-icon {
-  margin-right: 0.5rem;
-}
-
-.custom-panel-description {
-  display: flex;
-  align-items: center;
-}
-
-.icon-container .custom-icon {
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.custom-expansion-panel.expanded .icon-container .custom-icon {
-  transform: rotate(45deg);
-}
-
-.custom-expansion-content {
-  padding: 1rem;
-  background-color: white;
-  display: none;
-}
-
-.custom-expansion-panel.expanded .custom-expansion-content {
-  display: block;
-}
-
-.custom-action-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.custom-btn {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  background-color: #f5f5f5;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.custom-btn:hover {
-  background-color: #ddd;
-}
-
-.custom-btn .custom-icon {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-}
-
-.p-4 {
-  padding: 1rem;
+  .preview-template {
+  }
 }
