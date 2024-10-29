@@ -20,7 +20,7 @@ import { ExtraActivitiesComponent } from "./pages/cv-headers/extra-activities/ex
 import { SettingsComponent } from "./pages/settings/settings.component";
 import { AtsAnalysisComponent } from "./pages/ats-analysis/ats-analysis.component";
 import { CvRewriteComponent } from "./pages/cv-rewrite/cv-rewrite.component";
-import { CvBuilderStartComponent } from './pages/cv-builder-start/cv-builder-start.component';
+// import { CvBuilderStartComponent } from './pages/cv-builder-start/cv-builder-start.component';
 import { StartedComponent } from './pages/started/started.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ResumeBuiderRoutes } from "./resume-builder.routes";
@@ -49,7 +49,7 @@ import { ResumeBuiderRoutes } from "./resume-builder.routes";
     SettingsComponent,
     AtsAnalysisComponent,
     CvRewriteComponent,
-    CvBuilderStartComponent,
+    // CvBuilderStartComponent,
     StartedComponent,
     RouterModule.forChild(ResumeBuiderRoutes),
 ],

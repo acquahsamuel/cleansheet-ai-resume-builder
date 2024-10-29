@@ -1,13 +1,28 @@
 <div class=" ">
   <form [formGroup]="experienceForm">
     <div formArrayName="experienceRecords">
-      <div
+
+
+      <!-- <div
         *ngFor="let education of experienceRecords.controls; let i = index"
         [formGroupName]="i"
         class="education-record"
-      >
+      > -->
+
+
+      <nz-collapse>
+        <nz-collapse-panel
+          *ngFor="let education of experienceRecords.controls; let i = index"
+          [formGroupName]="i"
+          [nzHeader]="
+            education.get('employerName')?.value || 'New Employer'
+          "
+          [nzActive]="true"
+          [nzShowArrow]="true"
+        >
+
         <div class="form-section">
-          <div class="flex flex-wrap">
+          <div class="flex flex-wrap  -mx-2">
             <div class="form-group w-full px-2 py-2 sm:w-1/2">
               <label for="country"> Job Title </label>
               <input
@@ -15,31 +30,34 @@
                 formControlName="jobTitle"
                 type="text"
                 nz-input
+                class="w-full border border-gray-300 rounded px-3 py-2"
                 nzSize="default"
               />
             </div>
 
-            <div class="form-group w-full sm:w-1/2   py-2">
+            <div class="form-group w-full px-2 py-2 sm:w-1/2">
               <label for="country">Employer Name </label>
 
               <input
                 nz-input
                 nzSize="default"
                 placeholder="Enter Employer name"
+                class="w-full border border-gray-300 rounded px-3 py-2"
                 type="text"
-                formControlName="degree"
+                formControlName="employerName"
               />
             </div>
           </div>
 
-          <div class="form-section flex flex-wrap">
+          <div class="form-section flex flex-wrap  -mx-2">
             <div class="form-group w-full sm:w-1/2 px-2 py-2">
-              <label for="country"> City </label>
+              <label for="country"> City/Town </label>
               <input
                 placeholder="Enter City"
                 formControlName="city"
                 type="text"
                 nz-input
+                class="w-full border border-gray-300 rounded px-3 py-2"
                 nzSize="default"
               />
             </div>
@@ -50,6 +68,7 @@
                 placeholder="Country"
                 type="text"
                 formControlName="country"
+                class="w-full border border-gray-300 rounded px-3 py-2"
                 nz-input
                 nzSize="default"
               />
@@ -57,7 +76,7 @@
           </div>
 
           <div class="form-section">
-            <div class="form-column flex flex-wrap">
+            <div class="form-column flex flex-wrap  -mx-2">
               <div class="form-group flex flex-col w-full sm:w-1/2 px-2 py-2">
                 <label for="startYear">Start Date</label>
                 <nz-date-picker
@@ -89,28 +108,57 @@
             </div>
           </div>
 
+      
+            <div class="form-group    -mx-2  px-2 py-2">
+              <div class="checkbox-wrapper-14">
+                <label
+                  for="s1-14"
+                  class="font-normal"
+                >
+                  Company Website
+                </label>
+                <nz-input-group nzAddOnAfterIcon="chrome">
+                  <input type="text"
+                  class="  border-gray-300 rounded px-3 py-2"
+                  nz-input formControlName="companyWebsite" />
+                </nz-input-group>
+              </div>
+            </div>
+          
+
           <div>
-            <div class="form-group">
+            <div class="form-group px-2 py-2 -mx-2">
               <label for=""> Role Description </label>
               <app-custom-editor formControlName="summary"></app-custom-editor>
             </div>
           </div>
 
           <div class="flex justify-end">
+          
             <button
-              (click)="removeEducationRecord(i)"
+              (click)="removeField(i)"
               nz-button
               nzType="primary"
               [nzSize]="'small'"
+              nz-button
+              nzType="primary"
+              nzDanger
             >
-              <span nz-icon nzType="delete"></span>
+              <span nz-icon nzDanger nzType="delete"></span>
             </button>
           </div>
         </div>
-      </div>
+
+
+      </nz-collapse-panel>
+    </nz-collapse>
+
+      <!-- </div> -->
     </div>
-    <!-- <span nz-icon nzType="plus-circle" nzTheme="outline"></span> -->
-    <button
+     
+
+    <section class="py-3">
+    <button 
       class="btn-create"
       nz-button
       nzType="primary"
@@ -119,5 +167,6 @@
     >
       Add Experience
     </button>
+    </section>
   </form>
 </div>

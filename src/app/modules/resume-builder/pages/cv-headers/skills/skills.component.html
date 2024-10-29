@@ -1,15 +1,25 @@
 <div class="form-section">
   <form [formGroup]="skillsForm">
     <div formArrayName="skillsRecords">
-      <div
+
+      <!-- <div
         *ngFor="let skills of skillsRecord.controls; let i = index"
         [formGroupName]="i"
         class="education-record"
-      >
-        <h3></h3>
-
-        <div class="form-section flex flex-wrap">
-          <div class="form-group w-full sm:w-1/2">
+      > -->
+      <nz-collapse>
+        <nz-collapse-panel
+          *ngFor="let skills of skillsRecord.controls; let i = index"
+          [formGroupName]="i"
+          [nzHeader]="
+            skills.get('name')?.value || 'New Skill'
+          "
+          [nzActive]="true"
+          [nzShowArrow]="true"
+        >
+ 
+        <div class="form-section flex flex-wrap -mx-2">
+          <div class="form-group w-full px-2 py-2 sm:w-1/2">
             <label for="name"> Skill </label>
             <input
               id="name"
@@ -18,14 +28,14 @@
               placeholder=" Enter Skill"
               nzSize="default"
               formControlName="name"
-             
+              class="w-full border border-gray-300 rounded px-3 py-2"
             />
           </div>
 
-          <div class="example-input  sm:w-1/2">
-            <label for="name"> Proficiency  </label>
+          <div class="example-input px-2 py-2 sm:w-1/2">
+            <label for="name"> Proficiency </label>
             <nz-select
-              class="w-full "
+              class="w-full"
               formControlName="proficiency"
               nzShowSearch
               nzAllowClear
@@ -44,23 +54,55 @@
           </div>
         </div>
 
-        <div class="form-section w-full flex flex-wrap py-2  sm:w-1/2">
-          <label for="name"> Level  </label>
-          <nz-slider nzRange   class="w-full " ></nz-slider>
+        <div class="form-section w-full flex flex-wrap py-2 sm:w-1/2">
+          <label for="name"> Level </label>
+          <nz-slider nzRange class="w-full"></nz-slider>
         </div>
 
         <div class="flex justify-end">
-          
+          <!-- <button
+            (click)="removeRecord(i)"
+            nz-button
+            nzType="primary"
+            [nzSize]="'small'"
+          >
+            <span nz-icon nzType="delete"></span>
+          </button> -->
+
           <button
-          (click)="removeEducationRecord(i)"
-          nz-button nzType="primary" [nzSize]="'small'"><span nz-icon nzType="delete"></span></button>
-
+          (click)="removeRecord(i)"
+          nz-button
+          nzType="primary"
+          [nzSize]="'small'"
+          nz-button
+          nzType="primary"
+          class="p-2"
+          nzDanger
+        >
+          <span nz-icon nzDanger nzType="delete"></span>
+        </button>
         </div>
-      </div>
-    </div>
 
-    <button (click)="addEducationRecord()"  nz-button nzType="primary" class="btn-create" type="button">
+
+
+      </nz-collapse-panel>
+    </nz-collapse>
+
+
+      </div>
+    <!-- </div> -->
+
+
+    <section class="py-3">
+    <button
+      (click)="addRecord()"
+      nz-button
+      nzType="primary"
+      class="btn-create"
+      type="button"
+    >
       Add Skills
     </button>
+    </section>
   </form>
 </div>

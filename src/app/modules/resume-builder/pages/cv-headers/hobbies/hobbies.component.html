@@ -1,1 +1,23 @@
-<p>hobbies works!</p>
+<div class="form-section">
+  <div [formGroup]="hobbiesForm">
+    <div>
+      <div class="education-record">
+        <h3></h3>
+
+        <div class="form-group w-full">
+          <div class="flex flex-col">
+            <label for> Hobbies </label>
+            
+
+            <nz-select   [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please add or select">
+                @for (option of listOfOption; track option.value) {
+                  <nz-option [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+                }
+              </nz-select>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

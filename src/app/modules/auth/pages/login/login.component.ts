@@ -1,96 +1,95 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-// import { AuthService } from '../../../app/shared/services/auth.service';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from '../../../../shared/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { PrimeNgModule } from '../../../../shared/modules/primeNg.module';
+import { NgZorroAntdModule } from '../../../../shared/modules/ng-zero-ant.module';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  standalone: true,
+  imports: [NgZorroAntdModule, CommonModule, ReactiveFormsModule, FormsModule],
 })
 export class LoginComponent implements OnInit {
-
-  // @ts-ignore
-
-  loginForm: UntypedFormGroup;
-  submitted = false;
-  isLoading = false;
-  state = {
-    togglePassword: false,
-    verifyingCredentials: false,
-    emailValid: false,
-    passwordValid: false,
-    emailFocus: false,
-    passwordFocus: false,
-    loginError: false
-  };
-
-  loginError : any;
+  loginForm: FormGroup<{
+    userName: FormControl<string>;
+    password: FormControl<string>;
+    remember: FormControl<boolean>;
+  }>;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    public _fb: FormBuilder,
     private authService: AuthService,
     private router: Router
   ) {
-
-
-     /**
-     * Login form control
-     */
-     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+    this.loginForm = this._fb.group({
+      userName: this._fb.control('', [
+        Validators.required,
+      ]) as FormControl<string>,
+      password: this._fb.control('', [
+        Validators.required,
+      ]) as FormControl<string>,
+      remember: this._fb.control(true) as FormControl<boolean>,
     });
-    // this.currentLoggedUser();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  login() {}
+
    
-  }
 
+  confirmationValidator: ValidatorFn = (
+    control: AbstractControl
+  ): { [s: string]: boolean } => {
+    if (!control.value) {
+      return { required: true };
+    } else if (control.value !== this.loginForm.controls.password.value) {
+      return { confirm: true, error: true };
+    }
+    return {};
+  };
 
-
-  login(){
-    // this.authService.saveUserToken();
-    // this.router.navigateByUrl('/interaction');
+  getCaptcha(e: MouseEvent): void {
+    e.preventDefault();
   }
 
   /**
    * @description handles login
    * @returns
    */
-   logInSubmit() {
+  submitForm() {
     this.router.navigateByUrl('/builder/resume-builder');
-    
     if (this.loginForm.valid) {
-      this.state.verifyingCredentials = true;
-      this.authService.logIn(this.loginForm.value).subscribe(
-
-        (x: any) => {
-          // stop loading
-          this.state.verifyingCredentials = false;
-
-          // save user token
-          this.authService.saveUserToken(x.token);
-          this.router.navigateByUrl('/interaction')
-        },
-
-        (err) => {
-          this.state.loginError = true;
-          this.state.verifyingCredentials = false;
-          this.loginError = 'Login failed, check email and password and Try Again';
-          // this.stateErrors.login = JSON.stringify(err.error.error);
-        });
-
+      const { userName, password, remember } = this.loginForm.value;
     } else {
-      this.state.loginError = true;
-      this.state.verifyingCredentials = false;
-      this.loginError = 'Login failed, check email and password and Try Again';
+      // Handle form errors
+      if (this.loginForm.valid) {
+        console.log('submit', this.loginForm.value);
+      } else {
+        Object.values(this.loginForm.controls).forEach((control) => {
+          if (control.invalid) {
+            control.markAsDirty();
+            control.updateValueAndValidity({ onlySelf: true });
+          }
+        });
+      }
     }
   }
-
-
 
   /**
    * Get form values from controls

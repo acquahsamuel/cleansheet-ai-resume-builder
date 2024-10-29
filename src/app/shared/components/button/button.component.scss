@@ -1,0 +1,35 @@
+.btn-primary {
+  background-color: blue;
+  color: white;
+}
+.btn-secondary {
+  background-color: gray;
+  color: white;
+}
+.btn-danger {
+  background-color: red;
+  color: white;
+}
+.btn-sm {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+.btn-md {
+  font-size: 14px;
+  padding: 6px 12px;
+}
+.btn-lg {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+.btn-xl {
+  font-size: 18px;
+  padding: 10px 20px;
+}
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.loading {
+  pointer-events: none;
+}

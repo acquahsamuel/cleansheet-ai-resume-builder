@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -24,6 +24,7 @@ import { NgZorroAntdModule } from '../../../../../shared/modules/ng-zero-ant.mod
 })
 export class ExperienceComponent implements OnInit {
   experienceForm: FormGroup;
+  @Input() Experience: any;
 
   constructor(private fb: FormBuilder) {
     this.experienceForm = this.fb.group({
@@ -42,10 +43,11 @@ export class ExperienceComponent implements OnInit {
   createExperienceRecord(): FormGroup {
     return this.fb.group({
       jobTitle: ['', Validators.required],
-      degree: ['', Validators.required],
+      employerName: ['', Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
       summary: [''],
+      companyWebsite: [''],
       startYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       endYear: ['', [Validators.required, Validators.pattern('^[0-9]{4}$')]],
       currentlyHere: [false],
@@ -70,8 +72,10 @@ export class ExperienceComponent implements OnInit {
   }
 
   // Remove an education record
-  removeEducationRecord(index: number): void {
-    this.experienceRecords.removeAt(index);
+  removeField(index: number): void {
+    if (this.experienceRecords.length > 1) {
+      this.experienceRecords.removeAt(index);
+    }
   }
 
   onDateChange(date: any) {}

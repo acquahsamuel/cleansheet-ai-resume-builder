@@ -1,86 +1,105 @@
 <div class="form-section">
-  <form [formGroup]="educationForm">
-    <div formArrayName="educationRecords">
-      <div
-        *ngFor="let education of educationRecords.controls; let i = index"
+  <form [formGroup]="referenceForm">
+    <div formArrayName="referenceRecords">
+      <!-- <div
+        *ngFor="let education of referenceRecords.controls; let i = index"
         [formGroupName]="i"
         class="education-record"
-      >
-        <h3></h3>
+      >-->
+
+      <nz-collapse>
+        <nz-collapse-panel
+          *ngFor="let reference of referenceRecords.controls; let i = index"
+          [formGroupName]="i"
+          [nzHeader]="
+            reference.get('referenceName')?.value || 'Reference Name'
+          "
+          [nzActive]="true"
+          [nzShowArrow]="true"
+        >
+
 
         <div class="content-wrapper">
-          <div class="form-section flex flex-wrap">
-            <div class="form-group w-full px-2 sm:w-1/2">
+          <div class="form-section flex flex-wrap -mx-2">
+            <div class="form-group w-full px-2 py-2  sm:w-1/2">
+              <label for="referenceName"> Reference Name</label>
               <input
-                placeholder="Enter Job Title"
-                formControlName="name"
+                placeholder="Name/Company"
+                formControlName="referenceName"
                 type="text"
                 nz-input
                 nzSize="default"
+                class="w-full border border-gray-300 rounded px-3 py-2"
               />
             </div>
 
-            <div class="form-group w-full px-3 sm:w-1/2">
+            <div class="form-group w-full px-2 py-2  sm:w-1/2">
+              <label for=""> Contact Person</label>
               <input
-                placeholder="Enter Employer name"
+                placeholder="Enter Contact Person"
                 type="text"
-                formControlName="degree"
+                formControlName="contactPerson"
                 nz-input
                 nzSize="default"
+                class="w-full border border-gray-300 rounded px-3 py-2"
               />
             </div>
           </div>
 
-          <div class="form-section">
-            <div class="form-column flex flex-wrap">
-              <div class="form-group flex flex-col w-full py-2 px-2 sm:w-1/2">
-                <label for="startYear">Start Date</label>
-                <nz-date-picker
-                  formControlName="startYear"
-                  (ngModelChange)="onDateChange($event)"
-                ></nz-date-picker>
-              </div>
+          <div class="form-section flex flex-wrap -mx-2">
+            <div class="form-group w-full px-2 py-2  sm:w-1/2">
+              <label for=""> Phone Number</label>
+              <input
+                placeholder="Phone Number"
+                formControlName="phoneNumber"
+                type="text"
+                nz-input
+                nzSize="default"
+                class="w-full border border-gray-300 rounded px-3 py-2"
+              />
+            </div>
 
-              <div class="form-group flex flex-col w-full py-2 px-2 sm:w-1/2">
-                <label for="endYear">End Date</label>
-                <nz-date-picker
-                  formControlName="endYear"
-                  (ngModelChange)="onDateChange($event)"
-                ></nz-date-picker>
-              </div>
-
-              <div class="form-group w-full px-3 my-3 sm:w-1/2">
-                <div class="checkbox-wrapper-14">
-                  <input id="s1-14" type="checkbox" class="switch" />
-                  <label for="s1-14" class="font-normal">
-                    I Currently work here
-                  </label>
-                </div>
-              </div>
+            <div class="form-group w-full px-2 py-2  sm:w-1/2">
+              <label for=""> Email Address</label>
+              <input
+                placeholder="Enter Person Email"
+                type="email"
+                formControlName="emailAddress"
+                nz-input
+                nzSize="default"
+                class="w-full border border-gray-300 rounded px-3 py-2"
+              />
             </div>
           </div>
 
-          <div>
-            <div class="form-group px-3 my-3">
-              <label for=""> Role Description </label>
-              <app-custom-editor formControlName="summary"></app-custom-editor>
-            </div>
+          <div class="form-group w-full px-3 py-2 -mx-2">
+            <nz-switch formControlName="isHidden"></nz-switch>
+            <label for="">
+              I'd like to hide reference and make them available only upon
+              request</label
+            >
           </div>
 
           <div class="flex justify-end">
+           
             <button
-              (click)="removeRecord(i)"
-              nz-button
-              nzType="primary"
-              [nzSize]="'small'"
-            >
-              <span nz-icon nzDanger nzType="delete"></span>
-            </button>
+            (click)="removeRecord(i)"
+            nz-button
+            nzType="primary"
+            [nzSize]="'small'"
+            nz-button nzType="primary" nzDanger>
+            <span nz-icon nzDanger nzType="delete"></span>
+          </button>
+
           </div>
         </div>
-      </div>
+    
+    </nz-collapse-panel>
+  </nz-collapse>
     </div>
 
+
+    <section class="py-3">
     <button
       class="btn-create"
       nz-button
@@ -90,5 +109,6 @@
     >
       Add Reference
     </button>
+    </section>
   </form>
 </div>

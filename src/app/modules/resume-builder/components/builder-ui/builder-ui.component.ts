@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, Injector } from '@angular/core';
 import { HobbiesComponent } from '../../pages/cv-headers/hobbies/hobbies.component';
 import { ReferencesComponent } from '../../pages/cv-headers/references/references.component';
 import { InternshipsComponent } from '../../pages/cv-headers/internships/internships.component';
@@ -46,12 +46,12 @@ export class BuilderUiComponent implements OnInit {
   expandIconPosition: 'start' | 'end' = 'start';
 
   @Input() PersonalDetails = [];
-  @Input() Hobbies = [];
   @Input() Summary = [];
   @Input() Experience = [];
   @Input() Education = [];
-  @Input() Skills = [];
   @Input() References = [];
+  @Input() Skills = [];
+  @Input() Hobbies = [];
   @Input() Internship = [];
   @Input() Courses = [];
   @Input() Publication = [];
@@ -60,21 +60,8 @@ export class BuilderUiComponent implements OnInit {
   @Input() ExtraCurricularActivities = [];
   @Input() ExtraFields = [];
 
-  @Output() onPersonalInfoUpdateEvt = new EventEmitter<any>();
-  @Output() onHobbiesUpdate = new EventEmitter<any>();
-  @Output() onSummaryUpdateEvt = new EventEmitter<any>();
-  @Output() onExperienceUpdate = new EventEmitter<any>();
-  @Output() onEducationUpdate = new EventEmitter<any>();
-  @Output() onSkillsUpdate = new EventEmitter<any>();
-  @Output() onReferencesUpdate = new EventEmitter<any>();
-  @Output() onInternshipUpdate = new EventEmitter<any>();
-  @Output() onCoursesUpdate = new EventEmitter<any>();
-  @Output() onPublicationUpdate = new EventEmitter<any>();
-  @Output() onProjectUpdate = new EventEmitter<any>();
-  @Output() onLanguagesUpdate = new EventEmitter<any>();
-  @Output() onExtraCurricularActivitiesUpdate = new EventEmitter<any>();
 
-  constructor() {}
+  constructor( ) {}
 
   panels = [
     {
@@ -85,21 +72,7 @@ export class BuilderUiComponent implements OnInit {
       component: CvHeaderComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
-        'border-radius': '4px',
-        'margin-bottom': '24px',
-        border: '0px',
-      },
-    },
-    {
-      active: true,
-      disabled: false,
-      icon: 'plus-circle',
-      name: 'Education',
-      component: EducationComponent,
-      visible: true,
-      customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
         border: '0px',
@@ -113,10 +86,10 @@ export class BuilderUiComponent implements OnInit {
       component: SummaryComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
-        border: '0px',
+        border: '1px solid #',
       },
     },
     {
@@ -127,7 +100,7 @@ export class BuilderUiComponent implements OnInit {
       component: ExperienceComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
         border: '0px',
@@ -137,11 +110,27 @@ export class BuilderUiComponent implements OnInit {
       active: true,
       disabled: false,
       icon: 'plus-circle',
+      name: 'Education',
+      component: EducationComponent,
+      visible: true,
+      customStyle: {
+        background: '#',
+        'border-radius': '4px',
+        'margin-bottom': '24px',
+        border: '0px',
+      },
+    },
+    
+    
+    {
+      active: true,
+      disabled: false,
+      icon: 'plus-circle',
       name: 'Skills',
       component: SkillsComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
         border: '0px',
@@ -155,7 +144,7 @@ export class BuilderUiComponent implements OnInit {
       component: HobbiesComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
         border: '0px',
@@ -169,7 +158,7 @@ export class BuilderUiComponent implements OnInit {
       component: ReferencesComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
         border: '0px',
@@ -183,37 +172,90 @@ export class BuilderUiComponent implements OnInit {
       component: LanguagesComponent,
       visible: true,
       customStyle: {
-        background: '#FAF9F6',
+        background: '#',
         'border-radius': '4px',
         'margin-bottom': '24px',
         border: '0px',
       },
     },
+    {
+      active: true,
+      disabled: false,
+      icon: 'plus-circle',
+      name: 'Courses',
+      component: CoursesComponent,
+      visible: true,
+      customStyle: {
+        background: '#',
+        'border-radius': '1px',
+        'margin-bottom': '24px',
+        border: '1px solid dogerblue',
+      },
+    },
+
+
+    {
+      active: true,
+      disabled: false,
+      icon: 'plus-circle',
+      name: 'Publications',
+      component: PublicationsComponent,
+      visible: true,
+      customStyle: {
+        background: '#',
+        'border-radius': '4px',
+        'margin-bottom': '24px',
+        border: '0px',
+      },
+    },
+
+
+    {
+      active: true,
+      disabled: false,
+      icon: 'plus-circle',
+      name: 'Extra Curricular Activities',
+      component: ExtraActivitiesComponent,
+      visible: true,
+      customStyle: {
+        background: '#',
+        'border-radius': '1px',
+        'margin-bottom': '24px',
+        border: '0px',
+      },
+    },
+
+
   ];
 
   saveToLocalStorage() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+  }
 
   updateCv() {}
 
-  onPersonalInfoUpdate(updatedInfo: any): void {
-    this.PersonalDetails = updatedInfo;
-    // this.Summary = updatedInfo;
-    this.onPersonalInfoUpdateEvt.emit(updatedInfo);
-  }
 
-  onHobbiesUpdateEvt(hobbies: any) {
-    this.Hobbies = hobbies;
-    this.onHobbiesUpdate.emit(hobbies);
-  }
 
-  onExperienceUpdateEvt(experience: any) {
-    this.Experience = experience;
-    this.onExperienceUpdate.emit(experience);
+  ngDoCheck() {
+    // this.Education = this.Education;
+    // console.log("EDUCATION INFO", this.Education);
   }
+ 
 
-  onSummaryUpdate(updateSummary: any) {
-    this.onSummaryUpdateEvt.emit(updateSummary);
+
+
+  onPersonalInfoUpdateEvt(data : any){
+    console.log("PERSONAL INFO UPDATED" , data);
+    this.PersonalDetails = data;
+  }
+  
+
+
+
+  onEducationFormUpdate(data : any){
+    console.log("DATA PASSED", data);
+    this.Education = data.educationRecords;
   }
 }

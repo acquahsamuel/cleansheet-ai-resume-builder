@@ -14,12 +14,12 @@ import { NgZorroAntdModule } from "../../../../../shared/modules/ng-zero-ant.mod
 })
 
 export class ReferencesComponent implements OnInit {
-  educationForm: FormGroup;
+  referenceForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
 
-    this.educationForm = this.fb.group({
-      educationRecords: this.fb.array([this.createEducationRecord()])
+    this.referenceForm = this.fb.group({
+      referenceRecords: this.fb.array([this.createReferenceRecord()])
     });
   }
 
@@ -28,50 +28,39 @@ export class ReferencesComponent implements OnInit {
   }
 
   // Create a new FormGroup for an education record
-  createEducationRecord(): FormGroup {
+  createReferenceRecord(): FormGroup {
     return this.fb.group({
-      name: ["", Validators.required],
-      degree: ["", Validators.required],
-      roleDescription: ["", Validators.required],
-      summary : ['', Validators.required],
-      startYear: ["", [Validators.required, Validators.pattern("^[0-9]{4}$")]],
-      endYear: ["", [Validators.required, Validators.pattern("^[0-9]{4}$")]],
-      // programs: this.fb.array([this.createProgram()]),
+      referenceName: ["", Validators.required],
+      contactPerson: ["", Validators.required],
+      phoneNumber: ["", Validators.required],
+      emailAddress: ["", Validators.required],
+      isHidden : [false]
     });
   }
 
   // Create a new FormGroup for a program
-  createProgram(): FormGroup {
-    return this.fb.group({
-      programName: ["", Validators.required],
-    });
-  }
-
+  
   // Get the FormArray for education records
-  get educationRecords(): FormArray {
-    return this.educationForm.get("educationRecords") as FormArray;
+  get referenceRecords(): FormArray {
+    return this.referenceForm.get("referenceRecords") as FormArray;
   }
 
   // Get the FormArray for programs within an education record
   getPrograms(educationIndex: number): FormArray {
-    return this.educationRecords.at(educationIndex).get("programs") as FormArray;
+    return this.referenceRecords.at(educationIndex).get("programs") as FormArray;
   }
 
   // Add a new education record
   addRecord(): void {
-    this.educationRecords.push(this.createEducationRecord());
+    this.referenceRecords.push(this.createReferenceRecord());
   }
 
   // Remove an education record
   removeRecord(index: number): void {
-    this.educationRecords.removeAt(index);
+    this.referenceRecords.removeAt(index);
   }
 
-  // Add a new program to a specific education record
-  addProgram(educationIndex: number): void {
-    this.getPrograms(educationIndex).push(this.createProgram());
-  }
-
+ 
   // Remove a program from a specific education record
   removeProgram(educationIndex: number, programIndex: number): void {
     this.getPrograms(educationIndex).removeAt(programIndex);

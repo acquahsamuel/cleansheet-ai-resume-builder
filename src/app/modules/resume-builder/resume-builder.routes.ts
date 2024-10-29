@@ -22,10 +22,6 @@ export const ResumeBuiderRoutes: Routes = [
         path: 'ui',
         component: BuilderUiComponent,
       },
-      // {
-      //   path: 'resume-builder',
-      //   component: CvBuilderStartComponent,
-      // },
       {
         path: 'settings',
         component: SettingsComponent,

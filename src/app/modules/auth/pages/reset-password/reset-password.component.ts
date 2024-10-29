@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
-// import { AuthService } from 'src/app/shared/services/auth.service';
+import { UntypedFormGroup, Validators, UntypedFormBuilder, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AuthService } from '../../../../shared/services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
+  ]
 })
 export class ResetPasswordComponent implements OnInit {
   // @ts-ignore

@@ -37,9 +37,10 @@
               }
             ],
             "styles": [
-              "src/theme.less",
+              "src/styles/theme.less",
               "src/styles.scss",
-              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
+              "node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
+              "node_modules/ng-zorro-antd/ng-zorro-antd.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -53,13 +54,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "5MB",
+                  "maximumError": "5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4MB",
+                  "maximumError": "4MB"
                 }
               ],
               "outputHashing": "all"

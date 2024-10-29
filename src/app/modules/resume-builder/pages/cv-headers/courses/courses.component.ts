@@ -29,8 +29,8 @@ export class CoursesComponent implements OnInit {
   // Create a new FormGroup for an education record
   createEducationRecord(): FormGroup {
     return this.fb.group({
-      name: ["", Validators.required],
-      degree: ["", Validators.required],
+      nameofCourse: ["", Validators.required],
+      institution: ["", Validators.required],
       roleDescription: ["", Validators.required],
       startYear: ["", [Validators.required, Validators.pattern("^[0-9]{4}$")]],
       endYear: ["", [Validators.required, Validators.pattern("^[0-9]{4}$")]],
