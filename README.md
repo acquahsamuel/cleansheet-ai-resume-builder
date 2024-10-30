@@ -44,6 +44,8 @@ Before running the project, ensure you have the following installed:
    cd cleansheet-resume-builder
 
 
-   Run npm install command 
-   Open package.json  
-   Run ng serve command
+   You can either use your distribution nodejs/npm, else a tool like nvm to handle multiple versions.
+   Run `npm install` command
+   Run `npm install -g @angular/cli` command
+   Open package.json
+   Run `ng serve` command
